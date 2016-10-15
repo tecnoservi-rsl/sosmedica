@@ -54,18 +54,90 @@
     </div>
 </div>
 </div>
-<div class="container menu-completo">
-<div class="container-fluid menu-sos">
-   <ul class="nav nav-pills">
-  
-  <li role="presentation"> <a href="#">INICIO</a></li>
-  <li role="presentation"> <a href="#">CATEGORIAS</a></li>
-  <li role="presentation"> <a href="#">MARCAS</a></li>
-  <li role="presentation"> <a href="#">CONTACTO</a></li>
-  
-</ul>
-</div>
-</div>
+    <nav id="mainNav" class="navbar navbar-default ">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+              
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul id="menu" class="nav navbar-nav">
+
+                <li data-submenu-id="submenu-patas"> <a href="<?php echo BASE_URL?>">Inicio</a></li>
+                       
+            <li>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    Categorias
+                </a>
+                
+                <ul class="dropdown-menu" role="menu">
+                    
+                        <?php for($i = 0; $i < count($this->cama['categorias']); $i++): ?>
+                           
+
+                            <li data-submenu-id="submenu-patas"> <a href="#"><?php  echo $this->cama['categorias'][$i]['categoria']; ?></a></li>
+
+                            <?php endfor; ?>
+                    
+                </ul>
+            </li>
+
+            <li>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    Marcas
+                </a>
+                
+                <ul class="dropdown-menu" role="menu">
+                     <?php for($i = 0; $i < count($this->cama['marcas']); $i++): ?>
+                           
+
+                            <li data-submenu-id="submenu-patas"> <a href="#"><?php  echo $this->cama['marcas'][$i]['marca']; ?></a></li>
+
+                            <?php endfor; ?>
+                </ul>
+            </li>
+
+
+
+                        <?php if(isset($_layoutParams['menu'])): ?>
+                            <?php for($i = 0; $i < count($_layoutParams['menu']); $i++): ?>
+                           
+
+                            <li><a href="<?php echo BASE_URL.$_layoutParams['menu'][$i]['enlace']; ?>"><?php  echo $_layoutParams['menu'][$i]['titulo']; ?></a></li>
+
+                            <?php endfor; ?>
+                            <?php endif; ?>
+
+            
+
+                    </ul>
+                    </ul>
+                    <?php if (session::get('autenticado')): ?>
+                    <ul  class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo session::get('usuario'); ?><span class="glyphicon glyphicon-user" aria-hidden="true"></span><span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="<?php echo BASE_URL; ?>recuperar/cambiar">CAMBIAR CONTRASEÑA</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="<?php echo BASE_URL; ?>login/cerrar">CERRAR SESIÓN</a></li>
+                                </ul>
+                         </li>
+                    </ul>
+                <?php endif; ?>
+
+                  
+
+                </div>
+            </div>
+    </nav>
 
     <div class="container-fluid fondo">
 

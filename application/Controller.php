@@ -20,6 +20,9 @@ abstract class Controller
         if(is_readable($rutaModelo)){
             require_once $rutaModelo;
             $this->_modelo = new _menuModel;
+
+            $this->_view->cama=$this->_modelo->categorias_y_marcas();            
+
          if (session::get('autenticado')){
              $this->_view->menu=$this->_modelo->menu(session::get('id_usuario'));   
          }else{

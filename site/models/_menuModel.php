@@ -25,14 +25,42 @@ public function menu($id = false){
     . "menu.id_menu=permisos.id_menu and \n"
     . "role.id_role = permisos.id_role and\n"
     . "permisos.permiso=1 and \n"
-    . "role.id_role=4";
+    . "role.id_role=2";
 	$menu = $this->_db->query($sql);
+
+    
+
 	return $menu->fetchall();
 
 
 	}
 
 	
+}
+public function categorias_y_marcas(){
+
+   
+    $sql = "SELECT DISTINCT * FROM categoria WHERE 1=1 ";
+    $cat = $this->_db->query($sql);
+     
+
+ $sql = "SELECT DISTINCT * FROM marca WHERE 1=1 ";
+    $mar = $this->_db->query($sql);
+
+
+
+$array = array(
+    "categorias" =>  $cat->fetchall(),
+        "marcas" =>  $mar->fetchall()
+ );
+
+ 
+
+
+    return $array;
+    
+
+    
 }
 
 
