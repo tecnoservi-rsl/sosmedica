@@ -18,7 +18,7 @@ class principalController extends Controller
 		
 			$this->_view->setJs(array('index'));
 			$this->_view->setCss(array('css'));
-        	$this->_view->titulo = 'index';
+        	$this->_view->titulo = 'SOS MEDICA || Tu tienda medica online';
 			$this->_view->renderizar('index');
 							
 			

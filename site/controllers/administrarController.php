@@ -140,7 +140,7 @@ class administrarController extends Controller
 
             $this->_view->setJs(array('ges_producto'));
             $this->_view->setCss(array('agregar'));
-            $this->_view->titulo = 'Gestionar producto';
+            $this->_view->titulo = 'Gestionar Producto';
             $this->_view->renderizar('ges_producto');
 
     
@@ -165,6 +165,39 @@ class administrarController extends Controller
 
     
     }
+
+
+
+     public function ges_equipo(){
+
+            $this->_view->setJs(array('ges_equipo'));
+            $this->_view->setCss(array('agregar'));
+            $this->_view->titulo = 'Gestionar Equipo';
+            $this->_view->renderizar('ges_equipo');
+
+    
+    }
+
+    public function buscar_equipo(){
+
+            
+
+        echo json_encode($this->_pb->buscar_equipo($_POST['valor']));
+
+    
+    }
+
+
+    public function eliminar_equipo(){
+
+            
+
+       $this->_pb->eliminar_producto($_POST['valor']);
+
+    
+    }
+
+
 
 
 
