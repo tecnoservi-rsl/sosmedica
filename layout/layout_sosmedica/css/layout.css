@@ -2,9 +2,32 @@
 	background-color: #0276BE;
 	border-color: #015087;
 }
-.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
-	color: #FFF;
-	background-color: #00a642;
+.navbar-default .navbar-nav > li > a:hover {
+	color: #FFF !important;
+	background-color: #00a642 !important;
+}
+
+.navbar-default .navbar-nav > li > a:focus{
+
+	color: #FFF !important;
+	background-color: #00a642 !important;
+
+	}
+
+.menu-header {
+	background-color: #fff;
+	border: 1px solid;
+	border-color: #0276be;
+}
+
+.menu-header > li > a:hover {
+	background-color: #0276be;
+	color: #fff;
+}
+
+.menu-header > li > a:focus {
+	background-color: #0276be;
+	color: #fff;
 }
 .navbar-default .navbar-nav > li > a {
 	color: #FEFEFE;

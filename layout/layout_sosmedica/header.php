@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head> 
     <meta content="text/html">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -78,7 +78,7 @@
                     Categorias
                 </a>
                 
-                <ul class="dropdown-menu" role="menu">
+                <ul class="dropdown-menu menu-header" role="menu">
                     
                         <?php for($i = 0; $i < count($this->cama['categorias']); $i++): ?>
                            
@@ -95,7 +95,7 @@
                     Marcas
                 </a>
                 
-                <ul class="dropdown-menu" role="menu">
+                <ul class="dropdown-menu menu-header" role="menu">
                      <?php for($i = 0; $i < count($this->cama['marcas']); $i++): ?>
                            
 
