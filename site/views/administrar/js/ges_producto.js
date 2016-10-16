@@ -11,14 +11,18 @@ $(document).ready(function(){
 
 			$.post(base_url+'/administrar/buscar_producto', {'valor': valor }, function(datos){
 
+					if(datos==""){
+						$("#resultados").html("<div class='mensasaje'>no hay resultados para su busqueda</div>");
+						return;
 
+					}
 				
 				for (var i = 0; i < datos.length ; i++) {
 				
 
 
 html+='<tr><td>'+datos[i].nombre+'</td><td>'+datos[i].presentacion+'</td>><td>'+datos[i].marca+'</td><td>'+datos[i].categoria+'</td><td>';
-html+='<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> <span id="eliminar_producto" data-id="'+datos[i].id_producto+'" class="glyphicon glyphicon-trash" aria-hidden="true"></span></td></tr>';
+html+='<span class="glyphicon glyphicon-pencil botonmm" aria-hidden="true"></span> <span id="eliminar_producto" data-id="'+datos[i].id_producto+'" class="glyphicon glyphicon-trash botonmm" aria-hidden="true"></span></td></tr>';
 
 
 				}
