@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head> 
     <meta content="text/html">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +10,7 @@
     <meta name="author" content="">
     <title><?php if(isset($this->titulo)) echo $this->titulo; ?></title>
     <!--Core CSS -->
+    <link rel="icon" type="image/png" href="<?php echo BASE_URL; ?>public/img/favicon1.png">
     <link href="<?php echo BASE_URL; ?>public/css/alertify.bootstrap3.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo BASE_URL; ?>public/css/alertify.core.css" rel="stylesheet" type="text/css" /> 
     <link href="<?php echo BASE_URL; ?>public/css/validationEngine.jquery.css" rel="stylesheet" type="text/css" /> 
@@ -78,7 +79,7 @@
                     Categorias
                 </a>
                 
-                <ul class="dropdown-menu" role="menu">
+                <ul class="dropdown-menu menu-header" role="menu">
                     
                         <?php for($i = 0; $i < count($this->cama['categorias']); $i++): ?>
                            
@@ -95,7 +96,7 @@
                     Marcas
                 </a>
                 
-                <ul class="dropdown-menu" role="menu">
+                <ul class="dropdown-menu menu-header" role="menu">
                      <?php for($i = 0; $i < count($this->cama['marcas']); $i++): ?>
                            
 

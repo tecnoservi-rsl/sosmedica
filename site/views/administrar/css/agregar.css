@@ -24,22 +24,22 @@
 }
 
 #agregar_categoria {
-	background-color: #0276becc;
+	background-color: rgb(2, 118, 190) !important;
 	color: #fff;
 }
 
 #agregar_marca {
-	background-color: #0276becc;
+	background-color: rgb(2, 118, 190) !important;
 	color: #fff;
 }
 
 #agregar_categoria:hover{
-	background-color: rgb(0, 165, 65);
+	background-color: rgb(0, 165, 65) !important;
 	color: #fff;
 }
 
 #agregar_marca:hover {
-	background-color: rgb(0, 165, 65);
+	background-color: rgb(0, 165, 65) !important;
 	color: #fff;
 }
 .area_de_busqueda {

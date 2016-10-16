@@ -129,5 +129,29 @@ public function elimiar_producto($id){
 
 
 
+public function buscar_equipo($strin){
+
+  $sql = "SELECT equipo.*,marca.marca FROM equipo,marca WHERE \n"
+    . "equipo.id_marca=marca.id_marca AND\n"
+    . "equipo.nombre like '%".$strin."%'";
+     
+     $rs=$this->_db->query($sql);
+
+     return $rs->fetchall();
+
+}
+
+public function eliminar_equipo($id){
+
+  $sql = "delete FROM equipo where id_equipo=$id";
+     
+    $this->_db->query($sql);
+
+   
+}
+
+
+
+
 }
 ?>
