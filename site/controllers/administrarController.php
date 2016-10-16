@@ -28,7 +28,24 @@ class administrarController extends Controller
 			$this->_view->setJs(array('agregar',"validacion"));
 			$this->_view->setCss(array('agregar'));
         	$this->_view->titulo = 'Agregar Producto';
+        	$modelo = $this->loadModel('_menu');
+        	$this->_view->cama1 = $modelo->categorias_y_marcas1('PRODUCTO');
 			$this->_view->renderizar('agregar');
+							
+			
+	}
+
+
+
+	 public function agregarequipo()
+    {
+		
+			$this->_view->setJs(array('agregarequipo',"validacion"));
+			$this->_view->setCss(array('agregar'));
+        	$this->_view->titulo = 'Agregar Equipo';
+        	$modelo = $this->loadModel('_menu');
+        	$this->_view->cama1 = $modelo->categorias_y_marcas1('EQUIPO');
+			$this->_view->renderizar('agregarequipo');
 							
 			
 	}
@@ -41,6 +58,16 @@ class administrarController extends Controller
     }
 
 
+    public function guardar_equipo(){
+
+    	$this->_pb->guardar_equipo($_POST,$_FILES);
+    
+    	$this->redireccionar('administrar/agregarmarca');
+    }
+
+
+    
+
     public function guardar_categoria(){
 
     	$this->_pb->guardar_categoria($_POST['valor']);
@@ -50,7 +77,7 @@ class administrarController extends Controller
 
 
 
-        echo json_encode($modelo->categorias_y_marcas());  
+        echo json_encode($modelo->categorias_y_marcas1('PRODUCTO'));  
 
 
 
@@ -68,11 +95,23 @@ class administrarController extends Controller
 
 
 
-        echo json_encode($modelo->categorias_y_marcas());  
+        echo json_encode($modelo->categorias_y_marcas1('PRODUCTO'));  
+
+    
+    }
 
 
 
-    	
+    public function guardar_marca_equipo(){
+
+    	$this->_pb->guardar_marca_equipo($_POST['valor']);
+
+
+    	$modelo = $this->loadModel('_menu');
+
+
+
+        echo json_encode($modelo->categorias_y_marcas1('EQUIPO'));  
 
     
     }

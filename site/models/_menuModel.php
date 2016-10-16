@@ -65,6 +65,34 @@ $array = array(
 
 
 
+public function categorias_y_marcas1($valor){
+
+   
+    $sql = "SELECT DISTINCT * FROM categoria WHERE 1=1 ";
+    $cat = $this->_db->query($sql);
+     
+
+ $sql = "SELECT DISTINCT * FROM marca WHERE tipo='$valor' ";
+    $mar = $this->_db->query($sql);
+
+
+
+$array = array(
+    "categorias" =>  $cat->fetchall(),
+        "marcas" =>  $mar->fetchall()
+ );
+
+ 
+
+
+    return $array;
+    
+
+    
+}
+
+
+
     public function traer_menus(){
 
 
