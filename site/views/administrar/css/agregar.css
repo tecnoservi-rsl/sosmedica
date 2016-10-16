@@ -22,3 +22,23 @@
 	font-style: initial;
 	font-family: unset;
 }
+
+#agregar_categoria {
+	background-color: #0276becc;
+	color: #fff;
+}
+
+#agregar_marca {
+	background-color: #0276becc;
+	color: #fff;
+}
+
+#agregar_categoria:hover{
+	background-color: rgb(0, 165, 65);
+	color: #fff;
+}
+
+#agregar_marca:hover {
+	background-color: rgb(0, 165, 65);
+	color: #fff;
+}

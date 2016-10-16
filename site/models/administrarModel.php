@@ -38,5 +38,27 @@ $sql="insert into producto values ('','".$datos['nombre']."', '".$datos['present
     	
         }
 }
+
+public function guardar_categoria($valor){
+
+$sql="insert into categoria values ('','".$valor."')";
+      $this->_db->query($sql);
+
+
+}
+
+
+public function guardar_marca($valor){
+
+$sql="insert into marca values ('','".$valor."','PRODUCTO')";
+      $this->_db->query($sql);
+
+
+}
+
+
+
+
+
 }
 ?>

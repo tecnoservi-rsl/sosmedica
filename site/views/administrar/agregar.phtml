@@ -6,7 +6,7 @@
 
 <div class="col-md-6 col-md-offset-3"> 
 
-<form id="" enctype="multipart/form-data" method="post" action=" <?php echo BASE_URL ?>administrar/guardar_publicacion" >
+<form id="form_agregar_producto" enctype="multipart/form-data" method="post" action=" <?php echo BASE_URL ?>administrar/guardar_publicacion" >
   <div class="form-group">
     <label for="nombre">Nombre</label>
     <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre Producto">
@@ -18,23 +18,46 @@
 
   
 <div class="form-group">
-<label for="nombre"> Categoria</label>
+<div class="row">
+  
+
+<div class="col-md-12"> <label for="nombre"> Categoria</label> </div>
+
+<div class="col-md-11">
+  
+
+
  <select class="form-control" name="categoria" id="categoria">
- <option>--> Seleccione <--</option>
+ <option value="">--> Seleccione <--</option>
 
     <?php for($i = 0; $i < count($this->cama['categorias']); $i++): ?>
                            
-		<option value="<?php  echo $this->cama['categorias'][$i]['id_categoria']; ?>"><?php  echo $this->cama['categorias'][$i]['categoria'];?></option>
+    <option value="<?php  echo $this->cama['categorias'][$i]['id_categoria']; ?>"><?php  echo $this->cama['categorias'][$i]['categoria'];?></option>
                      
 
      <?php endfor; ?>
+
 </select>
+</div>
+<div class="col-md-1 btn btn-default" id="agregar_categoria"><span class="glyphicon glyphicon-plus"></span></div>
+</div>
   </div>
 
+
+
+
 <div class="form-group">
-<label for="nombre"> Marca</label>
+<div class="row">
+  
+
+<div class="col-md-12"> <label for="nombre"> Marca</label> </div>
+
+<div class="col-md-11">
+  
+
+
  <select class="form-control" name="marca" id="marca">
- <option>--> Seleccione <--</option>
+ <option value="">--> Seleccione <--</option>
 
     <?php for($i = 0; $i < count($this->cama['categorias']); $i++): ?>
                            
@@ -42,7 +65,11 @@
                      
 
      <?php endfor; ?>
+
 </select>
+</div>
+<div class="col-md-1 btn btn-default" id="agregar_marca"><span class="glyphicon glyphicon-plus"></span></div>
+</div>
   </div>
   <div class="form-group ">
     <label class=" control-label">Fotos</label>

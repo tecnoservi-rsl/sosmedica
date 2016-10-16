@@ -1,6 +1,9 @@
 
 $(document).ready(function(){
 
+
+//................................................................................................
+
 function archivo(input)
 {
   $("div#prevista").remove();
@@ -34,6 +37,108 @@ $('#files').change(function()
 {
   archivo(this);
 });
+//................................................................................................
+
+
+function guardar(valor){
+
+
+  $.post(base_url+'administrar/guardar_categoria', {'valor': valor }, function(datos) {
+    
+
+
+    var html="";
+
+ html += '<option value="">--> Seleccione <--</option>';
+    for (var i = 0; i < datos['categorias'].length ; i++) {
+
+
+ html += '<option value="'+datos['categorias'][i]['id_categoria']+'">'+datos['categorias'][i]['categoria']+'</option>';
+
+      console.log(datos['categorias'][i]);
+      
+    }
+
+
+$("#categoria").html(html);
+
+  },"json");
+
+
+
+}
+
+
+function guardarmarca(valor){
+
+
+  $.post(base_url+'administrar/guardar_marca', {'valor': valor }, function(datos) {
+    
+
+
+    var html="";
+
+ html += '<option value="">--> Seleccione <--</option>';
+    for (var i = 0; i < datos['marcas'].length ; i++) {
+
+
+ html += '<option value="'+datos['marcas'][i]['id_marca']+'">'+datos['marcas'][i]['marca']+'</option>';
+
+      console.log(datos['marcas'][i]);
+      
+    }
+
+
+$("#marca").html(html);
+
+  },"json");
+
+
+
+}
+
+
+
+
+$(document).on("click","#agregar_categoria",function(){
+
+alertify.prompt("Inserte el nombre de la categoria", function (e, str) {
+               if (e) {
+
+
+                  guardar(str);
+
+                  alertify.success("Has cargado la categoria: " + str);
+               } else {
+                  alertify.error("Has cancelado :(");
+               }
+            }, " ");
+
+});
+
+$(document).on("click","#agregar_marca",function(){
+
+alertify.prompt("Inserte el nombre de la marca", function (e, str) {
+               if (e) {
+
+
+                guardarmarca(str);
+
+                  alertify.success("Has cargado la marca: " + str);
+               } else {
+                  alertify.error("Has cancelado :(");
+               }
+            }, " ");
+
+});
+
+
+
+
+
+
+
+
 
 
 });

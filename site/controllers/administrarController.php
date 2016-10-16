@@ -25,7 +25,7 @@ class administrarController extends Controller
 	 public function agregar()
     {
 		
-			$this->_view->setJs(array('agregar'));
+			$this->_view->setJs(array('agregar',"validacion"));
 			$this->_view->setCss(array('agregar'));
         	$this->_view->titulo = 'Agregar Producto';
 			$this->_view->renderizar('agregar');
@@ -39,6 +39,45 @@ class administrarController extends Controller
     
     	$this->redireccionar('administrar/agregar');
     }
+
+
+    public function guardar_categoria(){
+
+    	$this->_pb->guardar_categoria($_POST['valor']);
+
+
+    	$modelo = $this->loadModel('_menu');
+
+
+
+        echo json_encode($modelo->categorias_y_marcas());  
+
+
+
+    	
+
+    
+    }
+
+    public function guardar_marca(){
+
+    	$this->_pb->guardar_marca($_POST['valor']);
+
+
+    	$modelo = $this->loadModel('_menu');
+
+
+
+        echo json_encode($modelo->categorias_y_marcas());  
+
+
+
+    	
+
+    
+    }
+
+
 	
 }
 
