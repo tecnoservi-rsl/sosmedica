@@ -42,3 +42,11 @@
 	background-color: rgb(0, 165, 65);
 	color: #fff;
 }
+.area_de_busqueda {
+	min-height: 600px;
+	border: 2px solid #f6f4f1;
+	margin-top: 20px;
+	border-radius: 5px;
+	padding: 20px;
+	margin-bottom: 20px;
+}

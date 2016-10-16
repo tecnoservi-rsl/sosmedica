@@ -97,8 +97,35 @@ $sql="insert into marca values ('','".$valor."','EQUIPO')";
 
 }
 
+public function guardar_almacen($datos){
+
+ $sql="insert into almacen values ('','".$datos['nombre']."','".$datos['direccion']."','".$datos['telefono']."','".$datos['horario']."')";
+      $this->_db->query($sql);
 
 
+}
+
+public function buscar_producto($strin){
+
+  $sql = "SELECT producto.*,categoria.categoria,marca.marca FROM producto,marca,categoria WHERE \n"
+    . "producto.id_categoria=categoria.id_categoria AND\n"
+    . "producto.id_marca=marca.id_marca AND\n"
+    . "producto.nombre like '%".$strin."%'";
+     
+     $rs=$this->_db->query($sql);
+
+     return $rs->fetchall();
+
+}
+
+public function elimiar_producto($id){
+
+  $sql = "delete FROM producto where id_producto=$id";
+     
+    $this->_db->query($sql);
+
+   
+}
 
 
 

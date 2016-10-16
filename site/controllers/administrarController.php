@@ -115,6 +115,60 @@ class administrarController extends Controller
 
     
     }
+      public function add_almacen(){
+
+            $this->_view->setJs(array('add_almacen',"validacion"));
+            $this->_view->setCss(array('agregar'));
+            $this->_view->titulo = 'Agregar Almacen';
+           
+            $this->_view->renderizar('add_almacen');
+
+    
+    }
+
+
+        public function guardar_almacen(){
+
+        $this->_pb->guardar_almacen($_POST);
+
+        $this->redireccionar('administrar/add_almacen');
+    
+        }
+
+
+     public function ges_producto(){
+
+            $this->_view->setJs(array('ges_producto'));
+            $this->_view->setCss(array('agregar'));
+            $this->_view->titulo = 'Gestionar producto';
+            $this->_view->renderizar('ges_producto');
+
+    
+    }
+
+
+       public function buscar_producto(){
+
+            
+
+        echo json_encode($this->_pb->buscar_producto($_POST['valor']));
+
+    
+    }
+
+
+    public function elimiar_producto (){
+
+            
+
+       $this->_pb->elimiar_producto($_POST['valor']);
+
+    
+    }
+
+
+
+
 
 
 	

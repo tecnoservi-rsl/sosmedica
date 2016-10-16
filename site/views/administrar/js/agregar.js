@@ -139,6 +139,4 @@ alertify.prompt("Inserte el nombre de la marca", function (e, str) {
 
 
 
-
-
 });
