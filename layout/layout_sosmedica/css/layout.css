@@ -1,6 +1,14 @@
 .navbar-default {
-background-color: #C7C7C7;
-	border-color: #e7e7e7;
+	background-color: #0276BE;
+	border-color: #015087;
+}
+.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+	color: #FFF;
+	background-color: #00a642;
+}
+.navbar-default .navbar-nav > li > a {
+	color: #FEFEFE;
+	font-size: 15px;
 }
 .header-content {
 	margin-top: 11px;

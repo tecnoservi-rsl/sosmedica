@@ -49,7 +49,16 @@ class loginController extends Controller
             Session::set('id_usuario', $row['id_usuario']);
             Session::set('tiempo', time());
             
-           $this->redireccionar();
+            if ($row['id_role']==1) {
+                 $this->redireccionar("administrar");
+            } else {
+                 $this->redireccionar();
+            }
+            
+
+
+
+          
         }
         
         $this->_view->renderizar('index');

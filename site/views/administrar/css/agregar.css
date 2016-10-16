@@ -1,0 +1,24 @@
+.prviuw {
+	float: left;
+	margin: 3px;
+	border: 1px solid #c1c8fe;
+	padding: 10px;
+}
+
+.titulo-img {
+	border-bottom: 2px solid #d2d2d2;
+	text-align: center;
+	margin-bottom: 38px;
+	font-size: 20px;
+	font-style: initial;
+	font-family: unset;
+	margin-top: 7px;
+}
+#tituloo {
+	border-bottom: 2px solid #d2d2d2;
+	text-align: center;
+	margin-bottom: 38px;
+	font-size: 24px;
+	font-style: initial;
+	font-family: unset;
+}

@@ -39,7 +39,7 @@
     <div class="col-md-4">
     <header>
         <div class="header-content">
-            <a id="header_logo" href="http://www.sosmedica.com.ve/" title="SOSMEDICA.COM"> <img class="img-responsive" alt="Responsive image" src="layout/layout_sosmedica/img/sosmedica.jpg" alt="SOSMEDICA.COM"  width="250" height="99"> </a>
+            <a id="header_logo" href="http://www.sosmedica.com.ve/" title="SOSMEDICA.COM"> <img class="img-responsive" alt="Responsive image" src="<?php echo BASE_URL; ?>layout/layout_sosmedica/img/sosmedica.jpg" alt="SOSMEDICA.COM"  width="250" height="99"> </a>
         </div>
     </header>
     </div>
