@@ -101,8 +101,7 @@ class administrarController extends Controller
     }
 
 
-
-    public function guardar_marca_equipo(){
+public function guardar_marca_equipo(){
 
     	$this->_pb->guardar_marca_equipo($_POST['valor']);
 
@@ -239,7 +238,7 @@ class administrarController extends Controller
             $array['fotos']=$this->_pb->buscar_fotos_id($array['id_producto']);
 
             echo json_encode($array);
-
+}
 
      public function add_mc(){
 
