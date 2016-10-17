@@ -198,8 +198,63 @@ class administrarController extends Controller
     }
 
 
+     public function add_mc(){
+
+            $this->_view->setJs(array('add_mc'));
+            $this->_view->setCss(array('agregar'));
+            $this->_view->titulo = 'Administrar';
+            $modelo = $this->loadModel('_menu');
+            $this->_view->cama1 = $modelo->categorias_y_marcas1('PRODUCTO');
+            $this->_view->cama2 = $modelo->categorias_y_marcas1('EQUIPO');
+            $this->_view->renderizar('add_mc');
+
+    
+    }
 
 
+
+public function eliminar_categoria(){
+
+            
+
+       $this->_pb->eliminar_categoria($_POST['valor']);
+
+
+        $modelo = $this->loadModel('_menu');
+
+
+
+        echo json_encode($modelo->categorias_y_marcas1('PRODUCTO'));  
+
+    
+    }
+
+public function eliminar_marca(){
+
+            
+
+       $this->_pb->eliminar_marca($_POST['valor']);
+
+    $modelo = $this->loadModel('_menu');
+
+
+
+        echo json_encode($modelo->categorias_y_marcas1('PRODUCTO'));  
+    }
+
+
+    public function eliminar_marca_equipo(){
+
+            
+
+       $this->_pb->eliminar_marca($_POST['valor']);
+
+    $modelo = $this->loadModel('_menu');
+
+
+
+        echo json_encode($modelo->categorias_y_marcas1('EQUIPO'));  
+    }
 
 
 

@@ -78,3 +78,26 @@
 	background: #019b0e;
 	color: white;
 }
+
+.btn_add {
+	background-color: rgb(2, 118, 190) !important;
+	color: #fff;
+}
+
+
+.btn_add:hover {
+	background-color: rgb(0, 165, 65) !important;
+	color: #fff;
+}
+
+
+.btn_eliminar{
+	background-color: rgb(194, 17, 17) !important;
+	color: #fff;
+}
+
+
+.btn_eliminar:hover{
+	background-color: rgb(0, 165, 65) !important;
+	color: #fff;
+}
