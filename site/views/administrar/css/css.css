@@ -83,7 +83,7 @@
 
 .uno{
 
-background-image: url("../../../../public/img/administrar_producto1.PNG");
+background-image: url("../../../../public/img/administrar_producto1.png");
 background-repeat: repeat;
 background-position: 0em -3em;
 
@@ -92,14 +92,14 @@ background-position: 0em -3em;
 
 .dos{
 
-	background-image: url("../../../../public/img/administrar_equipos.PNG");
+	background-image: url("../../../../public/img/administrar_equipos.png");
 	/*background-position: 0em -3em;*/
 
 }
 
 .tres{
 
-	background-image: url("../../../../public/img/administrar_almacen.PNG");
+	background-image: url("../../../../public/img/administrar_almacen.png");
 	/*background-position: 0em -3em;*/
 
 }

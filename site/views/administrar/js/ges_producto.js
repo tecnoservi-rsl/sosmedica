@@ -21,8 +21,8 @@ $(document).ready(function(){
 				
 
 
-html+='<tr><td>'+datos[i].nombre+'</td><td>'+datos[i].presentacion+'</td>><td>'+datos[i].marca+'</td><td>'+datos[i].categoria+'</td><td>';
-html+='<span class="glyphicon glyphicon-pencil botonmm" aria-hidden="true"></span> <span id="eliminar_producto" data-id="'+datos[i].id_producto+'" class="glyphicon glyphicon-trash botonmm" aria-hidden="true"></span></td></tr>';
+					html+='<tr><td>'+datos[i].nombre+'</td><td>'+datos[i].presentacion+'</td>><td>'+datos[i].marca+'</td><td>'+datos[i].categoria+'</td><td>';
+					html+='<span id="editar_producto" data-id="'+datos[i].id_producto+'" class="glyphicon glyphicon-pencil botonmm" aria-hidden="true"></span> <span id="eliminar_producto" data-id="'+datos[i].id_producto+'" class="glyphicon glyphicon-trash botonmm" aria-hidden="true"></span></td></tr>';
 
 
 				}
@@ -39,13 +39,6 @@ html+='<span class="glyphicon glyphicon-pencil botonmm" aria-hidden="true"></spa
 
 			},"json");
 
-			
-
-
-
-
-
-
 	});
 
 
@@ -53,7 +46,7 @@ html+='<span class="glyphicon glyphicon-pencil botonmm" aria-hidden="true"></spa
 
 $(document).on("click","#eliminar_producto",function(){
 
-var id=this.dataset.id;
+	var id=this.dataset.id;
 
 
    alertify.confirm("This is a confirm dialog", function (e) {
@@ -67,22 +60,23 @@ var id=this.dataset.id;
 
                 });
 
-
-
-
-
-
-
                   alertify.success("OK");
                } else {
                   alertify.error("Cancel");
                }
             });
 
-
-
 });
 
+
+$(document).on("click","#editar_producto",function(){
+
+			var valor=this.dataset.id;  
+
+			window.location.href=base_url+"administrar/uptade_producto/"+valor;
+
+
+			});
 
 
 

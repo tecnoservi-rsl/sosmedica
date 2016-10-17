@@ -152,6 +152,71 @@ public function eliminar_equipo($id){
 
 
 
+public function buscar_producto_id($id){
+
+  $sql = "SELECT * FROM producto WHERE id_producto = $id ";
+     
+     $rs=$this->_db->query($sql);
+
+     return $rs->fetch();
+
+}
+
+
+public function buscar_fotos_id($id){
+
+   $sql = "SELECT * FROM img_producto WHERE id_publicacion = $id ";
+     
+     $rs=$this->_db->query($sql);
+
+     return $rs->fetchall();
+
+}
+
+
+public function eliminar_foto($id){
+
+   $sql = "DELETE FROM `img_producto` WHERE `img_producto`.`id_img_producto` = $id";
+     
+     $rs=$this->_db->query($sql);
+
+     return $rs->fetchall();
+
+}
+
+
+public function editar_publicacion($datos,$fotos){
+
+
+
+$sql="UPDATE `producto` SET `nombre` = '".$datos['nombre']."', `presentacion` = '".$datos['presentacion']."', `id_marca` = '".$datos['marca']."', `id_categoria` = '".$datos['categoria']."' WHERE `producto`.`id_producto` = ".$datos['id_producto']." ";
+    $this->_db->query($sql);
+
+   
+
+
+   
+ for ($i=0; $i < count($fotos['foto']['name']) ; $i++) { 
+      
+      $target_path = "public/img/publicaciones/";
+        $nombre='nueva'.uniqid('sosmedica').$fotos['foto']['name'][$i];
+    $target_path = $target_path .$nombre;
+
+ $sql="insert into img_producto values ('','".$datos['id_producto']."','".$nombre."')";
+      $this->_db->query($sql);
+
+
+    move_uploaded_file($fotos['foto']['tmp_name'][$i], $target_path); 
+
+        $obj_img = new SimpleImage();
+        $obj_img->load($target_path);
+        $obj_img->resize(300,300);
+        $obj_img->save($target_path);
+      
+        }
+}
+
+
 
 }
 ?>

@@ -178,6 +178,11 @@ class administrarController extends Controller
     
     }
 
+
+
+
+
+
     public function buscar_equipo(){
 
             
@@ -197,10 +202,64 @@ class administrarController extends Controller
     
     }
 
+    public function uptade_producto($id){
+
+            $this->_view->setJs(array('update_producto'));
+            $this->_view->setCss(array('agregar'));
+            $this->_view->titulo = 'actualizar producto';
+            $modelo = $this->loadModel('_menu');
+            $this->_view->cama1 = $modelo->categorias_y_marcas1('PRODUCTO');
 
 
 
 
+
+
+            $this->_view->producto = 
+
+            $array =$this->_pb->buscar_producto_id($id);
+
+            $array['fotos']=$this->_pb->buscar_fotos_id($array['id_producto']);
+
+
+            $this->_view->producto = $array;
+
+            $this->_view->renderizar('update_producto');
+
+
+    
+    }
+      public function trar_producto_con_foto_ajax(){
+
+        
+       
+            
+            $array =$this->_pb->buscar_producto_id($_GET['valor']);
+
+            $array['fotos']=$this->_pb->buscar_fotos_id($array['id_producto']);
+
+            echo json_encode($array);
+
+            
+
+
+    
+    }
+
+   public function eliminar_foto(){
+
+            
+         $this->_pb->eliminar_foto($_GET['valor']);
+
+    
+    }
+
+ public function editar_publicacion(){
+
+        $this->_pb->editar_publicacion($_POST,$_FILES);
+    
+        $this->redireccionar('administrar/ges_producto');
+    }
 
 
 
