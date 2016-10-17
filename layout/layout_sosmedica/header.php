@@ -56,9 +56,10 @@
     </div>
 </div>
 </div>
+<div class="container">
+<div class="row">
     <nav id="mainNav" class="navbar navbar-default ">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
+                    <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
@@ -138,10 +139,10 @@
                   
 
                 </div>
-            </div>
+            
     </nav>
-
-    <div class="container-fluid fondo">
+</div></div>
+    <div class="container fondo">
 
     <input type="hidden" value="<?php echo Session::get('role');?>" id="_ROL_">
 

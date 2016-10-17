@@ -151,6 +151,25 @@ public function eliminar_equipo($id){
 }
 
 
+public function eliminar_categoria($id){
+
+  $sql = "delete FROM categoria where id_categoria=$id";
+     
+    $this->_db->query($sql);
+
+   
+}
+
+public function eliminar_marca($id){
+
+  $sql = "delete FROM marca where id_marca=$id";
+     
+    $this->_db->query($sql);
+
+   
+}
+
+
 
 public function buscar_producto_id($id){
 
