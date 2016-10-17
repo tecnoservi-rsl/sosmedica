@@ -118,6 +118,8 @@ public function buscar_producto($strin){
 
 }
 
+
+
 public function elimiar_producto($id){
 
   $sql = "delete FROM producto where id_producto=$id";
@@ -204,6 +206,8 @@ public function eliminar_foto($id){
 }
 
 
+
+
 public function editar_publicacion($datos,$fotos){
 
 
@@ -234,6 +238,32 @@ $sql="UPDATE `producto` SET `nombre` = '".$datos['nombre']."', `presentacion` = 
       
         }
 }
+
+
+
+public function buscar_almacenes(){
+
+  $sql = "SELECT * FROM almacen";
+     
+     $rs=$this->_db->query($sql);
+
+     return $rs->fetchall();
+
+}
+
+public function eliminar_almacen($id){
+
+   $sql = "DELETE FROM almacen WHERE id_almacen= $id";
+     
+     $rs=$this->_db->query($sql);
+
+     return $rs->fetchall();
+
+}
+
+
+
+
 
 
 

@@ -17,7 +17,7 @@
 <script src="<?php echo BASE_URL; ?>public/js/config.js" type="text/javascript"></script>
 <script src="<?php echo BASE_URL; ?>public/js/jquery.validationEngine.js" type="text/javascript"></script>
 <script src="<?php echo BASE_URL; ?>public/js/jquery.validationEngine-es.js" type="text/javascript"></script>
-<script src="<?php echo BASE_URL; ?>public/js/jquery-ui.js" type="text/javascript"></script>>
+<script src="<?php echo BASE_URL; ?>public/js/jquery-ui.js" type="text/javascript"></script>
 <script src="?>public/js/jquery.menu-aim.js" type="text/javascript"></script>
 <script>
 

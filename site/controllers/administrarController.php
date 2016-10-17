@@ -1,3 +1,4 @@
+
 <?php
 
 
@@ -16,7 +17,7 @@ class administrarController extends Controller
     {
 			$this->_view->setJs(array('index','js'));
 			$this->_view->setCss(array('css'));
-        	$this->_view->titulo = 'adminitrar';
+        	$this->_view->titulo = 'Administrar';
 			$this->_view->renderizar('index');
 							
 			
@@ -317,8 +318,37 @@ public function eliminar_marca(){
     }
 
 
+public function ges_almacen(){
 
-	
+
+            $this->_view->setJs(array('ges_almacen'));
+            $this->_view->setCss(array('agregar'));
+            $this->_view->titulo = 'Gestionar Almacen';
+            $this->_view->renderizar('ges_almacen');
+
+    
+    }
+
+public function buscar_almacenes(){
+
+            
+
+        echo json_encode($this->_pb->buscar_almacenes());
+
+    
+    }
+
+
+
+public function eliminar_almacen(){
+
+            
+         $this->_pb->eliminar_almacen($_POST['valor']);
+
+    
+    }
+
+
+
 }
-
 ?>

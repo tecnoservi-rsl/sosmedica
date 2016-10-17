@@ -7,7 +7,7 @@ class productosController extends Controller
 	private $_index;
     public function __construct() {
         parent::__construct();
-  	// $this->_index=$this->loadModel('principal');	
+  	$this->_index=$this->loadModel('productos');	
     }
 
     public function index()
@@ -18,11 +18,12 @@ class productosController extends Controller
 		
 			$this->_view->setJs(array('index'));
 			$this->_view->setCss(array('css'));
-        	$this->_view->titulo = 'index';
+        	$this->_view->titulo = 'SOS MEDICA';
 			$this->_view->renderizar('index');
 							
 			
 	}	
+
 	
 }
 
