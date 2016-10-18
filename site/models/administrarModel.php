@@ -215,28 +215,33 @@ public function editar_publicacion($datos,$fotos){
 $sql="UPDATE `producto` SET `nombre` = '".$datos['nombre']."', `presentacion` = '".$datos['presentacion']."', `id_marca` = '".$datos['marca']."', `id_categoria` = '".$datos['categoria']."' WHERE `producto`.`id_producto` = ".$datos['id_producto']." ";
     $this->_db->query($sql);
 
-   
 
+print_r($fotos['foto']['name']);
+echo count($fotos['foto']['name']);
 
+    if ($fotos['foto']['name'][0]!="") {  
    
  for ($i=0; $i < count($fotos['foto']['name']) ; $i++) { 
-      
-      $target_path = "public/img/publicaciones/";
-        $nombre='nueva'.uniqid('sosmedica').$fotos['foto']['name'][$i];
-    $target_path = $target_path .$nombre;
+     
+          echo "entro"; 
+            $target_path = "public/img/publicaciones/";
+            $nombre='nueva'.uniqid('sosmedica').$fotos['foto']['name'][$i];
+            $target_path = $target_path .$nombre;
+            $sql="insert into img_producto values ('','".$datos['id_producto']."','".$nombre."')";
+            $this->_db->query($sql);
+            move_uploaded_file($fotos['foto']['tmp_name'][$i], $target_path); 
+            $obj_img = new SimpleImage();
+            $obj_img->load($target_path);
+            $obj_img->resize(300,300);
+            $obj_img->save($target_path);
 
- $sql="insert into img_producto values ('','".$datos['id_producto']."','".$nombre."')";
-      $this->_db->query($sql);
+
+      }}
 
 
-    move_uploaded_file($fotos['foto']['tmp_name'][$i], $target_path); 
 
-        $obj_img = new SimpleImage();
-        $obj_img->load($target_path);
-        $obj_img->resize(300,300);
-        $obj_img->save($target_path);
-      
-        }
+
+
 }
 
 

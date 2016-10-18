@@ -139,3 +139,9 @@
 	color: #fff;
 
 }
+#mensaje_no_hay_fotos {
+	text-align: center;
+	color: red;
+	font-size: 16px;
+	font-style: italic;
+}
