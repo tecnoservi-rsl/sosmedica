@@ -19,8 +19,9 @@
 <script src="<?php echo BASE_URL; ?>public/js/jquery.validationEngine-es.js" type="text/javascript"></script>
 <script src="<?php echo BASE_URL; ?>public/js/jquery-ui.js" type="text/javascript"></script>
 <script src="<?php echo BASE_URL; ?>public/js/owl.carousel.js" type="text/javascript"></script>
+<script src="<?php echo BASE_URL; ?>public/js/redessociales.js" type="text/javascript"></script>
 
-<script src="?>public/js/jquery.menu-aim.js" type="text/javascript"></script>
+<script src="<?php echo BASE_URL; ?>public/js/jquery.menu-aim.js" type="text/javascript" ></script>
 <script>
 
         var $menu = $(".dropdown-menu");
@@ -80,8 +81,9 @@
             $(".popover").css("display", "none");
             $("a.maintainHover").removeClass("maintainHover");
         });
-
     </script>
+
+
 
 <!-- Bootstrap Core JavaScript -->
  <script src="<?php echo BASE_URL; ?>public/js/bootstrap.min.js" type="text/javascript"></script>

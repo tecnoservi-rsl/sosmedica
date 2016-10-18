@@ -1,0 +1,145 @@
+.botones-sociales {
+position: fixed;
+top: 192px;
+width: 45px;
+z-index: 9999;
+}
+.izquierda {
+left: 0;
+}
+.derecha{
+right: 0;
+}
+.botones-sociales #twitter-btn .social,
+.botones-sociales #facebook-btn .social,
+.botones-sociales #google-btn .social,
+.botones-sociales #rss-btn .social,
+.botones-sociales #pinterest-btn .social,
+.botones-sociales #youtube-btn .social {
+background-color: #03355D;
+background-image: url(http://3.bp.blogspot.com/-opXRPqX4Ia4/UfFh1sDxJ1I/AAAAAAAAOps/Kl_mb2q-AZM/s1600/mas-icons.png);
+}
+.izquierda #facebook-btn span {
+background-position: right 10px;
+}
+.izquierda #twitter-btn span {
+background-position: right -35px;
+}
+.izquierda #google-btn span {
+background-position: right -127px;
+}
+.izquierda #rss-btn span {
+background-position: right -80px;
+}
+.izquierda #pinterest-btn span {
+background-position: 11px -177px;
+}
+.izquierda #youtube-btn span {
+background-position: 11px -223px;
+}
+.derecha #facebook-btn span {
+background-position: 12px 10px;
+}
+.derecha #twitter-btn span {
+background-position: 11px -35px;
+}
+.derecha #google-btn span {
+background-position: 10px -127px;
+}
+.derecha #rss-btn span {
+background-position: 11px -80px;
+}
+.derecha #pinterest-btn span {
+background-position: 11px -177px;
+}
+.derecha #youtube-btn span {
+background-position: 11px -223px;
+}
+.botones-sociales #facebook-btn:hover .social {
+background-color: #3B5998;
+}
+.botones-sociales #twitter-btn:hover .social {
+background-color: #62BDB2;
+}
+.botones-sociales #google-btn:hover .social {
+background-color: #DB4A39;
+}
+.botones-sociales #rss-btn:hover .social {
+background-color: #FF8B0F;
+}
+.botones-sociales #pinterest-btn:hover .social {
+background-color: #D43638;
+}
+.botones-sociales #youtube-btn:hover .social {
+background-color: #C4302B;
+}
+.botones-sociales a:hover .texto{
+display: block;
+}
+.izquierda .social {
+-moz-transition: background-color 0.4s ease-in 0s;
+-webkit-transition: background-color 0.4s ease-in 0s;
+background-repeat: no-repeat;
+display: block;
+float: left;
+height: 43px;
+margin-bottom: 2px;
+width: 43px;}
+
+.izquierda .texto{
+display: none;
+float: right;
+font-size: 1em;
+font-weight: bold;
+margin: 11px 40px 11px 0px;
+white-space: nowrap;
+}
+.derecha .social {
+-moz-transition: background-color 0.4s ease-in 0s;
+-webkit-transition: background-color 0.4s ease-in 0s;
+background-repeat: no-repeat;
+display: block;
+float: right;
+height: 43px;
+margin-bottom: 2px;
+width: 43px;}
+
+.derecha .texto {
+display: none;
+float: left;
+font-size: 80%;
+font-weight: bold;
+margin: 11px 0 11px 40px;
+white-space: nowrap;
+}
+.botones-sociales .texto{
+color: #FFFFFF;
+}
+
+/* estilo del boton subir */
+.scroll-top {
+	border-radius: 25px;
+	-webkit-border-radius: 25px;
+	-moz-border-radius: 25px;
+	transition: background-color 0.5s ease-out;
+	-webkit-transition: background-color 0.5s ease-out;
+	-moz-transition: background-color 0.5s ease-out;
+	width: 50px;
+	height: 50px;
+	position: fixed;
+	bottom: 50px;
+	right: 30px;
+	display: none;
+	text-indent: -9999px;
+	/* z-index: 1000; */
+	background: url('../img/up.png') no-repeat #0276be;
+}
+.scroll-top:hover {
+	cursor: pointer;
+	background-color: #029A3F;
+    -webkit-transition: 0.3s all;
+    -moz-transition: 0.3s all;
+    -o-transition: 0.3s all;
+    -ms-transition: 0.3s all;
+    transition: 0.3s all;
+}

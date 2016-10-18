@@ -22,6 +22,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>public/css/owl.carousel.css">
     <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>public/css/owl.theme.css">
     <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>public/css/owl.transitions.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>public/css/redessociales.css">
     <link href="<?php echo BASE_URL; ?>public/css/font-awesome.min.css" rel="stylesheet" type="text/css" /> 
     <link href="<?php echo BASE_URL; ?>public/css/jquery-ui.theme.css" rel="stylesheet" type="text/css" />
     <!-- Plugin CSS -->
@@ -29,7 +30,11 @@
     <link href="<?php echo $_layoutParams['ruta_css']; ?>layout.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo $_layoutParams['ruta_css']; ?>botones.css" rel="stylesheet" type="text/css" />
      <link href="<?php echo $_layoutParams['ruta_css']; ?>formulario.css" rel="stylesheet" type="text/css" />
+<!-- Redes sociales.. -->
+
+
     <!-- CSS view.. -->
+
     <?php if(isset($_layoutParams['css']) && count($_layoutParams['css'])): ?>
         <?php for($i=0; $i < count($_layoutParams['css']); $i++): ?>
             <link href="<?php echo $_layoutParams['css'][$i] ?>" rel="stylesheet" type="text/css" />
@@ -38,7 +43,7 @@
 </head>
 
 <body id="page-top">
-
+<a href="#" class="scroll-top hidden-xs hidden-md" style="display: block;"></a>
 <div class="container">
 
 <div class="container-fluid"> 
@@ -54,7 +59,7 @@
       <div class="input-group">
       <input type="text" class="form-control" placeholder="Buscar...">
       <span class="input-group-btn">
-        <button class="btn btn-default btnbuscar" type="button">Buscar</button>
+        <button class="btn btn-default btnbuscar" id="buscar_inicio" type="button">Buscar</button>
       </span>
     </div><!-- /input-group -->
     </div>
@@ -148,6 +153,16 @@
 </div></div>
     <div class="container fondo">
 
+    <div class='botones-sociales derecha hidden-phone hidden-tablet'>
+        <a class='itemsocial' href='http://facebook.com' id='facebook-btn' target='_blank'><span class='social'><span class='texto'>Síguenos via Facebook</span></span></a>
+        <a class='itemsocial' href='http://twitter.com' id='twitter-btn' target='_blank'><span class='social'><span class='texto'>Síguenos via Twitter</span></span></a>
+        <a class='itemsocial' href='http://google.com' id='google-btn' target='_blank'><span class='social'><span class='texto'>Síguenos via Google</span></span></a>
+        <a class='itemsocial'href='http://pinterest.com'id='pinterest-btn' target='_blank'><span class='social'>
+        <span class='texto'>Síguenos via Pinterest</span></span></a>
+        <a class='itemsocial' href='http://youtube.com' id='youtube-btn' target='_blank'><span class='social'><span class='texto'>Síguenos via Youtube</span></span></a>
+        <a class='itemsocial' href='url del feed' id='rss-btn' target='_blank'><span class='social'><span class='texto'>Síguenos via RSS</span></span></a>
+    </div>
+        
     <input type="hidden" value="<?php echo Session::get('role');?>" id="_ROL_">
 
     <div class="row">
