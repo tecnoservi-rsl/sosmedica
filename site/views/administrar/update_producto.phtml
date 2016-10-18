@@ -54,10 +54,11 @@
 
 <?php endif; ?>
         
-    
+<?php if (count($this->producto['fotos'])==0):?>    
 
-
-
+<div id='mensaje_no_hay_fotos'> Debe cargar por lo menos una foto para ente producto </div>
+  
+<?php endif; ?>
 
       </div>
       <div class="col-md-6 col-md-offset-3"> 
@@ -80,12 +81,12 @@
 
 
           <div class="form-group">
-            <div class="row">
+          
 
 
-              <div class="col-md-12"> <label for="nombre"> Categoria</label> </div>
+            <label for="nombre"> Categoria</label> 
 
-              <div class="col-md-11">
+             
 
 
 
@@ -102,21 +103,21 @@
                    <?php endfor; ?>
 
                 </select>
-              </div>
-              <div class="col-md-1 btn btn-default" id="agregar_categoria"><span class="glyphicon glyphicon-plus"></span></div>
-            </div>
+            
+           
+            
           </div>
 
 
 
 
           <div class="form-group">
-            <div class="row">
+   
 
 
-              <div class="col-md-12"> <label for="nombre"> Marca</label> </div>
+               <label for="nombre"> Marca</label>
 
-              <div class="col-md-11">
+              
 
 
 
@@ -131,9 +132,9 @@
                   <?php endfor; ?>
 
                 </select>
-              </div>
-              <div class="col-md-1 btn btn-default" id="agregar_marca"><span class="glyphicon glyphicon-plus"></span></div>
-            </div>
+             
+             
+           
           </div>
           <div class="form-group ">
             <label class=" control-label">Fotos</label>
