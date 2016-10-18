@@ -90,7 +90,7 @@
                         <?php for($i = 0; $i < count($this->cama['categorias']); $i++): ?>
                            
 
-                            <li data-submenu-id="submenu-patas"> <a href="#"><?php  echo $this->cama['categorias'][$i]['categoria']; ?></a></li>
+                            <li data-submenu-id="submenu-patas"> <a href="<?php echo BASE_URL?>productos/search_product/<?php  echo $this->cama['categorias'][$i]['id_categoria'];?>"><?php  echo $this->cama['categorias'][$i]['categoria'];?></a></li>
 
                             <?php endfor; ?>
                     

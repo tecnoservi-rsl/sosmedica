@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 16-10-2016 a las 12:51:46
+-- Tiempo de generación: 18-10-2016 a las 18:57:59
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.5.37
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `sosmedica`
 --
+CREATE DATABASE IF NOT EXISTS `sosmedica` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+USE `sosmedica`;
 
 -- --------------------------------------------------------
 
@@ -109,17 +111,8 @@ INSERT INTO `img_equipo` (`id_img_producto`, `id_publicacion`, `nombre`) VALUES
 CREATE TABLE `img_producto` (
   `id_img_producto` int(11) NOT NULL,
   `id_publicacion` int(11) NOT NULL,
-  `nombre` int(11) NOT NULL
+  `nombre` varchar(1000) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- Volcado de datos para la tabla `img_producto`
---
-
-INSERT INTO `img_producto` (`id_img_producto`, `id_publicacion`, `nombre`) VALUES
-(2, 9, 0),
-(3, 9, 0),
-(5, 2, 0);
 
 -- --------------------------------------------------------
 
@@ -355,7 +348,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `almacen`
 --
 ALTER TABLE `almacen`
-  MODIFY `id_almacen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_almacen` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `categoria`
 --
@@ -365,7 +358,7 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `equipo`
 --
 ALTER TABLE `equipo`
-  MODIFY `id_equipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_equipo` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `img_equipo`
 --
@@ -395,7 +388,7 @@ ALTER TABLE `permisos`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT de la tabla `producto-almacen`
 --
@@ -405,12 +398,12 @@ ALTER TABLE `producto-almacen`
 -- AUTO_INCREMENT de la tabla `role`
 --
 ALTER TABLE `role`
-  MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Restricciones para tablas volcadas
 --

@@ -22,7 +22,50 @@ class productosController extends Controller
 			$this->_view->renderizar('index');
 							
 			
-	}	
+	}
+
+	public function search_product($valor)
+    {
+            
+    	$xx=array();
+
+        $productos=$this->_index->buscar_producto($valor);
+
+
+
+        for ($i=0; $i < count($productos); $i++) { 
+        
+        
+				$xx[$i] = array (
+
+				"producto" => $productos[$i],
+				"img"      => $this->_index->buscar_img_por_id($productos[$i]["id_producto"])
+
+				);
+
+
+        }
+
+
+        
+        
+
+
+
+
+
+
+
+
+         $this->_view->productos= $xx;
+		$this->_view->renderizar('index');
+    
+    }
+			
+
+
+
+		
 
 	
 }
