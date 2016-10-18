@@ -17,7 +17,12 @@
     <link href="<?php echo BASE_URL; ?>public/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo BASE_URL; ?>public/css/jquery-ui.css" rel="stylesheet" type="text/css" /> 
     <link href="<?php echo BASE_URL; ?>public/css/jquery-ui.structure.css" rel="stylesheet" type="text/css" /> 
-     <link href="<?php echo BASE_URL; ?>public/css/tinycarousel.css" rel="stylesheet" type="text/css" /> 
+    <link href="<?php echo BASE_URL; ?>public/css/tinycarousel.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo BASE_URL; ?>public/css/slides.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>public/css/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>public/css/owl.theme.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>public/css/slides.css">
+    <link href="<?php echo BASE_URL; ?>public/css/font-awesome.min.css" rel="stylesheet" type="text/css" /> 
     <link href="<?php echo BASE_URL; ?>public/css/jquery-ui.theme.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo BASE_URL; ?>layout/layout3/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <!-- Plugin CSS -->
