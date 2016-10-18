@@ -26,6 +26,7 @@ class productosController extends Controller
 
 	public function search_product($valor)
     {
+    	$this->_view->titulo = 'SOS MEDICA';
             
     	$xx=array();
 
@@ -45,19 +46,7 @@ class productosController extends Controller
 
 
         }
-
-
-        
-        
-
-
-
-
-
-
-
-
-         $this->_view->productos= $xx;
+        $this->_view->productos= $xx;
 		$this->_view->renderizar('index');
     
     }
