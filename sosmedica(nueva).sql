@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-10-2016 a las 21:03:47
+-- Tiempo de generación: 20-10-2016 a las 00:08:48
 -- Versión del servidor: 5.5.39
 -- Versión de PHP: 5.4.31
 
@@ -86,31 +86,6 @@ INSERT INTO `categoria` (`id_categoria`, `categoria`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `equipo`
---
-
-CREATE TABLE IF NOT EXISTS `equipo` (
-`id_equipo` int(11) NOT NULL,
-  `nombre` varchar(300) COLLATE utf8_bin NOT NULL,
-  `modelo` varchar(100) COLLATE utf8_bin NOT NULL,
-  `id_marca` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=5 ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `img_equipo`
---
-
-CREATE TABLE IF NOT EXISTS `img_equipo` (
-`id_img_producto` int(11) NOT NULL,
-  `id_publicacion` int(11) NOT NULL,
-  `nombre` varchar(300) COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=3 ;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `img_producto`
 --
 
@@ -118,7 +93,17 @@ CREATE TABLE IF NOT EXISTS `img_producto` (
 `id_img_producto` int(11) NOT NULL,
   `id_publicacion` int(11) NOT NULL,
   `nombre` varchar(300) COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=21 ;
+
+--
+-- Volcado de datos para la tabla `img_producto`
+--
+
+INSERT INTO `img_producto` (`id_img_producto`, `id_publicacion`, `nombre`) VALUES
+(17, 31, 'sosmedica5807da3260ec41232.png'),
+(18, 33, 'sosmedica5807da90185171232.png'),
+(19, 34, 'sosmedica5807eb3d0abad133.jpg'),
+(20, 35, 'sosmedica5807eba54ce2e132.jpg');
 
 -- --------------------------------------------------------
 
@@ -213,10 +198,21 @@ INSERT INTO `permisos` (`id_permisos`, `id_menu`, `id_role`, `permiso`) VALUES
 CREATE TABLE IF NOT EXISTS `producto` (
 `id_producto` int(11) NOT NULL,
   `nombre` varchar(500) COLLATE utf8_bin NOT NULL,
-  `presentacion` varchar(300) COLLATE utf8_bin NOT NULL,
+  `presentacion` varchar(300) COLLATE utf8_bin DEFAULT NULL,
+  `modelo` varchar(300) COLLATE utf8_bin DEFAULT NULL,
   `id_marca` int(11) NOT NULL,
-  `id_categoria` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=14 ;
+  `id_categoria` int(11) DEFAULT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=36 ;
+
+--
+-- Volcado de datos para la tabla `producto`
+--
+
+INSERT INTO `producto` (`id_producto`, `nombre`, `presentacion`, `modelo`, `id_marca`, `id_categoria`) VALUES
+(31, 'PRUEBA SOSMEDICA', '1 Caja x 100 Unidades.', '', 22, 28),
+(33, 'EQUIPO DE PRUEBA', '', '36952', 14, NULL),
+(34, 'probando', '', '255852', 14, 25),
+(35, 'SOS MEDICA PRUEBA', 'adasd', '', 30, 25);
 
 -- --------------------------------------------------------
 
@@ -289,18 +285,6 @@ ALTER TABLE `categoria`
  ADD PRIMARY KEY (`id_categoria`);
 
 --
--- Indices de la tabla `equipo`
---
-ALTER TABLE `equipo`
- ADD PRIMARY KEY (`id_equipo`), ADD KEY `id_marca` (`id_marca`);
-
---
--- Indices de la tabla `img_equipo`
---
-ALTER TABLE `img_equipo`
- ADD PRIMARY KEY (`id_img_producto`), ADD KEY `id_publicacion` (`id_publicacion`);
-
---
 -- Indices de la tabla `img_producto`
 --
 ALTER TABLE `img_producto`
@@ -363,20 +347,10 @@ MODIFY `id_almacen` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 ALTER TABLE `categoria`
 MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=45;
 --
--- AUTO_INCREMENT de la tabla `equipo`
---
-ALTER TABLE `equipo`
-MODIFY `id_equipo` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT de la tabla `img_equipo`
---
-ALTER TABLE `img_equipo`
-MODIFY `id_img_producto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
 -- AUTO_INCREMENT de la tabla `img_producto`
 --
 ALTER TABLE `img_producto`
-MODIFY `id_img_producto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+MODIFY `id_img_producto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT de la tabla `marca`
 --
@@ -396,7 +370,7 @@ MODIFY `id_permisos` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=36;
 --
 -- AUTO_INCREMENT de la tabla `producto-almacen`
 --
@@ -417,18 +391,6 @@ MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 
 --
--- Filtros para la tabla `equipo`
---
-ALTER TABLE `equipo`
-ADD CONSTRAINT `equipo_ibfk_1` FOREIGN KEY (`id_marca`) REFERENCES `marca` (`id_marca`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Filtros para la tabla `img_equipo`
---
-ALTER TABLE `img_equipo`
-ADD CONSTRAINT `img_equipo_ibfk_1` FOREIGN KEY (`id_publicacion`) REFERENCES `equipo` (`id_equipo`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Filtros para la tabla `img_producto`
 --
 ALTER TABLE `img_producto`
@@ -445,8 +407,8 @@ ADD CONSTRAINT `permisos_ibfk_2` FOREIGN KEY (`id_role`) REFERENCES `role` (`id_
 -- Filtros para la tabla `producto`
 --
 ALTER TABLE `producto`
-ADD CONSTRAINT `producto_ibfk_1` FOREIGN KEY (`id_marca`) REFERENCES `marca` (`id_marca`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-ADD CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id_categoria`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ADD CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id_categoria`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+ADD CONSTRAINT `producto_ibfk_1` FOREIGN KEY (`id_marca`) REFERENCES `marca` (`id_marca`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `producto-almacen`

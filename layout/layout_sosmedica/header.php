@@ -43,14 +43,14 @@
 </head>
 
 <body id="page-top">
-<a href="#" class="scroll-top hidden-xs hidden-md" style="display: block;"></a>
+<a href="#" class="scroll-top hidden-xs hidden-md"></a>
 <div class="container">
 
 <div class="container-fluid"> 
     <div class="col-md-4">
     <header>
         <div class="header-content">
-            <a id="header_logo" href="http://www.sosmedica.com.ve/" title="SOSMEDICA.COM"> <img class="img-responsive" alt="Responsive image" src="<?php echo BASE_URL; ?>layout/layout_sosmedica/img/sosmedica.jpg" alt="SOSMEDICA.COM"  width="250" height="99"> </a>
+            <a id="header_logo" href="http://www.sosmedica.com/" title="SOSMEDICA.COM"> <img class="img-responsive" alt="Responsive image" src="<?php echo BASE_URL; ?>layout/layout_sosmedica/img/sosmedica.jpg" alt="SOSMEDICA.COM"  width="250" height="99"> </a>
         </div>
     </header>
     </div>
@@ -111,7 +111,7 @@
                      <?php for($i = 0; $i < count($this->cama['marcas']); $i++): ?>
                            
 
-                            <li data-submenu-id="submenu-patas"> <a href="#"><?php  echo $this->cama['marcas'][$i]['marca']; ?></a></li>
+                            <li data-submenu-id="submenu-patas"> <a href="<?php echo BASE_URL?>productos/searchproduct/<?php  echo $this->cama['marcas'][$i]['id_marca'];?>"><?php  echo $this->cama['marcas'][$i]['marca']; ?></a></li>
 
                             <?php endfor; ?>
                 </ul>

@@ -1,7 +1,9 @@
 <div scroll="auto" class="col-xs-12">
+<div class="col-md-12 busqueda"> Su busqueda ha arrojado <?php echo count($this->productos); ?> Resultados</div>
 
+<?php 
 
-<?php for($i = 0; $i < count($this->productos); $i++): ?>
+for($i = 0; $i < count($this->productos); $i++): ?>
                            
 
 
@@ -13,9 +15,27 @@
 <h3>
 <a class="product-name" href="#" title=""><?php  echo $this->productos[$i]['producto']['nombre'] ;?></a>
 </h3>
-<p class="product_desc">
+
+<?php if($this->productos[$i]['producto']['presentacion']!=''){ ?>
+
+      <p class="product_desc">
 <b>Presentacion:</b> <?php  echo $this->productos[$i]['producto']['presentacion'] ;?></p>
-<div class="separador" style="display: inline;"> <b>Marca:</b> <?php  echo $this->productos[$i]['producto']['marca'] ;?></div><br> <div class="separador"><b>Categoria:</b> <?php  echo $this->productos[$i]['producto']['categoria'] ;?></div>
+    
+    <?php    } ?>
+
+<div class="separador" style="display: inline;"> <b>Marca:</b> <?php  echo $this->productos[$i]['producto']['marca'] ;?></div><br> 
+
+<?php if(isset($this->productos[$i]['producto']['categoria'])){ ?>
+
+      <div class="separador"><b>Categoria:</b> <?php  echo $this->productos[$i]['producto']['categoria'] ;?></div>
+    
+    <?php    }
+   else{ ?>
+   	<div class="separador"><b>Modelo:</b> <?php  echo $this->productos[$i]['producto']['modelo'] ;?></div>
+  <?php }   
+      ?> 
+
+
 <br> <div class=""><a href="#" class="btn btn-primary btn-sm disponiblidad"> Ver Disponibilidad </a></div>
 </div>
 <div></div>
@@ -25,7 +45,7 @@
 
                   
 
-                            <?php endfor; ?>
+                            <?php  endfor; ?>
 
 
 
