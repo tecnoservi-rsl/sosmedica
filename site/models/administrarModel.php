@@ -12,7 +12,7 @@ class administrarModel extends Model
 
 public function guardar_publicacion($datos,$fotos){
 
-$sql="insert into producto values ('','".$datos['nombre']."', '".$datos['presentacion']."', '".$datos['marca']."','".$datos['categoria']."')";
+$sql="insert into producto values ('','".$datos['nombre']."', '".$datos['presentacion']."','','".$datos['marca']."','".$datos['categoria']."')";
       $this->_db->query($sql);
 
     $id_publicacion=$this->_db->lastInsertId();
@@ -44,30 +44,30 @@ $sql="insert into producto values ('','".$datos['nombre']."', '".$datos['present
 
 public function guardar_equipo($datos,$fotos){
 
-$sql="insert into equipo values ('','".$datos['nombre']."', '".$datos['modelo']."', '".$datos['marca']."')";
+echo $sql="insert into producto values ('','".$datos['nombre']."','','".$datos['modelo']."','".$datos['marca']."','25')";
       $this->_db->query($sql);
 
     $id_publicacion=$this->_db->lastInsertId();
 
 
    
- for ($i=0; $i < count($fotos['foto']['name']) ; $i++) { 
-        
-        $target_path = "public/img/publicaciones/";
+for ($i=0; $i < count($fotos['foto']['name']) ; $i++) { 
+      
+      $target_path = "public/img/publicaciones/";
         $nombre=uniqid('sosmedica').$fotos['foto']['name'][$i];
-        $target_path = $target_path .$nombre;
+    $target_path = $target_path .$nombre;
 
- $sql="insert into img_equipo values ('','".$id_publicacion."','".$nombre."')";
+ $sql="insert into img_producto values ('','".$id_publicacion."','".$nombre."')";
       $this->_db->query($sql);
 
 
-        move_uploaded_file($fotos['foto']['tmp_name'][$i], $target_path); 
+    move_uploaded_file($fotos['foto']['tmp_name'][$i], $target_path); 
 
         $obj_img = new SimpleImage();
         $obj_img->load($target_path);
         $obj_img->resize(300,300);
         $obj_img->save($target_path);
-        
+      
         }
 }
 
@@ -133,9 +133,9 @@ public function elimiar_producto($id){
 
 public function buscar_equipo($strin){
 
-  $sql = "SELECT equipo.*,marca.marca FROM equipo,marca WHERE \n"
-    . "equipo.id_marca=marca.id_marca AND\n"
-    . "equipo.nombre like '%".$strin."%'";
+  $sql = "SELECT producto.*,marca.marca FROM producto,marca WHERE \n"
+    . "producto.id_marca=marca.id_marca and marca.tipo='EQUIPO' AND\n"
+    . "producto.nombre like '%".$strin."%'";
      
      $rs=$this->_db->query($sql);
 
@@ -145,7 +145,7 @@ public function buscar_equipo($strin){
 
 public function eliminar_equipo($id){
 
-  $sql = "delete FROM equipo where id_equipo=$id";
+  $sql = "delete FROM producto where id_producto=$id";
      
     $this->_db->query($sql);
 

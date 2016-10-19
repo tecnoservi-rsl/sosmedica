@@ -80,10 +80,6 @@ class administrarController extends Controller
 
         echo json_encode($modelo->categorias_y_marcas1('PRODUCTO'));  
 
-
-
-    	
-
     
     }
 

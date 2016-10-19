@@ -33,6 +33,33 @@ class productosController extends Controller
         $productos=$this->_index->buscar_producto($valor);
 
 
+        for ($i=0; $i < count($productos); $i++) { 
+        
+        
+				$xx[$i] = array (
+
+				"producto" => $productos[$i],
+				"img"      => $this->_index->buscar_img_por_id($productos[$i]["id_producto"])
+
+				);
+
+        }
+        $this->_view->productos= $xx;
+        $this->_view->setJs(array('index'));
+		$this->_view->setCss(array('css'));
+		$this->_view->renderizar('index');
+    
+    }
+	
+public function searchproduct($valor)
+    {
+    	$this->_view->titulo = 'SOS MEDICA';
+            
+    	$xx=array();
+
+        $productos=$this->_index->buscar_product($valor);
+
+
 
         for ($i=0; $i < count($productos); $i++) { 
         
@@ -52,14 +79,8 @@ class productosController extends Controller
 		$this->_view->renderizar('index');
     
     }
-			
 
 
 
-		
 
-	
-}
-
-
-?>
+}?>

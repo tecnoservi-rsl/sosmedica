@@ -22,6 +22,24 @@ class productosModel extends Model
 
 }
 
+
+public function buscar_product($id){
+
+  
+
+    $sql = "SELECT producto.*,marca.marca FROM producto,marca WHERE \n"
+    . "producto.id_marca=marca.id_marca AND\n"
+    . "marca.id_marca='$id'";
+     
+     $rs=$this->_db->query($sql);
+
+     return $rs->fetchall();
+
+}
+
+
+
+
 public function buscar_img_por_id($id){
 
   	 $sql = "SELECT * FROM img_producto WHERE id_publicacion='$id'";
