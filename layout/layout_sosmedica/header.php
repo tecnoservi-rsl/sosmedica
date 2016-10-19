@@ -153,7 +153,7 @@
 </div></div>
     <div class="container fondo">
 
-    <div class='botones-sociales derecha hidden-phone hidden-tablet'>
+    <div class='botones-sociales derecha hidden-xs hidden-sm hidden-phone hidden-tablet'>
         <a class='itemsocial' href='http://facebook.com' id='facebook-btn' target='_blank'><span class='social'><span class='texto'>Síguenos via Facebook</span></span></a>
         <a class='itemsocial' href='http://twitter.com' id='twitter-btn' target='_blank'><span class='social'><span class='texto'>Síguenos via Twitter</span></span></a>
         <a class='itemsocial' href='http://google.com' id='google-btn' target='_blank'><span class='social'><span class='texto'>Síguenos via Google</span></span></a>

@@ -4,26 +4,26 @@
 <?php for($i = 0; $i < count($this->productos); $i++): ?>
                            
 
-<div class="row-fluid">
-<div class="col-md-12"> 
+
+<div class="col-md-12 linea"> 
 <div class="col-xs-5 col-sm-4 col-md-3"> 
-<a href="#" class="" title=""> <img src="<?php  echo BASE_URL."public/img/publicaciones/".$this->productos[$i]['img'][0]['nombre'] ;?>" width="80%" alt=""> </a>
+<a href="#" class="image-producto" title=""> <img src="<?php  echo BASE_URL."public/img/publicaciones/".$this->productos[$i]['img'][0]['nombre'] ;?>"  alt=""> </a>
 </div>
 <div class="col-xs-7 col-sm-8 col-md-9">
 <h3>
 <a class="product-name" href="#" title=""><?php  echo $this->productos[$i]['producto']['nombre'] ;?></a>
 </h3>
 <p class="product_desc">
-<a href="#" title=""><?php  echo $this->productos[$i]['producto']['presentacion'] ;?></a></p>
-<span class="marca" style="display: inline;"> <?php  echo $this->productos[$i]['producto']['marca'] ;?></span><br> <span class="categoria"><?php  echo $this->productos[$i]['producto']['categoria'] ;?></span>
-<br> <span class="disponibilidad">Disponible</span>
+<b>Presentacion:</b> <?php  echo $this->productos[$i]['producto']['presentacion'] ;?></p>
+<div class="separador" style="display: inline;"> <b>Marca:</b> <?php  echo $this->productos[$i]['producto']['marca'] ;?></div><br> <div class="separador"><b>Categoria:</b> <?php  echo $this->productos[$i]['producto']['categoria'] ;?></div>
+<br> <div class=""><a href="#" class="btn btn-primary btn-sm disponiblidad"> Ver Disponibilidad </a></div>
 </div>
-</div>
-<div class="col-xs-12 linea"></div>
+<div></div>
 </div>
 
 
-                         </a></li>
+
+                  
 
                             <?php endfor; ?>
 

@@ -47,6 +47,8 @@ class productosController extends Controller
 
         }
         $this->_view->productos= $xx;
+        $this->_view->setJs(array('index'));
+		$this->_view->setCss(array('css'));
 		$this->_view->renderizar('index');
     
     }
