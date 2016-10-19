@@ -43,7 +43,7 @@
 </head>
 
 <body id="page-top">
-<a href="#" class="scroll-top hidden-xs hidden-md" style="display: block;"></a>
+<a href="#" class="scroll-top hidden-xs hidden-md"></a>
 <div class="container">
 
 <div class="container-fluid"> 
