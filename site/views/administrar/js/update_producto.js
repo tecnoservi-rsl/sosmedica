@@ -1,10 +1,19 @@
 $(document).ready(function(){
 
-		$('#slider1').tinycarousel();
-		var id_producto=$("#id_producto").val();
-		var cant_fotos=$("#cantidad").val();
+	$('#nombre').addClass('validate[required]');
+	$('#presentacion').addClass('validate[required]');
+	$('#marca').addClass('validate[required]');
+	$('#categoria').addClass('validate[required]');
+	$('#form_agregar_producto').validationEngine();
+
+	$('#slider1').tinycarousel();
+	var id_producto=$("#id_producto").val();
+	var cant_fotos=$("#cantidad").val();
 	
 	
+
+
+
 
 
 //................................................................................................
