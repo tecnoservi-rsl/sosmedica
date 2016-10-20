@@ -1,19 +1,11 @@
 <?php
 
-/*
- * -------------------------------------
- * www.dlancedu.com | Jaisiel Delance
- * framework mvc basico
- * Config.php
- * -------------------------------------
- */
-
 
 define('BASE_URL', 'http://localhost/sosmedica/');
 //define('BASE_URL', 'http://192.168.0.5/didactico/');
 //define('BASE_URL', 'http://gratisxd.esy.es/');
 define('DEFAULT_CONTROLLER', 'principal');
-define('DEFAULT_LAYOUT', 'layout_sosmedica');
+define('DEFAULT_LAYOUT', 'layout_sosmedica2');
 define('APP_NAME', 'TECNOSERVI');
 define('APP_SLOGAN', 'Venta de equipos medicos');
 define('APP_COMPANY', 'SOS MEDICA');
