@@ -57,7 +57,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-              <a id="header_logo" href="http://www.sosmedica.com/" title="SOSMEDICA.COM"> <img class="logo" alt="Responsive image" src="<?php echo BASE_URL; ?>public/img/logo.png" alt="SOSMEDICA.COM"> </a>
+              <a id="header_logo" href="http://www.sosmedica.com/" title="SOSMEDICA.COM"> <img class="logo" alt="Responsive image" src="<?php echo BASE_URL; ?>public/img/logoweb.png" alt="SOSMEDICA.COM"> </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
