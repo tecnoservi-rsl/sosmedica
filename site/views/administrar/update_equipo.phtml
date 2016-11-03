@@ -1,0 +1,135 @@
+<div scroll="auto" class="col-xs-10 col-sm-10 col-md-10 col-lg-10  col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+
+    <div class="row">
+
+      <div class="col-md-6 col-md-offset-3" id="tituloo">Actualizar Equipo</div>
+
+<input id="id_producto" type="hidden" value="<?php echo $this->producto['id_producto'] ; ?>">
+<input id="cantidad" type="hidden" value="<?php echo count($this->producto['fotos']) ; ?>">
+
+      <div class="col-md-6 col-md-offset-3" id="fotosmenos3">
+        
+
+
+
+
+<?php if(  count($this->producto['fotos']) > 3 ):?>
+
+
+          <div id="slider1">
+           
+             <span class="glyphicon glyphicon-menu-left buttons prev" aria-hidden="true"></span>
+            <div class="viewport">
+              <ul class="overview">
+
+              <?php for ($i=0; $i < count($this->producto['fotos']) ; $i++):?>
+                <li id="mas_3">
+
+                <img class="img-responsive pro-update-img" src="<?php echo BASE_URL."public/img/publicaciones/".$this->producto['fotos'][$i]['nombre'] ?>" />
+                 <span class="glyphicon glyphicon-remove-sign pro-update-boton eliminar_<?php echo $i;?>" id="eliminar_<?php echo $i;?>" data-id=<?php echo $this->producto['fotos'][$i]['id_img_producto'] ?>  aria-hidden="true"></span>
+  
+                </li>
+              <?php endfor; ?>
+              </ul>
+            </div>
+            
+            <span class="glyphicon glyphicon-menu-right buttons next " aria-hidden="true"></span>
+          </div>
+<?php else: ?>
+
+
+
+
+  <?php for ($i=0; $i < count($this->producto['fotos']) ; $i++):?>
+                <div id="menos_3">
+          
+                <img class="img-responsive pro-update-img" src="<?php echo BASE_URL."public/img/publicaciones/".$this->producto['fotos'][$i]['nombre'] ?>" />
+                 <span class="glyphicon glyphicon-remove-sign pro-update-boton eliminar_<?php echo $i;?>" id="eliminar_<?php echo $i;?>" data-id=<?php echo $this->producto['fotos'][$i]['id_img_producto'] ?>  aria-hidden="true"></span>
+                </div>
+                
+  <?php endfor; ?>
+
+     
+
+
+<?php endif; ?>
+        
+<?php if (count($this->producto['fotos'])==0):?>    
+
+<div id='mensaje_no_hay_fotos'> Debe cargar por lo menos una foto para ente producto </div>
+  
+<?php endif; ?>
+
+      </div>
+      <div class="col-md-6 col-md-offset-3"> 
+
+        <form id="form_agregar_producto" enctype="multipart/form-data" method="post" action=" <?php echo BASE_URL ?>administrar/editar_equipo" >
+
+
+<input id="id_producto" name="id_producto" type="hidden" value="<?php echo $this->producto['id_producto'] ; ?>">
+<input id="cantidad"  type="hidden" value="<?php echo count($this->producto['fotos']) ; ?>">
+
+
+            <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" value="<?php echo $this->producto['nombre'] ?>" class="form-control" id="nombre" name="nombre" placeholder="Nombre Producto">
+            </div>
+          
+
+
+          <div class="form-group">
+   
+
+
+               <label for="nombre"> Marca</label>
+
+              
+
+
+
+                <select class="form-control" name="marca" id="marca">
+                <option value="">--> Seleccione <--</option>
+
+                  <?php for($i = 0; $i < count($this->cama1['marcas']); $i++): ?>
+
+                      <option <?php echo $retVal = ($this->producto['id_marca']==$this->cama1['marcas'][$i]['id_marca'] ) ? "selected" : "" ; ?>  value="<?php  echo $this->cama1['marcas'][$i]['id_marca']; ?>"><?php  echo $this->cama1['marcas'][$i]['marca'];?></option>
+
+
+                  <?php endfor; ?>
+
+                </select>
+             
+             
+           
+          </div>
+          
+          <div class="form-group">
+            <label for="nombre">Modelo</label>
+            <input type="text" value="<?php echo $this->producto['modelo'] ?>" class="form-control" id="modelo" name="modelo" placeholder="modelo del producto">
+            </div>
+
+
+
+
+          <div class="form-group ">
+            <label class=" control-label">Fotos</label>
+            <input  type="file" class="form-control" multiple="multiple" id="files" name="foto[]">
+          </div>
+
+
+          <div class="row">
+
+            <div id="list" class="titulo-img">Previsualizacion</div>
+
+          </div>
+          <div>  <center> <button type="submit" class="btn btn-default">Editar</button> </center>   </div>
+
+        </form>
+
+      </div>
+
+
+    </div>
+
+
+</div>

@@ -50,7 +50,7 @@ $(document).ready(function(){
 	$(document).on("click","#editar_equipo",function()
 	{
 		var valor=this.dataset.id;  
-		window.location.href=base_url+"administrar/uptade_equipo/"+valor;
+		window.location.href=base_url+"administrar/update_equipo/"+valor;
 	});
 
 

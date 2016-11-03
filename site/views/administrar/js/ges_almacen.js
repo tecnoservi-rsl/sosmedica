@@ -1,13 +1,9 @@
 $(document).ready(function(){
  
-
 	$(document).ready(function(){
 
 			var valor=this.value;   
 			var html;
-		
-
- 
 		$.post(base_url+'/administrar/buscar_almacenes', {}, function(datos){
 			if(datos.length != 0){
 				
@@ -16,7 +12,7 @@ $(document).ready(function(){
 
 
 			html+='<tr><td>'+datos[i].nombre+'</td><td>'+datos[i].direccion+'</td><td>'+datos[i].telefono+'</td><td>'+datos[i].horario+'</td><td>';
-			html+='<span class="glyphicon glyphicon-pencil botonmm" aria-hidden="true"></span> <span id="eliminar_almacen" data-id="'+datos[i].id_almacen+'" class="glyphicon glyphicon-trash botonmm" aria-hidden="true"></span></td></tr>';
+			html+='<span id="editar_almacen" data-id="'+datos[i].id_almacen+'" class="glyphicon glyphicon-pencil botonmm" aria-hidden="true"></span> <span id="eliminar_almacen" data-id="'+datos[i].id_almacen+'" class="glyphicon glyphicon-trash botonmm" aria-hidden="true"></span></td></tr>';
 
 
 				}
@@ -34,13 +30,6 @@ $(document).ready(function(){
 				}
 
 			},"json");
-
-			
-
-
-
-
-
 
 	});
 
@@ -75,6 +64,18 @@ var id=this.dataset.id;
 
 
 
+	//***-------------------------------------------------------------------------------
+
+
+
+	$(document).on("click","#editar_almacen",function()
+	{
+		var valor=this.dataset.id;  
+		window.location.href=base_url+"administrar/update_almacen/"+valor;
+	});
+
+
+	//-------------------------------------------------------------------------------------------
 
 
 

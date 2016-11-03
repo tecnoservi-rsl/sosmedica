@@ -111,11 +111,33 @@ class administrarController extends Controller
                 $this->_view->titulo = 'actualizar producto';
                 $modelo = $this->loadModel('_menu');
                 $this->_view->cama1 = $modelo->categorias_y_marcas1('PRODUCTO');
-                $this->_view->producto = 
+                
                 $array =$this->_pb->buscar_producto_id($id);
                 $array['fotos']=$this->_pb->buscar_fotos_id($array['id_producto']);
                 $this->_view->producto = $array;
                 $this->_view->renderizar('update_producto');
+        }
+         public function update_equipo($id){
+                $this->_view->setJs(array('update_equipo'));
+                $this->_view->setCss(array('agregar'));
+                $this->_view->titulo = 'Actualizar Equipo';
+                $modelo = $this->loadModel('_menu');
+                $this->_view->cama1 = $modelo->categorias_y_marcas1('EQUIPO');
+                $array =$this->_pb->buscar_producto_id($id);
+                $array['fotos']=$this->_pb->buscar_fotos_id($array['id_producto']);
+                $this->_view->producto = $array;
+                $this->_view->renderizar('update_equipo');
+        }
+        public function update_almacen($id){
+                $this->_view->setJs(array('update_almacen'));
+                $this->_view->setCss(array('agregar'));
+                $this->_view->titulo = 'Actualizar almacen';
+                
+
+                $array =$this->_pb->buscar_almacen_id($id);
+                
+                $this->_view->almacen = $array;
+                $this->_view->renderizar('update_almacen');
         }
         public function trar_producto_con_foto_ajax(){
                 $array =$this->_pb->buscar_producto_id($_GET['valor']);
@@ -151,8 +173,22 @@ class administrarController extends Controller
                 $this->_pb->eliminar_foto($_GET['valor']);
         }
         public function editar_publicacion(){
+
                 $this->_pb->editar_publicacion($_POST,$_FILES);
                 $this->redireccionar('administrar/ges_producto');
+
+        }
+        public function editar_equipo(){
+
+                $this->_pb->editar_equipo($_POST,$_FILES);
+                $this->redireccionar('administrar/ges_equipo');
+                
+        }
+        public function editar_almacen(){
+
+                $this->_pb->editar_almacen($_POST);
+                $this->redireccionar('administrar/ges_almacen');
+                
         }
         public function ges_almacen(){
                 $this->_view->setJs(array('ges_almacen'));
