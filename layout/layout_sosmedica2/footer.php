@@ -1,13 +1,36 @@
 </div>
     </div>
- <section id="pie">
+ <div id="pie">
         <div class="container">
-        <div class="col-xs-12 col-md-4"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> <b> <?php echo APP_SLOGAN ?> </b></div>
-        <div class="col-xs-12 col-md-4"><b>Todos los derechos reservados<span class="glyphicon glyphicon-copyright-mark" aria-hidden="true"></span> SOSMEDICA 2016 </b> </div>
-        <div class="col-xs-12 col-md-4"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> <b> Web developer by <?php echo APP_NAME ?> </b></div>
+        <div class="col-xs-12 col-md-12 pie-pagina">
+            <div class="row">
+                <div class="col-xs-12 col-sm-4 col-md-4 hidden-xs  hidden-phone pie1">
+                    <h3>Nosotros</h3>
+                    <ul>
+                        <li> <a href="#">Quienes somos</a></li>
+                        <li><a href="#">No se me ocurre otra cosa</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 pie2">
+                     <h3>SOSMEDICA C.A</h3>
+                    <p>Todos los derechos reservados © 2016  <br>
+                    SOSMEDICA, Compañia Anónima.  J-XXXXXXX-2 </p>
+                   
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 hidden-xs  hidden-phone pie3">
+                    <h3>Contactenos</h3>
+                    <ul>
+                        <li> <a href="#">Contactanos</a></li>
+                        <li><a href="#">sosmedica@sosmedica.com</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-xs-12 col-md-12 derechos"> <center> <b> Web Desing by: <a href="http://tecnoservi.net.ve" target="_blank" alt"TecnoServi Soluciones Informaticas">TecnoServi Venezuela</a> </b> </center></div>
           
         </div>
-    </section>
+    </div>
 
 
  <!-- Publicos -->
