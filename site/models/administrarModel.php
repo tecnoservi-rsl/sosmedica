@@ -207,6 +207,12 @@ public function buscar_almacenes()
 public function eliminar_almacen($id)
 {
      $sql = "DELETE FROM almacen WHERE id_almacen= $id";    
+     $this->_db->query($sql);
+}
+
+public function almacen_all()
+{
+    echo $sql = "SELECT * FROM almacen WHERE 1=1";    
      $rs=$this->_db->query($sql);
      return $rs->fetchall();
 }

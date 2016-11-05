@@ -54,6 +54,15 @@
                                                 </div>
                                         </div>
                                 </div>
+
+                                <?php for ($i=0; $i <count($this->almacen) ; $i++):?>
+                                         <div class="form-group">
+                                                <label for="presentacion">disponibilidad Almacen <?php echo $this->almacen[$i]['nombre'] ?></label>
+                                                <input type="checkbox" class="disponibilidad" id="">
+                                        </div>
+                                <?php endfor; ?>
+                                
+
                                 <div class="form-group ">
                                         <label class=" control-label">Fotos</label>
                                         <input  type="file" class="form-control" multiple="multiple" id="files" name="foto[]">

@@ -25,6 +25,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>public/css/redessociales.css">
     <link href="<?php echo BASE_URL; ?>public/css/font-awesome.min.css" rel="stylesheet" type="text/css" /> 
     <link href="<?php echo BASE_URL; ?>public/css/jquery-ui.theme.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo BASE_URL; ?>public/css/checkboxesstyle.css" rel="stylesheet" type="text/css" />
     <!-- Plugin CSS -->
     <!-- Custom CSS -->
     <link href="<?php echo $_layoutParams['ruta_css']; ?>layout.css" rel="stylesheet" type="text/css" />

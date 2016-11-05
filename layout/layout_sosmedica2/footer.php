@@ -20,6 +20,7 @@
 <script src="<?php echo BASE_URL; ?>public/js/jquery-ui.js" type="text/javascript"></script>
 <script src="<?php echo BASE_URL; ?>public/js/owl.carousel.js" type="text/javascript"></script>
 <script src="<?php echo BASE_URL; ?>public/js/redessociales.js" type="text/javascript"></script>
+<script src="<?php echo BASE_URL; ?>public/js/checkboxes.js" type="text/javascript"></script>
 
 <script src="<?php echo BASE_URL; ?>public/js/jquery.menu-aim.js" type="text/javascript" ></script>
 <script>
