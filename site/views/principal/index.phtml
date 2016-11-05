@@ -1,6 +1,6 @@
 <div scroll="auto" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 <div class="row">
-
+ 
 <div class="col-md-12 hidden-xs hidden-phone"> 
 <div class="row">
    <div id="demo">
@@ -28,39 +28,9 @@
 <div class="col-md-12">
 <div class="row">
 
-  <div class="col-xs-6 col-sm-3 col-md-2 producto">
-  <div class="titulo-producto">
-    <center> Producto </center>
-  </div>
-    <a href="#" class="thumbnail producto-img">
-      <img src="public/img/pp.jpg" alt="...">
-    </a>
-  </div>
-  <div class="col-xs-6 col-sm-3 col-md-2 producto">
-  <div class="titulo-producto">
-    <center> Producto </center>
-  </div>
-    <a href="#" class="thumbnail producto-img">
-      <img src="public/img/pp.jpg" alt="...">
-    </a>
-  </div>
-  <div class="col-xs-6 col-sm-3 col-md-2 producto">
-  <div class="titulo-producto">
-    <center> Producto </center>
-  </div>
-  
-    <a href="#" class="thumbnail producto-img">
-      <img src="public/img/pp.jpg" alt="...">
-    </a>
-  </div>
-  <div class="col-xs-6 col-sm-3 col-md-2 producto">
-  <div class="titulo-producto">
-    <center> Producto </center>
-  </div>
-    <a href="#" class="thumbnail producto-img">
-      <img src="public/img/pp.jpg" alt="...">
-    </a>
-  </div>
+<?php 
+
+for($i = 0; $i < 12; $i++): ?>
 
   <div class="col-xs-6 col-sm-3 col-md-2 producto">
   <div class="titulo-producto">
@@ -68,69 +38,21 @@
   </div>
     <a href="#" class="thumbnail producto-img">
       <img src="public/img/pp.jpg" alt="...">
-    </a>
-  </div>
-  
-  <div class="col-xs-6 col-sm-3 col-md-2 producto">
-  <div class="titulo-producto">
-    <center> Producto </center>
-  </div>
-    <a href="#" class="thumbnail producto-img">
-      <img src="public/img/pp.jpg" alt="...">
-    </a>
-  </div>
+      <?php if($i%2==0) {?>
+    <div><center> Disponible <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> </center></div>
 
-  <div class="col-xs-6 col-sm-3 col-md-2 producto">
-  <div class="titulo-producto">
-    <center> Producto </center>
-  </div>
-    <a href="#" class="thumbnail producto-img">
-      <img src="public/img/pp.jpg" alt="...">
-    </a>
-  </div>
-  <div class="col-xs-6 col-sm-3 col-md-2 producto">
-  <div class="titulo-producto">
-    <center> Producto </center>
-  </div>
-    <a href="#" class="thumbnail producto-img">
-      <img src="public/img/pp.jpg" alt="...">
-    </a>
-  </div>
-  <div class="col-xs-6 col-sm-3 col-md-2 producto">
-  <div class="titulo-producto">
-    <center> Producto </center>
-  </div>
-  
-    <a href="#" class="thumbnail producto-img">
-      <img src="public/img/pp.jpg" alt="...">
-    </a>
-  </div>
-  <div class="col-xs-6 col-sm-3 col-md-2 producto">
-  <div class="titulo-producto">
-    <center> Producto </center>
-  </div>
-    <a href="#" class="thumbnail producto-img">
-      <img src="public/img/pp.jpg" alt="...">
-    </a>
-  </div>
+    <?php } else{?>
 
-  <div class="col-xs-6 col-sm-3  col-md-2 producto">
-  <div class="titulo-producto">
-    <center> Producto </center>
-  </div>
-    <a href="#" class="thumbnail producto-img">
-      <img src="public/img/pp.jpg" alt="...">
+    <div class="nodisponible"><center> No disponible <span class="glyphicon glyphicon-remove"></span> </center></div> <?php } ?>
+    <center><div class="btn btn-default btn-xs detalles"> Detalles <span class="glyphicon glyphicon-list"></span> </div></center>
     </a>
+    
   </div>
   
-  <div class="col-xs-6 col-sm-3 col-md-2 producto">
-  <div class="titulo-producto">
-    <center> Producto </center>
-  </div>
-    <a href="#" class="thumbnail producto-img">
-      <img src="public/img/pp.jpg" alt="...">
-    </a>
-  </div>
+
+                            <?php  endfor; ?>
+  
+    
 </div>
 </div>
 

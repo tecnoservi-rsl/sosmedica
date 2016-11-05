@@ -87,15 +87,15 @@ background-color: #2B68C8;
 	margin-bottom: 10px;
 }
 #pie {
-	background-color: RGBA(201, 201, 201, 0.6);
-	height: 100px;
-	font-size: 12px;
+	background-color: RGB(239, 239, 239);
+	min-height: 200px;
+	font-size: 14px;
 	color: #000;
 	text-decoration: none rgb(73, 188, 188);
-	padding-top: 80px;
-	text-align: center;
+	padding-top: 50px;
 	border-color: #FFFFFF;
 }
+
 #mensaje {
 	margin-left: 20px;
 	color: rgba(255, 0, 0, 0.48);
@@ -136,3 +136,72 @@ min-height: 20px;
 -ms-box-shadow: 0px 0px 20px rgba(255,255,255,0.16); /* Opera */
 }
 
+
+.pie-pagina {
+	min-height: 100px;
+	padding-bottom: 25px;
+	color: #666;
+}
+
+.pie-pagina a {
+color: #666;
+}
+
+.pie-pagina a:focus, a:hover {
+	text-decoration: underline;
+}
+
+.pie1 {
+	border-right: 1px solid;
+	min-height: 150px;
+	border-color: #c5c5b9;
+	padding-left: 80px;
+}
+
+.pie2 {
+	border-right: 1px solid;
+	min-height: 150px;
+	border-color: #c5c5b9;
+
+}
+
+.derechos{
+
+	color: #666;
+}
+
+.derechos a{
+
+	color: #666;
+}
+
+.derechos a:hover{
+
+	color: #666;
+	text-decoration: underline;
+}
+
+
+@media (max-width: 768px) {
+  #pie {
+	background-color: RGB(239, 239, 239);
+	min-height: 200px;
+	font-size: 14px;
+	color: #000;
+	text-decoration: none rgb(73, 188, 188);
+	padding-top: 10px;
+	border-color: #FFFFFF;
+	}
+  .pie2 {
+	border-right: 1px solid;
+	min-height: 150px;
+	border-color: #c5c5b9;
+	padding-left: 80px;
+	text-align: center;
+	}
+  .pie-pagina {
+	min-height: 20px;
+	padding-bottom: 10px;
+	color: #666;
+	}
+}

@@ -20,3 +20,22 @@
 	border-top-left-radius: 0px !important;
 	border-top-right-radius: 0px !important;
 }
+
+.nodisponible {
+	color: red;
+}
+
+.detalles {
+	background-color: #337ab7;
+	color: #FFF;
+}
+
+.detalles:hover {
+	background-color: RGB(50, 132, 82);
+	color: #FFF;
+}
+
+.producto a:hover{
+
+	text-decoration: none;
+}
