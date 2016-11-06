@@ -44,7 +44,7 @@
 </head>
 
 <body id="page-top">
-<a href="#" class="scroll-top hidden-xs hidden-md"></a>
+<a href="#" class="scroll-top hidden-xs"></a>
 <div class="container-fluid"> <div class="col-md-12">&nbsp;</div><div class="col-md-12">&nbsp;</div><div class="col-md-12">&nbsp;</div> </div>
 <div class="container">
 <div class="row">

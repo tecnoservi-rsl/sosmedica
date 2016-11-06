@@ -17,26 +17,25 @@ for($i = 0; $i < count($this->productos); $i++): ?>
 </h3>
 
 <?php if($this->productos[$i]['producto']['presentacion']!=''){ ?>
-
-      <p class="product_desc">
-<b>Presentacion:</b> <?php  echo $this->productos[$i]['producto']['presentacion'] ;?></p>
+      <div class="product_desc">
+<b>PRESENTACION:</b> <?php  echo $this->productos[$i]['producto']['presentacion'] ;?></div>
     
     <?php    } ?>
 
-<div class="separador" style="display: inline;"> <b>Marca:</b> <?php  echo $this->productos[$i]['producto']['marca'] ;?></div><br> 
+<div class="separador" style="display: inline;"> <b>MARCA:</b> <?php  echo $this->productos[$i]['producto']['marca'] ;?></div><br> 
 
 <?php if(isset($this->productos[$i]['producto']['categoria'])){ ?>
 
-      <div class="separador"><b>Categoria:</b> <?php  echo $this->productos[$i]['producto']['categoria'] ;?></div>
+      <div class="separador"><b>CATEGORIA:</b> <?php  echo $this->productos[$i]['producto']['categoria'] ;?></div>
     
     <?php    }
    else{ ?>
-   	<div class="separador"><b>Modelo:</b> <?php  echo $this->productos[$i]['producto']['modelo'] ;?></div>
+   	<div class="separador"><b>MODELO:</b> <?php  echo $this->productos[$i]['producto']['modelo'] ;?></div>
   <?php }   
       ?> 
 
 
-<br> <div class=""><a href="#" class="btn btn-primary btn-sm disponiblidad"> Ver Disponibilidad </a></div>
+<br> <div class="disponible"> DISPONIBLE <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> &nbsp;&nbsp;  <a href="#" class="btn btn-primary btn-sm disponiblidad"> VER ALMACEN </a></div>
 </div>
 <div></div>
 </div>

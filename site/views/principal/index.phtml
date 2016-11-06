@@ -30,14 +30,33 @@
 
 <?php 
 
-for($i = 0; $i < 12; $i++): ?>
+function getSubString($string, $length=NULL)
+{
+    //Si no se especifica la longitud por defecto es 50
+    if ($length == NULL)
+        $length = 50;
+    //Primero eliminamos las etiquetas html y luego cortamos el string
+    $stringDisplay = substr(strip_tags($string), 0, $length);
+    //Si el texto es mayor que la longitud se agrega puntos suspensivos
+    if (strlen(strip_tags($string)) > $length)
+        $stringDisplay .= ' ...';
+    return $stringDisplay;
+}
+
+
+for($i = 0; $i < count($this->productos); $i++): 
+
+if(isset($this->productos)){
+  
+?>
 
   <div class="col-xs-6 col-sm-3 col-md-2 producto">
   <div class="titulo-producto">
-    <center> Producto </center>
+
+     <a href="#" class="titulo-product" title="<?php  echo $this->productos[$i]['producto']['nombre'] ;?>"><?php  echo getSubString($this->productos[$i]['producto']['nombre'], 15) ;?></a>
   </div>
     <a href="#" class="thumbnail producto-img">
-      <img src="public/img/pp.jpg" alt="...">
+      <img title="<?php  echo $this->productos[$i]['producto']['nombre'] ;?>" src="<?php  echo BASE_URL."public/img/publicaciones/".$this->productos[$i]['img'][0]['nombre'] ;?>" alt="<?php  echo $this->productos[$i]['producto']['nombre'] ;?>">
       <?php if($i%2==0) {?>
     <div><center> Disponible <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> </center></div>
 
@@ -48,9 +67,11 @@ for($i = 0; $i < 12; $i++): ?>
     </a>
     
   </div>
-  
+  <?php } else{ ?>
 
-                            <?php  endfor; ?>
+  <div class="col-md-12 busqueda"> No existen productos cargados en el sistema</div>
+
+                            <?php  } endfor; ?>
   
     
 </div>

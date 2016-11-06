@@ -17,7 +17,7 @@ right: 0;
 .botones-sociales #pinterest-btn .social,
 .botones-sociales #youtube-btn .social {
 background-color: #03355D;
-background-image: url(http://3.bp.blogspot.com/-opXRPqX4Ia4/UfFh1sDxJ1I/AAAAAAAAOps/Kl_mb2q-AZM/s1600/mas-icons.png);
+background-image: url(../img/mas-icons.png);
 }
 .izquierda #facebook-btn span {
 background-position: right 10px;

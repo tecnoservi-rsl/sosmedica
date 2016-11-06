@@ -29,6 +29,27 @@ $datos = $this->_db->query($sql);
         return $datos->fetchall();
 
 
+}
+
+public function buscar_productos(){
+
+  
+
+   	$sql = "SELECT distinct producto.* FROM producto order by id_producto DESC";
+     
+     $rs=$this->_db->query($sql);
+
+     return $rs->fetchall();
+
+}
+
+public function buscar_img_por_id($id){
+
+  	 $sql = "SELECT * FROM img_producto WHERE id_publicacion='$id'";
+     
+     $rs=$this->_db->query($sql);
+
+     return $rs->fetchall();
 
 }
 

@@ -5,14 +5,18 @@
 	border-top-right-radius: 5px;
 	background-color: #337ab7;
 	color: white;
-	font-size: 14px;
-	font-style: italic;
+	font-size: 13px;
 	font-family: initial;
 }
 .producto{
 	margin-top: 25px;
 
 
+}
+
+.item {
+	border: 1px solid !important;
+	border-color: #72bdf966 !important;
 }
 
 .producto-img{
@@ -38,4 +42,13 @@
 .producto a:hover{
 
 	text-decoration: none;
+}
+
+.titulo-product {
+	color: #FFF;
+}
+
+.titulo-product:hover{
+	color: #FFF !important;
+	text-decoration: underline !important;
 }
