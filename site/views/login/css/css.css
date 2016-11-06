@@ -1,7 +1,30 @@
-.form-control {
+.login-titulo {
+	color: #FFFFFF;
+	border-color: #FFFFFF;
+	font-size: 28px;
+	font-style: oblique;
+	font-family: initial;
+	margin-top: 10px;
+	text-align: center;
+	background-color: #3291DD;
+	border-radius: 5px;
 	margin-bottom: 10px;
 }
-.col-sm-4{
 
-	margin-top: 115px;
+.btn-login {
+	background-color: #0d5ab1 !important;
+	color: #FFF !important;
+}
+
+.btn-login:hover {
+	background-color: #06622C !important;
+	color: #FFF !important;
+}
+
+.pad{
+	padding-top: 10px;
+}
+
+#margin-form {
+	margin-bottom: 10px;
 }

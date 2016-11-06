@@ -14,7 +14,7 @@
                 <div class="col-xs-12 col-sm-4 col-md-4 pie2">
                      <h3>SOSMEDICA C.A</h3>
                     <p>Todos los derechos reservados © 2016  <br>
-                    SOSMEDICA, Compañia Anónima.  J-XXXXXXX-2 </p>
+                    SOSMEDICA, Compañia Anónima.  J-31060621-8 </p>
                    
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-4 hidden-xs  hidden-phone pie3">

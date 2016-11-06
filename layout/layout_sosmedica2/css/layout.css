@@ -52,7 +52,7 @@
 	background-color: rgba(255, 255, 255, 0);
 	color: #fff !important;
 	border-radius-left: 0px;
-}sss
+}
 
 .menu-sos {
 	background-color: rgb(2, 118, 190);
@@ -87,15 +87,14 @@ background-color: #2B68C8;
 	margin-bottom: 10px;
 }
 #pie {
-	background-color: RGBA(201, 201, 201, 0.6);
+	background-color: RGB(239, 239, 239);
 	/* height: 100px; */
-	font-size: 12px;
+	font-size: 14px;
 	color: #000;
 	text-decoration: none rgb(17, 225, 71);
 	padding-top: 22px;
-	text-align: center;
 	border-color: #FFFFFF;
-	padding-bottom: 40px;
+	padding-bottom: 20px;
 	font-style: italic;
 }
 
@@ -184,7 +183,28 @@ color: #666;
 	text-decoration: underline;
 }
 
+@media (min-width: 769px) and (max-width: 1024px) { 
+  
+  .logo {
+	padding-top: 10px;
+	height: 45px;
+	width: 145px;
+}
 
+.navbar-default .navbar-nav > li > a {
+	color: #FEFEFE;
+	font-size: 13px;
+}
+
+.nav > li > a {
+	position: relative;
+	display: block;
+	padding-top: 15px;
+	padding-left: 7px;
+	padding-right: 7px;
+}
+
+}
 @media (max-width: 768px) {
   #pie {
 	background-color: RGB(239, 239, 239);
@@ -204,4 +224,31 @@ color: #666;
 	padding-bottom: 10px;
 	color: #666;
 	}
+
+	.logo {
+	padding-top: 7px;
+	
+}
+
+.navbar-default .navbar-nav > li > a {
+	color: #FEFEFE;
+	font-size: 15px;
+}
+
+.nav > li > a {
+	position: relative;
+	display: block;
+	padding:10px 15px;
+}
+
+.buscar-header{
+
+	width: 80%;
+	margin-left: 10%;
+}
+
+.buscarboton {
+	width: 20%;
+	margin-left: 40%;
+}
 }

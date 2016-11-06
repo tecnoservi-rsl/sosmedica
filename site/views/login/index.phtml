@@ -1,19 +1,20 @@
-    
-      <div class="col-xs-12 col-sm-4  col-xs-offset-0 col-sm-offset-4 ">
-
-      <div class="header-titulos">INICIAR SESIÓN</div>   
+<div class="col-xs-10 col-sm-6 col-md-4 col-xs-offset-1 col-sm-offset-3 col-md-offset-4">
 
 
+	<div class="row">
+
+      <div class="login-titulo">Admin login</div>   
+
+	<div>
       <form class="" role="form" method="post" action="<?php echo BASE_URL?>login">
       <input type="hidden" value="1" name="enviar" />
       
-        <input type="text" name="usuario" value="<?php if(isset($this->datos)) echo $this->datos['usuario']; ?>" class="form-control" placeholder="USUARIO" required autofocus>
+        <input type="text" id="margin-form" name="usuario" value="<?php if(isset($this->datos)) echo $this->datos['usuario']; ?>" class="form-control" placeholder="USUARIO" required autofocus>
         <input type="password" name="pass" class="form-control" placeholder="CONTRASEÑA" required>
        
-        <button class="btn btn-lg btn-success btn-block" type="submit">INICIAR SESIÓN</button>
+        <div class="pad"><button class="btn btn-lg btn-default btn-block btn-login" type="submit">Entrar</button></div>
         
       </form>
-
-
-      </div>
-       
+	</div>
+	</div>
+</div>

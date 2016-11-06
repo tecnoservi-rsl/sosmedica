@@ -65,8 +65,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul id="menu" class="nav navbar-nav">
 
-                <li data-submenu-id="submenu-patas"> <a href="<?php echo BASE_URL?>">Inicio</a></li>
-                       
+                <li data-submenu-id="submenu-patas" class="hidden-xs hidden-sm hidden-phone hidden-tablet"> <a href="<?php echo BASE_URL?>">Inicio</a></li>     
             <li>
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                     Categorias
@@ -117,7 +116,7 @@
                     <ul  class="nav navbar-nav navbar-right">
                      <form class="navbar-form navbar-left" role="search">
                          <div class="form-group has-feedback">
-                        <input type="text" class="form-control" placeholder="Buscar"><button class="btn btnbuscar" id="buscar_inicio" type="button"><span class="glyphicon glyphicon-search -feedback"></span></button>
+                        <input type="text" class="form-control buscar-header" placeholder="Buscar"><button class="btn btnbuscar buscarboton" id="buscar_inicio" type="button"><span class="glyphicon glyphicon-search -feedback"></span></button>
                         </div>
                         </form>
                     <?php if (session::get('autenticado')): ?>
