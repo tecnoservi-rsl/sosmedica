@@ -42,7 +42,10 @@ class administrarController extends Controller
         }
         public function guardar_publicacion()
         {
+               
+            
                 $this->_pb->guardar_publicacion($_POST,$_FILES);
+               
                 $this->redireccionar('administrar/agregar');
         }
         public function guardar_equipo()
@@ -116,6 +119,7 @@ class administrarController extends Controller
                 $array =$this->_pb->buscar_producto_id($id);
                 $array['fotos']=$this->_pb->buscar_fotos_id($array['id_producto']);
                 $this->_view->producto = $array;
+                $this->_view->almacen=$this->_pb->almacen_all();
                 $this->_view->renderizar('update_producto');
         }
          public function update_equipo($id){
@@ -175,8 +179,9 @@ class administrarController extends Controller
         }
         public function editar_publicacion(){
 
+
                 $this->_pb->editar_publicacion($_POST,$_FILES);
-                $this->redireccionar('administrar/ges_producto');
+               // $this->redireccionar('administrar/ges_producto');
 
         }
         public function editar_equipo(){

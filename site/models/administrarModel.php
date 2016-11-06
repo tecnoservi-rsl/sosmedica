@@ -17,6 +17,21 @@ public function guardar_publicacion($datos,$fotos)
         $this->_db->query($sql);
 
         $id_publicacion=$this->_db->lastInsertId();
+
+        $rs_almacen=$this->almacen_all();
+
+      
+
+       for ($j=0; $j < count($rs_almacen) ; $j++) { 
+                 $sql="insert into producto_almacen values('',$id_publicacion,".$rs_almacen[$j]['id_almacen'].",'no disponible')";
+                $this->_db->query($sql);
+          }
+        for ($i=0; $i < count($datos['disponibilidad']) ; $i++) { 
+
+          $this->update_disponibilidad($id_publicacion,$datos['disponibilidad'][$i]);
+
+        }
+            
         for ($i=0; $i < count($fotos['foto']['name']) ; $i++) 
         { 
           $target_path = "public/img/publicaciones/";
@@ -146,8 +161,22 @@ public function editar_publicacion($datos,$fotos)
 {
     $sql="UPDATE `producto` SET `nombre` = '".$datos['nombre']."', `presentacion` = '".$datos['presentacion']."', `id_marca` = '".$datos['marca']."', `id_categoria` = '".$datos['categoria']."' WHERE `producto`.`id_producto` = ".$datos['id_producto']." ";
     $this->_db->query($sql);
-    print_r($fotos['foto']['name']);
-    echo count($fotos['foto']['name']);
+  
+       $rs_almacen=$this->almacen_all();
+       for ($j=0; $j < count($rs_almacen) ; $j++) { 
+               
+        $this->update_disponibilidad2($datos['id_producto'],$rs_almacen[$j]['id_almacen']);
+
+          }
+
+
+       for ($i=0; $i < count($datos['disponibilidad']) ; $i++) { 
+
+          $this->update_disponibilidad($datos['id_producto'],$datos['disponibilidad'][$i]);
+
+        }
+
+
     if ($fotos['foto']['name'][0]!="") {  
       for ($i=0; $i < count($fotos['foto']['name']) ; $i++) 
       { 
@@ -171,8 +200,12 @@ public function editar_equipo($datos,$fotos)
 {
     $sql="UPDATE `producto` SET `nombre` = '".$datos['nombre']."', `id_marca` = '".$datos['marca']."', `modelo` = '".$datos['modelo']."' WHERE `producto`.`id_producto` = ".$datos['id_producto']." ";
     $this->_db->query($sql);
-    print_r($fotos['foto']['name']);
-    echo count($fotos['foto']['name']);
+   
+
+
+
+
+
     if ($fotos['foto']['name'][0]!="") {  
       for ($i=0; $i < count($fotos['foto']['name']) ; $i++) 
       { 
@@ -212,12 +245,23 @@ public function eliminar_almacen($id)
 
 public function almacen_all()
 {
-    echo $sql = "SELECT * FROM almacen WHERE 1=1";    
+     $sql = "SELECT * FROM almacen WHERE 1=1";    
      $rs=$this->_db->query($sql);
      return $rs->fetchall();
 }
 
-
+public function update_disponibilidad($id_p,$id_al)
+{
+   echo $sql = "update producto_almacen set estatus='disponible' where id_producto=$id_p and id_almacen=$id_al";    
+     $this->_db->query($sql);
+  
+}
+public function update_disponibilidad2($id_p,$id_al)
+{
+   echo  $sql = "update producto_almacen set estatus='no disponible' where id_producto=$id_p and id_almacen=$id_al";    
+     $this->_db->query($sql);
+  
+}
 
 
 

@@ -10,7 +10,10 @@ $(document).ready(function(){
 	var id_producto=$("#id_producto").val();
 	var cant_fotos=$("#cantidad").val();
 	
-	
+	$('.disponibilidad').iphoneStyle({
+  checkedLabel: 'SI',
+  uncheckedLabel: 'NO'
+});
 
 
 
