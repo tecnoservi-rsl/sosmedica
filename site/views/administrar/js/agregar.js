@@ -9,6 +9,11 @@ $('#files').addClass('validate[required]');
 $('#form_agregar_producto').validationEngine();
 
 
+$('.disponibilidad').iphoneStyle({
+  checkedLabel: 'SI',
+  uncheckedLabel: 'NO'
+});
+
 //................................................................................................
 
 function archivo(input)

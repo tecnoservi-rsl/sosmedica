@@ -28,6 +28,7 @@ class administrarController extends Controller
                 $this->_view->titulo = 'Agregar Producto';
                 $modelo = $this->loadModel('_menu');
                 $this->_view->cama1 = $modelo->categorias_y_marcas1('PRODUCTO');
+                $this->_view->almacen=$this->_pb->almacen_all();
                 $this->_view->renderizar('agregar');
         }
          public function agregarequipo()

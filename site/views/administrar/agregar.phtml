@@ -1,94 +1,81 @@
 <div scroll="auto" class="col-xs-10 col-sm-10 col-md-10 col-lg-10  col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+        <div class="row">
+                <div class="col-md-6 col-md-offset-3" id="tituloo">Agregar Producto</div>
+                <div class="col-md-6 col-md-offset-3"> 
+                        <form id="form_agregar_producto" enctype="multipart/form-data" method="post" action=" <?php echo BASE_URL ?>administrar/guardar_publicacion" >
+                                <div class="form-group">
+                                        <label for="nombre">Nombre</label>
+                                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre Producto">
+                                </div>
+                                <div class="form-group">
+                                        <label for="presentacion">Presentacion</label>
+                                        <input type="text" class="form-control" id="presentacion" name="presentacion" placeholder="Presentacion">
+                                </div>
+                                <div class="form-group">
+                                        <div class="row">
+                                                <div class="col-md-12"> 
+                                                        <label for="nombre"> Categoria</label>
+                                                </div>
+                                                <div class="col-md-11">
+                                                        <select class="form-control" name="categoria" id="categoria">
+                                                                <option value="">--> Seleccione <--</option>
+                                                                <?php for($i = 0; $i < count($this->cama1['categorias']); $i++): ?>
+                                                                <option value="<?php  echo $this->cama1['categorias'][$i]['id_categoria']; ?>">
+                                                                        <?php  echo $this->cama1['categorias'][$i]['categoria'];?>
 
-<div class="row">
+                                                                </option>
+                                                                <?php endfor; ?>
+                                                        </select>
+                                                </div>
+                                                <div class="col-md-1 btn btn-default" id="agregar_categoria">
+                                                        <span class="glyphicon glyphicon-plus"></span>
+                                                </div>
+                                        </div>
+                                </div>
+                               
 
-<div class="col-md-6 col-md-offset-3" id="tituloo">Agregar Producto</div>
+                                <div class="form-group">
+                                        <div class="row">
+                                                <div class="col-md-12">
+                                                        <label for="nombre"> Marca</label>
+                                                </div>
+                                                <div class="col-md-11">
+                                                        <select class="form-control" name="marca" id="marca">
+                                                                <option value="">--> Seleccione <--</option>
+                                                                <?php for($i = 0; $i < count($this->cama1['marcas']); $i++): ?>
+                                                                <option value="<?php  echo $this->cama1['marcas'][$i]['id_marca']; ?>">
+                                                                        <?php  echo $this->cama1['marcas'][$i]['marca'];?>
+                                                                </option>
+                                                        <?php endfor; ?>
+                                                        </select>
+                                                </div>
+                                                <div class="col-md-1 btn btn-default" id="agregar_marca">
+                                                        <span class="glyphicon glyphicon-plus"></span>
+                                                </div>
+                                        </div>
+                                </div>
 
-<div class="col-md-6 col-md-offset-3"> 
+                                <?php for ($i=0; $i <count($this->almacen) ; $i++):?>
+                                         <div class="form-group">
+                                                <label for="presentacion">disponibilidad Almacen <?php echo $this->almacen[$i]['nombre'] ?></label>
+                                                <input type="checkbox" class="disponibilidad" id="">
+                                        </div>
+                                <?php endfor; ?>
+                                
 
-<form id="form_agregar_producto" enctype="multipart/form-data" method="post" action=" <?php echo BASE_URL ?>administrar/guardar_publicacion" >
-  <div class="form-group">
-    <label for="nombre">Nombre</label>
-    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre Producto">
-  </div>
-  <div class="form-group">
-    <label for="presentacion">Presentacion</label>
-    <input type="text" class="form-control" id="presentacion" name="presentacion" placeholder="Presentacion">
-  </div>
-
-  
-<div class="form-group">
-<div class="row">
-  
-
-<div class="col-md-12"> <label for="nombre"> Categoria</label> </div>
-
-<div class="col-md-11">
-  
-
-
- <select class="form-control" name="categoria" id="categoria">
- <option value="">--> Seleccione <--</option>
-
-    <?php for($i = 0; $i < count($this->cama1['categorias']); $i++): ?>
-                           
-    <option value="<?php  echo $this->cama1['categorias'][$i]['id_categoria']; ?>"><?php  echo $this->cama1['categorias'][$i]['categoria'];?></option>
-                     
-
-     <?php endfor; ?>
-
-</select>
-</div>
-<div class="col-md-1 btn btn-default" id="agregar_categoria"><span class="glyphicon glyphicon-plus"></span></div>
-</div>
-  </div>
-
-
-
-
-<div class="form-group">
-<div class="row">
-  
-
-<div class="col-md-12"> <label for="nombre"> Marca</label> </div>
-
-<div class="col-md-11">
-  
-
-
- <select class="form-control" name="marca" id="marca">
- <option value="">--> Seleccione <--</option>
-
-    <?php for($i = 0; $i < count($this->cama1['marcas']); $i++): ?>
-                           
-		<option value="<?php  echo $this->cama1['marcas'][$i]['id_marca']; ?>"><?php  echo $this->cama1['marcas'][$i]['marca'];?></option>
-                     
-
-     <?php endfor; ?>
-
-</select>
-</div>
-<div class="col-md-1 btn btn-default" id="agregar_marca"><span class="glyphicon glyphicon-plus"></span></div>
-</div>
-  </div>
-  <div class="form-group ">
-    <label class=" control-label">Fotos</label>
-    <input  type="file" class="form-control" multiple="multiple" id="files" name="foto[]">
-  </div>
-
-
-<div class="row">
-
-<div id="list" class="titulo-img">Previsualizacion</div>
-
-</div>
- <div>  <center> <button type="submit" class="btn btn-default">Guardar</button> </center>   </div>
-  
-</form>
-	
-</div>
-
-</div>
-
-
+                                <div class="form-group ">
+                                        <label class=" control-label">Fotos</label>
+                                        <input  type="file" class="form-control" multiple="multiple" id="files" name="foto[]">
+                                </div>
+                                <div class="row">
+                                        <div id="list" class="titulo-img">Previsualizacion</div>
+                                </div>
+                                <div>  
+                                        <center> 
+                                                <button type="submit" class="btn btn-default">Guardar</button>
+                                        </center>
+                                </div>
+                        </form>
+                </div>
+        </div>
 </div>
