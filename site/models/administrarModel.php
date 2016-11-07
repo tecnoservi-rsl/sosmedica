@@ -232,6 +232,12 @@ class administrarModel extends Model
             $rs=$this->_db->query($sql);
             return $rs->fetchall();
       }
+       public function almacen_for_produc($id)
+      {
+            $sql = "SELECT almacen.*,producto_almacen.estatus FROM almacen,producto_almacen,producto WHERE almacen.id_almacen=producto_almacen.id_almacen AND producto.id_producto=producto_almacen.id_producto AND producto.id_producto=$id";    
+            $rs=$this->_db->query($sql);
+            return $rs->fetchall();
+      }
 
       public function update_disponibilidad($id_p,$id_al)
       {

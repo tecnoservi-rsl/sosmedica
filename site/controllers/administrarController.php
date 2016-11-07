@@ -119,7 +119,7 @@ class administrarController extends Controller
                 $array =$this->_pb->buscar_producto_id($id);
                 $array['fotos']=$this->_pb->buscar_fotos_id($array['id_producto']);
                 $this->_view->producto = $array;
-                $this->_view->almacen=$this->_pb->almacen_all();
+                $this->_view->almacen=$this->_pb->almacen_for_produc($id);
                 $this->_view->renderizar('update_producto');
         }
          public function update_equipo($id){
@@ -131,7 +131,7 @@ class administrarController extends Controller
                 $array =$this->_pb->buscar_producto_id($id);
                 $array['fotos']=$this->_pb->buscar_fotos_id($array['id_producto']);
                 $this->_view->producto = $array;
-                $this->_view->almacen=$this->_pb->almacen_all();
+                $this->_view->almacen=$this->_pb->almacen_for_produc($id);
                 $this->_view->renderizar('update_equipo');
         }
         public function update_almacen($id){

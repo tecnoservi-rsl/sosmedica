@@ -109,10 +109,10 @@
             </div>
 
  <?php for ($i=0; $i <count($this->almacen) ; $i++):?>
-                                         <div class="form-group">
-                                                <label for="presentacion">disponibilidad Almacen <?php echo $this->almacen[$i]['nombre'] ?></label>
-                                                <input type="checkbox" class="disponibilidad" value="<?php echo $this->almacen[$i]['id_almacen'] ?>" id="disponibilidad" name="disponibilidad[]">
-                                        </div>
+       <div class="form-group">
+              <label for="presentacion">disponibilidad Almacen <?php echo $this->almacen[$i]['nombre'] ?></label>
+              <input type="checkbox" <?php echo $retVal = ($this->almacen[$i]['estatus']=='disponible') ? 'checked' : "" ; ?> class="disponibilidad" value="<?php echo $this->almacen[$i]['id_almacen'] ?>" id="disponibilidad" name="disponibilidad[]">
+      </div>
             <?php endfor; ?>
 
 
