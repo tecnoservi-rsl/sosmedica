@@ -11,7 +11,10 @@ $(document).ready(function(){
 	
 	
 
-
+$('.disponibilidad').iphoneStyle({
+  checkedLabel: 'SI',
+  uncheckedLabel: 'NO'
+});
 
 
 
