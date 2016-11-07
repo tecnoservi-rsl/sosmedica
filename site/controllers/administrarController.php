@@ -181,7 +181,7 @@ class administrarController extends Controller
 
 
                 $this->_pb->editar_publicacion($_POST,$_FILES);
-               // $this->redireccionar('administrar/ges_producto');
+                $this->redireccionar('administrar/ges_producto');
 
         }
         public function editar_equipo(){
