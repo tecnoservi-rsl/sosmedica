@@ -38,6 +38,7 @@ class administrarController extends Controller
                 $this->_view->titulo = 'Agregar Equipo';
                 $modelo = $this->loadModel('_menu');
                 $this->_view->cama1 = $modelo->categorias_y_marcas1('EQUIPO');
+                $this->_view->almacen=$this->_pb->almacen_all();
                 $this->_view->renderizar('agregarequipo');
         }
         public function guardar_publicacion()
@@ -115,7 +116,6 @@ class administrarController extends Controller
                 $this->_view->titulo = 'actualizar producto';
                 $modelo = $this->loadModel('_menu');
                 $this->_view->cama1 = $modelo->categorias_y_marcas1('PRODUCTO');
-                
                 $array =$this->_pb->buscar_producto_id($id);
                 $array['fotos']=$this->_pb->buscar_fotos_id($array['id_producto']);
                 $this->_view->producto = $array;
@@ -131,6 +131,7 @@ class administrarController extends Controller
                 $array =$this->_pb->buscar_producto_id($id);
                 $array['fotos']=$this->_pb->buscar_fotos_id($array['id_producto']);
                 $this->_view->producto = $array;
+                $this->_view->almacen=$this->_pb->almacen_all();
                 $this->_view->renderizar('update_equipo');
         }
         public function update_almacen($id){

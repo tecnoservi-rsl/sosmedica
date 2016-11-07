@@ -8,7 +8,10 @@ $(document).ready(function(){
         $('#files').addClass('validate[required]');
         $('#form_agregar_equipo').validationEngine();
 
-
+$('.disponibilidad').iphoneStyle({
+  checkedLabel: 'SI',
+  uncheckedLabel: 'NO'
+});
 //................................................................................................
 
         function archivo(input)

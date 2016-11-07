@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 20-10-2016 a las 07:15:28
+-- Tiempo de generación: 07-11-2016 a las 00:39:37
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.5.37
 
@@ -39,7 +39,8 @@ CREATE TABLE `almacen` (
 --
 
 INSERT INTO `almacen` (`id_almacen`, `nombre`, `direccion`, `telefono`, `horario`) VALUES
-(7, 'SOS MEDICA PRUEBA', 'SOS MEDICA PRUEBA', 'SOS MEDICA PRUEBA', 'SOS MEDICA PRUEBA');
+(1, 'somedica cumana', 'cumana estado sucre calle arismedi nro 35', '02934516886', 'de 7 am a 0 am y de 2 pm a 6 pm'),
+(2, 'sosmedica valencia', 'valencia calle monagas edifico 45 piso 6 local 43', '02934511668', 'de 7 am a 0 am y de 2 pm a 6 pm');
 
 -- --------------------------------------------------------
 
@@ -129,7 +130,9 @@ INSERT INTO `marca` (`id_marca`, `marca`, `tipo`) VALUES
 (32, 'CAVEX', 'PRODUCTO'),
 (33, 'DEROYAL', 'PRODUCTO'),
 (34, 'DESCART', 'PRODUCTO'),
-(35, 'DETEXA', 'PRODUCTO');
+(35, 'DETEXA', 'PRODUCTO'),
+(37, ' prueva marca', 'EQUIPO'),
+(38, ' xxx', 'EQUIPO');
 
 -- --------------------------------------------------------
 
@@ -193,10 +196,10 @@ CREATE TABLE `producto` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `producto-almacen`
+-- Estructura de tabla para la tabla `producto_almacen`
 --
 
-CREATE TABLE `producto-almacen` (
+CREATE TABLE `producto_almacen` (
   `id` int(11) NOT NULL,
   `id_producto` int(11) NOT NULL,
   `id_almacen` int(11) NOT NULL,
@@ -296,9 +299,9 @@ ALTER TABLE `producto`
   ADD KEY `id_categoria` (`id_categoria`);
 
 --
--- Indices de la tabla `producto-almacen`
+-- Indices de la tabla `producto_almacen`
 --
-ALTER TABLE `producto-almacen`
+ALTER TABLE `producto_almacen`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_almacen` (`id_almacen`),
   ADD KEY `id_producto` (`id_producto`);
@@ -327,22 +330,22 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `almacen`
 --
 ALTER TABLE `almacen`
-  MODIFY `id_almacen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_almacen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 --
 -- AUTO_INCREMENT de la tabla `img_producto`
 --
 ALTER TABLE `img_producto`
-  MODIFY `id_img_producto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_img_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `marca`
 --
 ALTER TABLE `marca`
-  MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 --
 -- AUTO_INCREMENT de la tabla `menu`
 --
@@ -357,22 +360,22 @@ ALTER TABLE `permisos`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT de la tabla `producto-almacen`
+-- AUTO_INCREMENT de la tabla `producto_almacen`
 --
-ALTER TABLE `producto-almacen`
+ALTER TABLE `producto_almacen`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `role`
 --
 ALTER TABLE `role`
-  MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Restricciones para tablas volcadas
 --
@@ -398,11 +401,11 @@ ALTER TABLE `producto`
   ADD CONSTRAINT `producto_ibfk_3` FOREIGN KEY (`id_marca`) REFERENCES `marca` (`id_marca`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Filtros para la tabla `producto-almacen`
+-- Filtros para la tabla `producto_almacen`
 --
-ALTER TABLE `producto-almacen`
-  ADD CONSTRAINT `producto-almacen_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id_producto`),
-  ADD CONSTRAINT `producto-almacen_ibfk_2` FOREIGN KEY (`id_almacen`) REFERENCES `almacen` (`id_almacen`);
+ALTER TABLE `producto_almacen`
+  ADD CONSTRAINT `producto_almacen_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id_producto`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `producto_almacen_ibfk_2` FOREIGN KEY (`id_almacen`) REFERENCES `almacen` (`id_almacen`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `usuario`

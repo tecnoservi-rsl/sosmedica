@@ -20,8 +20,6 @@ public function guardar_publicacion($datos,$fotos)
 
         $rs_almacen=$this->almacen_all();
 
-      
-
        for ($j=0; $j < count($rs_almacen) ; $j++) { 
                  $sql="insert into producto_almacen values('',$id_publicacion,".$rs_almacen[$j]['id_almacen'].",'no disponible')";
                 $this->_db->query($sql);
@@ -50,14 +48,18 @@ public function guardar_equipo($datos,$fotos)
 {
 
       echo  $sql="insert into producto values ('','".$datos['nombre']."',NULL,'".$datos['modelo']."','".$datos['marca']."',NULL,'EQUIPO_MEDICO')";
+      $this->_db->query($sql);
+      $id_publicacion=$this->_db->lastInsertId();
+      $rs_almacen=$this->almacen_all();
+      for ($j=0; $j < count($rs_almacen) ; $j++) { 
+        $sql="insert into producto_almacen values('',$id_publicacion,".$rs_almacen[$j]['id_almacen'].",'no disponible')";
         $this->_db->query($sql);
-
-        $id_publicacion=$this->_db->lastInsertId();
-
-
-   
-        for ($i=0; $i < count($fotos['foto']['name']) ; $i++)
-        { 
+      }
+      for ($i=0; $i < count($datos['disponibilidad']) ; $i++) { 
+        $this->update_disponibilidad($id_publicacion,$datos['disponibilidad'][$i]);
+      }
+      for ($i=0; $i < count($fotos['foto']['name']) ; $i++)
+      { 
           $target_path = "public/img/publicaciones/";
           $nombre=uniqid('sosmedica').$fotos['foto']['name'][$i];
           $target_path = $target_path .$nombre;
@@ -68,7 +70,7 @@ public function guardar_equipo($datos,$fotos)
           $obj_img->load($target_path);
           $obj_img->resize(300,300);
           $obj_img->save($target_path);
-        }
+      }
 }
 
 public function guardar_categoria($valor)
@@ -159,71 +161,65 @@ public function eliminar_foto($id)
 }
 public function editar_publicacion($datos,$fotos)
 {
-    $sql="UPDATE `producto` SET `nombre` = '".$datos['nombre']."', `presentacion` = '".$datos['presentacion']."', `id_marca` = '".$datos['marca']."', `id_categoria` = '".$datos['categoria']."' WHERE `producto`.`id_producto` = ".$datos['id_producto']." ";
-    $this->_db->query($sql);
-  
-       $rs_almacen=$this->almacen_all();
-       for ($j=0; $j < count($rs_almacen) ; $j++) { 
-               
-        $this->update_disponibilidad2($datos['id_producto'],$rs_almacen[$j]['id_almacen']);
-
-          }
-
-
-       for ($i=0; $i < count($datos['disponibilidad']) ; $i++) { 
-
-          $this->update_disponibilidad($datos['id_producto'],$datos['disponibilidad'][$i]);
-
-        }
-
-
-    if ($fotos['foto']['name'][0]!="") {  
-      for ($i=0; $i < count($fotos['foto']['name']) ; $i++) 
+      $sql="UPDATE `producto` SET `nombre` = '".$datos['nombre']."', `presentacion` = '".$datos['presentacion']."', `id_marca` = '".$datos['marca']."', `id_categoria` = '".$datos['categoria']."' WHERE `producto`.`id_producto` = ".$datos['id_producto']." ";
+      $this->_db->query($sql);
+      $rs_almacen=$this->almacen_all();
+      for ($j=0; $j < count($rs_almacen) ; $j++)
       { 
-            echo "entro"; 
-            $target_path = "public/img/publicaciones/";
-            $nombre='nueva'.uniqid('sosmedica').$fotos['foto']['name'][$i];
-            $target_path = $target_path .$nombre;
-            $sql="insert into img_producto values ('','".$datos['id_producto']."','".$nombre."')";
-            $this->_db->query($sql);
-            move_uploaded_file($fotos['foto']['tmp_name'][$i], $target_path); 
-            $obj_img = new SimpleImage();
-            $obj_img->load($target_path);
-            $obj_img->resize(300,300);
-            $obj_img->save($target_path);
-
-
+            $this->update_disponibilidad2($datos['id_producto'],$rs_almacen[$j]['id_almacen']);
       }
-    }
+      for ($i=0; $i < count($datos['disponibilidad']) ; $i++)
+      { 
+            $this->update_disponibilidad($datos['id_producto'],$datos['disponibilidad'][$i]);
+      }
+      if ($fotos['foto']['name'][0]!="")
+      {  
+            for ($i=0; $i < count($fotos['foto']['name']) ; $i++) 
+            { 
+                  echo "entro"; 
+                  $target_path = "public/img/publicaciones/";
+                  $nombre='nueva'.uniqid('sosmedica').$fotos['foto']['name'][$i];
+                  $target_path = $target_path .$nombre;
+                  $sql="insert into img_producto values ('','".$datos['id_producto']."','".$nombre."')";
+                  $this->_db->query($sql);
+                  move_uploaded_file($fotos['foto']['tmp_name'][$i], $target_path); 
+                  $obj_img = new SimpleImage();
+                  $obj_img->load($target_path);
+                  $obj_img->resize(300,300);
+                  $obj_img->save($target_path);
+            }
+      }
 }
 public function editar_equipo($datos,$fotos)
 {
-    $sql="UPDATE `producto` SET `nombre` = '".$datos['nombre']."', `id_marca` = '".$datos['marca']."', `modelo` = '".$datos['modelo']."' WHERE `producto`.`id_producto` = ".$datos['id_producto']." ";
-    $this->_db->query($sql);
-   
-
-
-
-
-
-    if ($fotos['foto']['name'][0]!="") {  
-      for ($i=0; $i < count($fotos['foto']['name']) ; $i++) 
+      $sql="UPDATE `producto` SET `nombre` = '".$datos['nombre']."', `id_marca` = '".$datos['marca']."', `modelo` = '".$datos['modelo']."' WHERE `producto`.`id_producto` = ".$datos['id_producto']." ";
+      $this->_db->query($sql);
+      $rs_almacen=$this->almacen_all();
+      for ($j=0; $j < count($rs_almacen) ; $j++)
       { 
-            echo "entro"; 
-            $target_path = "public/img/publicaciones/";
-            $nombre='nueva'.uniqid('sosmedica').$fotos['foto']['name'][$i];
-            $target_path = $target_path .$nombre;
-            $sql="insert into img_producto values ('','".$datos['id_producto']."','".$nombre."')";
-            $this->_db->query($sql);
-            move_uploaded_file($fotos['foto']['tmp_name'][$i], $target_path); 
-            $obj_img = new SimpleImage();
-            $obj_img->load($target_path);
-            $obj_img->resize(300,300);
-            $obj_img->save($target_path);
-
-
+            $this->update_disponibilidad2($datos['id_producto'],$rs_almacen[$j]['id_almacen']);
       }
-    }
+      for ($i=0; $i < count($datos['disponibilidad']) ; $i++)
+      { 
+            $this->update_disponibilidad($datos['id_producto'],$datos['disponibilidad'][$i]);
+      }
+      if ($fotos['foto']['name'][0]!="")
+      {  
+            for ($i=0; $i < count($fotos['foto']['name']) ; $i++) 
+            { 
+                  echo "entro"; 
+                  $target_path = "public/img/publicaciones/";
+                  $nombre='nueva'.uniqid('sosmedica').$fotos['foto']['name'][$i];
+                  $target_path = $target_path .$nombre;
+                  $sql="insert into img_producto values ('','".$datos['id_producto']."','".$nombre."')";
+                  $this->_db->query($sql);
+                  move_uploaded_file($fotos['foto']['tmp_name'][$i], $target_path); 
+                  $obj_img = new SimpleImage();
+                  $obj_img->load($target_path);
+                  $obj_img->resize(300,300);
+                  $obj_img->save($target_path);
+            }
+      }
 }
 public function editar_almacen($datos)
 {

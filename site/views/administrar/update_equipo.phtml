@@ -108,7 +108,12 @@
             <input type="text" value="<?php echo $this->producto['modelo'] ?>" class="form-control" id="modelo" name="modelo" placeholder="modelo del producto">
             </div>
 
-
+ <?php for ($i=0; $i <count($this->almacen) ; $i++):?>
+                                         <div class="form-group">
+                                                <label for="presentacion">disponibilidad Almacen <?php echo $this->almacen[$i]['nombre'] ?></label>
+                                                <input type="checkbox" class="disponibilidad" value="<?php echo $this->almacen[$i]['id_almacen'] ?>" id="disponibilidad" name="disponibilidad[]">
+                                        </div>
+            <?php endfor; ?>
 
 
           <div class="form-group ">
