@@ -12,6 +12,7 @@ class administrarController extends Controller
                 parent::__construct();
                 $this->getLibrary('simpleimage');
                 $this->_pb = $this->loadModel('administrar');
+                Session::acceso(1);
         }
 
         public function index()
@@ -166,7 +167,7 @@ class administrarController extends Controller
                 echo json_encode($modelo->categorias_y_marcas1('PRODUCTO'));  
         }
         public function eliminar_marca(){
-                $this->_pb->eliminar_marca($_POST['valor']);
+                $this->_pb->eliminar_marca($_REQUEST['valor']);
                 $modelo = $this->loadModel('_menu');
                 echo json_encode($modelo->categorias_y_marcas1('PRODUCTO'));  
         }

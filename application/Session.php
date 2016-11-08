@@ -41,19 +41,14 @@ class Session
             return $_SESSION[$clave];
     }
     
-    public static function acceso($level)
+    public static function acceso($level = false)
     {
         if(!Session::get('autenticado')){
             header('location:' . BASE_URL . 'error/access/5050');
             exit;
         }
         
-        Session::tiempo();
-        
-        if(Session::getLevel($level) > Session::getLevel(Session::get('level'))){
-            header('location:' . BASE_URL . 'error/access/5050');
-            exit;
-        }
+      
     }
     
     public static function accesoView($level)
@@ -71,9 +66,9 @@ class Session
     
     public static function getLevel($level)
     {
-        $role['Super Usuario'] = 3;
+        $role['Super Usuario'] = 1;
         $role['especial'] = 2;
-        $role['usuario'] = 1;
+        $role['usuario'] = 3;
         
         if(!array_key_exists($level, $role)){
             throw new Exception('Error de acceso');

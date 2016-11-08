@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 07-11-2016 a las 00:39:37
+-- Tiempo de generación: 08-11-2016 a las 23:39:39
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.5.37
 
@@ -33,14 +33,6 @@ CREATE TABLE `almacen` (
   `telefono` varchar(200) COLLATE utf8_bin NOT NULL,
   `horario` varchar(500) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- Volcado de datos para la tabla `almacen`
---
-
-INSERT INTO `almacen` (`id_almacen`, `nombre`, `direccion`, `telefono`, `horario`) VALUES
-(1, 'somedica cumana', 'cumana estado sucre calle arismedi nro 35', '02934516886', 'de 7 am a 0 am y de 2 pm a 6 pm'),
-(2, 'sosmedica valencia', 'valencia calle monagas edifico 45 piso 6 local 43', '02934511668', 'de 7 am a 0 am y de 2 pm a 6 pm');
 
 -- --------------------------------------------------------
 
@@ -79,9 +71,7 @@ INSERT INTO `categoria` (`id_categoria`, `categoria`) VALUES
 (37, 'Set de Infusion'),
 (38, 'Sondas'),
 (39, 'Suturas'),
-(40, 'Varios Material Medico'),
-(41, 'Vendas'),
-(42, 'Instrumental Quirurgico');
+(40, 'Varios Material Medico');
 
 -- --------------------------------------------------------
 
@@ -129,10 +119,7 @@ INSERT INTO `marca` (`id_marca`, `marca`, `tipo`) VALUES
 (31, 'COLIN', 'PRODUCTO'),
 (32, 'CAVEX', 'PRODUCTO'),
 (33, 'DEROYAL', 'PRODUCTO'),
-(34, 'DESCART', 'PRODUCTO'),
-(35, 'DETEXA', 'PRODUCTO'),
-(37, ' prueva marca', 'EQUIPO'),
-(38, ' xxx', 'EQUIPO');
+(34, 'DESCART', 'PRODUCTO');
 
 -- --------------------------------------------------------
 
@@ -188,7 +175,7 @@ CREATE TABLE `producto` (
   `nombre` varchar(500) COLLATE utf8_bin NOT NULL,
   `presentacion` varchar(300) COLLATE utf8_bin DEFAULT NULL,
   `modelo` varchar(300) COLLATE utf8_bin DEFAULT NULL,
-  `id_marca` int(11) NOT NULL,
+  `id_marca` int(11) DEFAULT NULL,
   `id_categoria` int(11) DEFAULT NULL,
   `tipo` varchar(200) COLLATE utf8_bin DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -340,12 +327,12 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `img_producto`
 --
 ALTER TABLE `img_producto`
-  MODIFY `id_img_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_img_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT de la tabla `marca`
 --
 ALTER TABLE `marca`
-  MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 --
 -- AUTO_INCREMENT de la tabla `menu`
 --
@@ -360,12 +347,12 @@ ALTER TABLE `permisos`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT de la tabla `producto_almacen`
 --
 ALTER TABLE `producto_almacen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT de la tabla `role`
 --
@@ -398,7 +385,7 @@ ALTER TABLE `permisos`
 --
 ALTER TABLE `producto`
   ADD CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id_categoria`) ON DELETE SET NULL ON UPDATE SET NULL,
-  ADD CONSTRAINT `producto_ibfk_3` FOREIGN KEY (`id_marca`) REFERENCES `marca` (`id_marca`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `producto_ibfk_3` FOREIGN KEY (`id_marca`) REFERENCES `marca` (`id_marca`) ON DELETE SET NULL ON UPDATE SET NULL;
 
 --
 -- Filtros para la tabla `producto_almacen`
