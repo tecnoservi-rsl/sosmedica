@@ -52,10 +52,9 @@ if(isset($this->productos)){
 
   <div class="col-xs-6 col-sm-3 col-md-2 producto">
   <div class="titulo-producto">
-
-     <a href="#" class="titulo-product" title="<?php  echo $this->productos[$i]['producto']['nombre'] ;?>"><?php  echo getSubString($this->productos[$i]['producto']['nombre'], 15) ;?></a>
+     <a href="<?php  echo BASE_URL."product/view_product/".$this->productos[$i]['producto']['id_producto'];?>" class="titulo-product" title="<?php  echo $this->productos[$i]['producto']['nombre'] ;?>"><?php  echo getSubString($this->productos[$i]['producto']['nombre'], 15) ;?></a>
   </div>
-    <a href="#" class="thumbnail producto-img">
+    <a href="<?php  echo BASE_URL."product/view_product/".$this->productos[$i]['producto']['id_producto'];?>" class="thumbnail producto-img">
       <img title="<?php  echo $this->productos[$i]['producto']['nombre'] ;?>" src="<?php  echo BASE_URL."public/img/publicaciones/".$this->productos[$i]['img'][0]['nombre'] ;?>" alt="<?php  echo $this->productos[$i]['producto']['nombre'] ;?>">
       <?php if($i%2==0) {?>
     <div><center> Disponible <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> </center></div>

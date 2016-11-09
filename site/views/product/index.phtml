@@ -12,13 +12,13 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <div class="item active">
-      <img src="<?php echo BASE_URL; ?>public/img/pp.jpg" alt="...">
+      <img src="<?php  echo BASE_URL."public/img/publicaciones/".$this->mostrar['img'][0]['nombre'] ;?>" alt="...">
       <div class="carousel-caption">
         ...
       </div>
     </div>
     <div class="item">
-      <img src="<?php echo BASE_URL; ?>public/img/pp.jpg" alt="...">
+      <img src="<?php  echo BASE_URL."public/img/publicaciones/".$this->mostrar['img'][0]['nombre'] ;?>" alt="...">
       <div class="carousel-caption">
         ...
       </div>
@@ -42,23 +42,23 @@
 	
 	<div class="col-xs-7 col-sm-8 col-md-8">
 <h3>
-<a class="product-name" href="#" title=""> NOMBRE PRODUCTO </a>
+<a class="product-name" href="#" title=""> <?php echo $this->mostrar['producto'][0]['nombre'] ;?> </a>
 </h3>
 
 
       <div class="product_desc">
-<b>PRESENTACION:</b> Presentacion del producto</div>
+<b>PRESENTACION:</b> <?php  echo $this->mostrar['producto'][0]['presentacion'] ;?></div>
     
 
 
-<div class="separador" style="display: inline;"> <b>MARCA:</b> Marca del producto</div><br> 
+<div class="separador" style="display: inline;"> <b>MARCA:</b> <?php  echo $this->mostrar['producto'][0]['marca'] ;?></div><br> 
 
 
 
-      <div class="separador"><b>CATEGORIA:</b> Categoria del producto </div>
+      <div class="separador"><b>CATEGORIA:</b> <?php  echo $this->mostrar['producto'][0]['categoria'] ;?></div>
     
    
-   	<div class="separador"><b>MODELO:</b> Modelo del producto </div>
+   	<div class="separador"><b>MODELO:</b><?php  echo $this->mostrar['producto'][0]['modelo'] ;?></div>
   
 
 
@@ -178,9 +178,9 @@ if(isset($this->productos)){
   <div class="col-xs-6 col-sm-3 col-md-2 producto">
   <div class="titulo-producto">
 
-     <a href="#" class="titulo-product" title="<?php  echo $this->productos[$i]['producto']['nombre'] ;?>"> <b><?php  echo getSubString($this->productos[$i]['producto']['nombre'], 13) ;?> </b></a>
+     <a href="<?php  echo BASE_URL."product/view_product/".$this->productos[$i]['producto']['id_producto'];?>" class="titulo-product" title="<?php  echo $this->productos[$i]['producto']['nombre'] ;?>"> <b><?php  echo getSubString($this->productos[$i]['producto']['nombre'], 13) ;?> </b></a>
   </div>
-    <a href="#" class="thumbnail producto-img">
+    <a href="<?php  echo BASE_URL."product/view_product/".$this->productos[$i]['producto']['id_producto'];?>" class="thumbnail producto-img">
       <img title="<?php  echo $this->productos[$i]['producto']['nombre'] ;?>" src="<?php  echo BASE_URL."public/img/publicaciones/".$this->productos[$i]['img'][0]['nombre'] ;?>" alt="<?php  echo $this->productos[$i]['producto']['nombre'] ;?>">
       <?php if($i%2==0) {?>
     <div><center> Disponible <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> </center></div>

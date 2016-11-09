@@ -37,22 +37,40 @@ class productController extends Controller
 			
 	}
 
-public function search_product($valor)
+public function view_product($valor)
 {
     $this->_view->titulo = 'SOS MEDICA';
-    $xx=array();
-    $productos=$this->_index->buscar_producto($valor);
+
+     $xx=array();
+    $productos=$this->_principal->buscar_productos();
     for ($i=0; $i < count($productos); $i++) 
     { 
         $xx[$i] = array 
         (
         "producto" => $productos[$i],
-        "img"      => $this->_index->buscar_img_por_id($productos[$i]["id_producto"])
+        "img"      => $this->_principal->buscar_img_por_id($productos[$i]["id_producto"])
         );
     }
-    $this->_view->productos= $xx;
-    $this->_view->setJs(array('index'));
-    $this->_view->setCss(array('css'));
+
+         $array = array();
+       
+            $this->_view->productos= $xx; 
+
+
+
+    $view=array();
+    $mostrar=$this->_index->mostrar_producto($valor);
+     
+    $view = array 
+        (
+        "producto" => $mostrar,
+        "img"      => $this->_index->buscar_img_por_id($valor)
+        );
+    
+    $this->_view->mostrar= $view;
+
+    $this->_view->setJs(array('index','rrssb.min'));
+    $this->_view->setCss(array('css','rrssb'));        
     $this->_view->renderizar('index');
 }
 	
