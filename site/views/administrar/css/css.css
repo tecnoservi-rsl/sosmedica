@@ -62,6 +62,9 @@
 	color: RGB(2, 80, 33);
 	/* font-size: 33px; */
 }
+#opt_.especial {
+	margin-left: 33%;
+}
 @media (max-width: 800px) {
 
 #collace_opt {

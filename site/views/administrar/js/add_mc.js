@@ -140,7 +140,7 @@ alertify.prompt("Inserte el nombre de la marca", function (e, str) {
 $(document).on("click","#eliminar_categoria",function(){
 
 var id=$("#categoria").val();
-alert(id);
+
 
    alertify.confirm("¿Desea realmente eliminar esta Categoria?", function (e) {
                if (e) {

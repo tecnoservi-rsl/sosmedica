@@ -23,7 +23,7 @@ class errorController extends Controller
     private function _getError($codigo = false)
     {
         if($codigo){
-            $codigo = $this->filtrarInt($codigo);
+
             if(is_int($codigo))
                 $codigo = $codigo;
         }

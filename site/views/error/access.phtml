@@ -3,10 +3,10 @@
 <p>&nbsp;</p>
 
 <a href="<?php echo BASE_URL; ?>">IR AL INICIO</a> | 
-<a href="javascript:history.back(1)">VOLVER A LA P&AACUTE;GINA ANTERIOR</a>
+<a href="javascript:history.back(1)">VOLVER A LA PAGINA ANTERIOR</a>
 
 <?php if(!Session::get('autenticado')): ?>
 
-| <a href="<?php echo BASE_URL . '../pdp/error/login'; ?>">INICIAR SESI&OACUTE;N</a>
+| <a href="<?php echo BASE_URL.'/login'; ?>">INICIAR SESION</a>
 
 <?php endif; ?>
