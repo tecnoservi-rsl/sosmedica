@@ -19,7 +19,7 @@ $tipo=$xx->fetch();
 
 if($tipo['tipo'] == 'PRODUCTO'){
 
-    echo $sql = "Select producto.*, marca.marca, categoria.categoria from producto, marca, categoria where producto.id_marca=marca.id_marca and producto.id_categoria=categoria.id_categoria and producto.id_producto='$id'";
+    $sql = "Select producto.*, marca.marca, categoria.categoria from producto, marca, categoria where producto.id_marca=marca.id_marca and producto.id_categoria=categoria.id_categoria and producto.id_producto='$id'";
      
      $rs=$this->_db->query($sql);
 
@@ -27,7 +27,7 @@ if($tipo['tipo'] == 'PRODUCTO'){
 }
 else{
 
-   echo $sql = "SELECT producto.*,marca.marca FROM producto,marca WHERE \n"
+   $sql = "SELECT producto.*,marca.marca FROM producto,marca WHERE \n"
     . "producto.id_marca=marca.id_marca AND\n"
     . "producto.id_producto=$id";
      

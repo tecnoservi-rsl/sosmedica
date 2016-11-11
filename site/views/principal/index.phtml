@@ -14,8 +14,6 @@
                 <div class="item"><img src="layout/layout_sosmedica/img/carrusel1.png" alt="SOS MEDICA"></div>
                 <div class="item"><img src="layout/layout_sosmedica/img/carrusel3.png" alt="SOS MEDICA"></div>
                 <div class="item"><img src="layout/layout_sosmedica/img/carrusel2.png" alt="SOS MEDICA"></div>
-                <div class="item"><img src="layout/layout_sosmedica/img/carrusel1.png" alt="SOS MEDICA"></div>
-
               </div>
             </div>
           </div>
@@ -52,7 +50,7 @@ if(isset($this->productos)){
 
   <div class="col-xs-6 col-sm-3 col-md-2 producto">
   <div class="titulo-producto">
-     <a href="<?php  echo BASE_URL."product/view_product/".$this->productos[$i]['producto']['id_producto'];?>" class="titulo-product" title="<?php  echo $this->productos[$i]['producto']['nombre'] ;?>"><?php  echo getSubString($this->productos[$i]['producto']['nombre'], 15) ;?></a>
+     <a href="<?php  echo BASE_URL."product/view_product/".$this->productos[$i]['producto']['id_producto'];?>" class="titulo-product" title="<?php  echo $this->productos[$i]['producto']['nombre'] ;?>"> <b><?php  echo getSubString($this->productos[$i]['producto']['nombre'], 13) ;?> </b></a>
   </div>
     <a href="<?php  echo BASE_URL."product/view_product/".$this->productos[$i]['producto']['id_producto'];?>" class="thumbnail producto-img">
       <img title="<?php  echo $this->productos[$i]['producto']['nombre'] ;?>" src="<?php  echo BASE_URL."public/img/publicaciones/".$this->productos[$i]['img'][0]['nombre'] ;?>" alt="<?php  echo $this->productos[$i]['producto']['nombre'] ;?>">
