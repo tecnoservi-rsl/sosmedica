@@ -38,7 +38,7 @@ class administrarModel extends Model
       }
       public function guardar_equipo($datos,$fotos)
       {
-            echo  $sql="insert into producto values ('','".$datos['nombre']."',NULL,'".$datos['modelo']."','".$datos['marca']."',NULL,'EQUIPO_MEDICO')";
+              $sql="insert into producto values ('','".$datos['nombre']."',NULL,'".$datos['modelo']."','".$datos['marca']."',NULL,'EQUIPO_MEDICO')";
             $this->_db->query($sql);
             $id_publicacion=$this->_db->lastInsertId();
             $rs_almacen=$this->almacen_all();
@@ -164,7 +164,7 @@ class administrarModel extends Model
             {  
                   for ($i=0; $i < count($fotos['foto']['name']) ; $i++) 
                   { 
-                        echo "entro"; 
+                        
                         $target_path = "public/img/publicaciones/";
                         $nombre='nueva'.uniqid('sosmedica').$fotos['foto']['name'][$i];
                         $target_path = $target_path .$nombre;
@@ -195,7 +195,7 @@ class administrarModel extends Model
             {  
                   for ($i=0; $i < count($fotos['foto']['name']) ; $i++) 
                   { 
-                  echo "entro"; 
+                
                   $target_path = "public/img/publicaciones/";
                   $nombre='nueva'.uniqid('sosmedica').$fotos['foto']['name'][$i];
                   $target_path = $target_path .$nombre;
@@ -211,7 +211,7 @@ class administrarModel extends Model
       }
       public function editar_almacen($datos)
       {
-            echo $sql="UPDATE `almacen` SET `nombre` = '".$datos['nombre']."', `direccion` = '".$datos['direccion']."', `telefono` = '".$datos['telefono']."', `horario` = '".$datos['horario']."' WHERE `almacen`.`id_almacen` = ".$datos['id_almacen']." ";
+             $sql="UPDATE `almacen` SET `nombre` = '".$datos['nombre']."', `direccion` = '".$datos['direccion']."', `telefono` = '".$datos['telefono']."', `horario` = '".$datos['horario']."' WHERE `almacen`.`id_almacen` = ".$datos['id_almacen']." ";
             $this->_db->query($sql);
       }
       public function buscar_almacenes()
@@ -241,13 +241,13 @@ class administrarModel extends Model
 
       public function update_disponibilidad($id_p,$id_al)
       {
-            echo $sql = "update producto_almacen set estatus='disponible' where id_producto=$id_p and id_almacen=$id_al";    
+             $sql = "update producto_almacen set estatus='disponible' where id_producto=$id_p and id_almacen=$id_al";    
             $this->_db->query($sql);
 
       }
       public function update_disponibilidad2($id_p,$id_al)
       {
-            echo  $sql = "update producto_almacen set estatus='no disponible' where id_producto=$id_p and id_almacen=$id_al";    
+        $sql = "update producto_almacen set estatus='no disponible' where id_producto=$id_p and id_almacen=$id_al";    
             $this->_db->query($sql);
       }
 
