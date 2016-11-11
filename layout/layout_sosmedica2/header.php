@@ -65,10 +65,10 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul id="menu" class="nav navbar-nav">
 
-                <li data-submenu-id="submenu-patas" class="hidden-xs hidden-sm hidden-phone hidden-tablet"> <a href="<?php echo BASE_URL?>">Inicio</a></li>     
+                <li data-submenu-id="submenu-patas" class="hidden-xs hidden-sm hidden-phone hidden-tablet"> <a href="<?php echo BASE_URL?>"> <b> Inicio </b></a></li>     
             <li>
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    Categorias
+                    <b>Categorías</b>
                 </a>
                 
                 <ul class="dropdown-menu menu-header" role="menu">
@@ -85,7 +85,7 @@
 
             <li>
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    Marcas
+                  <b>Marcas</b>
                 </a>
                 
                 <ul class="dropdown-menu menu-header" role="menu">
@@ -104,7 +104,7 @@
                             <?php for($i = 0; $i < count($_layoutParams['menu']); $i++): ?>
                            
 
-                            <li><a href="<?php echo BASE_URL.$_layoutParams['menu'][$i]['enlace']; ?>"><?php  echo $_layoutParams['menu'][$i]['titulo']; ?></a></li>
+                            <li> <a href="<?php echo BASE_URL.$_layoutParams['menu'][$i]['enlace']; ?>"> <b> <?php  echo $_layoutParams['menu'][$i]['titulo']; ?> </b></a></li>
 
                             <?php endfor; ?>
                             <?php endif; ?>
@@ -127,10 +127,10 @@
                      
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo session::get('usuario'); ?><span class="glyphicon glyphicon-user" aria-hidden="true"></span><span class="caret"></span></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="<?php echo BASE_URL; ?>recuperar/cambiar">CAMBIAR CONTRASEÑA</a></li>
+                                <ul class="dropdown-menu menu-header" role="menu">
+                                    <li><a href="<?php echo BASE_URL; ?>recuperar/cambiar"><span class="glyphicon glyphicon-wrench"></span> Cambiar Clave</a></li>
                                     <li class="divider"></li>
-                                    <li><a href="<?php echo BASE_URL; ?>login/cerrar">CERRAR SESIÓN</a></li>
+                                    <li><a href="<?php echo BASE_URL; ?>login/cerrar"><span class="glyphicon glyphicon-off"> </span> Salir</a></li>
                                 </ul>
                          
                     

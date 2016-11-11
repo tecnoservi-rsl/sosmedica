@@ -8,7 +8,9 @@ $(document).ready(function(){
       paginationSpeed : 400,
       singleItem:true,
       autoPlay: true,
-      transitionStyle: "fade"
+      stopOnHover: true,
+      paginationNumbers: true,
+      transitionStyle: "fadeUp"
 
       // "singleItem:true" is a shortcut for:
       // items : 1, 

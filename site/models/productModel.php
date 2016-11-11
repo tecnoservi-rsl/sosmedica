@@ -11,14 +11,30 @@ class productModel extends Model
 
 public function mostrar_producto($id){
 
-  
+  $sql1="select tipo from producto where id_producto=$id";
+
+$xx=$this->_db->query($sql1);
+
+$tipo=$xx->fetch();
+
+if($tipo['tipo'] == 'PRODUCTO'){
 
     $sql = "Select producto.*, marca.marca, categoria.categoria from producto, marca, categoria where producto.id_marca=marca.id_marca and producto.id_categoria=categoria.id_categoria and producto.id_producto='$id'";
      
      $rs=$this->_db->query($sql);
 
      return $rs->fetchall();
+}
+else{
 
+   $sql = "SELECT producto.*,marca.marca FROM producto,marca WHERE \n"
+    . "producto.id_marca=marca.id_marca AND\n"
+    . "producto.id_producto=$id";
+     
+     $rs=$this->_db->query($sql);
+
+     return $rs->fetchall();
+}
 }
 
 

@@ -4,16 +4,19 @@
 
 * QUIENES SOMOS Y CONTACTO
 
----------------------------------------------------* BOTONES ATRAS (listo)
+---------------------------------------------------------------------------* BOTONES ATRAS (listo)
 
 * MENSAJITOS AL REGISTRAR Y MODIFICAR
 
-* VISTA INDIVIDUAL DE UN PRODUCTO 
+---------------------------------------------------------* VISTA INDIVIDUAL DE UN PRODUCTO (Listo) 
  
 * BUSQUEDA POR %LIKE
 
 ----------------------------------------------------* PROTEGER LA ADMINISTRACION DE LA WEB.(listo)
 
 * DISCRIMINAR POR ALMACEN EN LA VISTA INDEPENDIENTE DEL PRODUCTO
+
+
+
 
 DEL RESTO MAS NADA HASTA QUE SE DEMUESTRE LO CONTRARIO.!
