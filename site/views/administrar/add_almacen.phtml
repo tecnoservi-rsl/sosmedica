@@ -5,7 +5,11 @@
 <div class="col-md-6 col-md-offset-3" id="tituloo">Agregar Almacen</div>
 
 <div class="col-md-6 col-md-offset-3"> 
+<?php if (isset($this->bn_almacen)):?>
 
+<div class="mensaje_error"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> no se han registrado almacenes, por favor registre por lo menos un almacen para poder registrar productos y equipos </div>
+
+<?php endif; ?>
 <form id="form_agregar_equipo" method="post" action=" <?php echo BASE_URL ?>administrar/guardar_almacen" >
   <div class="form-group">
     <label for="nombre">Nombre</label>

@@ -17,6 +17,18 @@ class administrarController extends Controller
 
         public function index()
         {
+
+               
+
+                if (!$this->_pb->almacen_all()) {
+                     $this->_view->setJs(array('add_almacen',"validacion"));
+                     $this->_view->setCss(array('agregar'));
+                     $this->_view->titulo = 'Agregar Almacen';
+                     $this->_view->bn_almacen=1;
+                     $this->_view->renderizar('add_almacen');
+
+                }
+
                 $this->_view->setJs(array('index','js'));
                 $this->_view->setCss(array('css'));
                 $this->_view->titulo = 'Administrar';
@@ -24,6 +36,17 @@ class administrarController extends Controller
         }
         public function agregar()
         {
+
+                 if (!$this->_pb->almacen_all()) {
+                     $this->_view->setJs(array('add_almacen',"validacion"));
+                     $this->_view->setCss(array('agregar'));
+                     $this->_view->titulo = 'Agregar Almacen';
+                     $this->_view->bn_almacen=1;
+                     $this->_view->renderizar('add_almacen');
+
+                }
+
+
                 $this->_view->setJs(array('agregar',"validacion"));
                 $this->_view->setCss(array('agregar'));
                 $this->_view->titulo = 'Agregar Producto';
@@ -34,6 +57,14 @@ class administrarController extends Controller
         }
          public function agregarequipo()
         {
+             if (!$this->_pb->almacen_all()) {
+                     $this->_view->setJs(array('add_almacen',"validacion"));
+                     $this->_view->setCss(array('agregar'));
+                     $this->_view->titulo = 'Agregar Almacen';
+                     $this->_view->bn_almacen=1;
+                     $this->_view->renderizar('add_almacen');
+
+                }
                 $this->_view->setJs(array('agregarequipo',"validacion"));
                 $this->_view->setCss(array('agregar'));
                 $this->_view->titulo = 'Agregar Equipo';
@@ -74,6 +105,7 @@ class administrarController extends Controller
         }
         public function add_almacen()
         {
+
                 $this->_view->setJs(array('add_almacen',"validacion"));
                 $this->_view->setCss(array('agregar'));
                 $this->_view->titulo = 'Agregar Almacen';
@@ -87,6 +119,16 @@ class administrarController extends Controller
 
 
         public function ges_producto(){
+
+                 if (!$this->_pb->almacen_all()) {
+                     $this->_view->setJs(array('add_almacen',"validacion"));
+                     $this->_view->setCss(array('agregar'));
+                     $this->_view->titulo = 'Agregar Almacen';
+                     $this->_view->bn_almacen=1;
+                     $this->_view->renderizar('add_almacen');
+
+                }
+
                 $this->_view->setJs(array('ges_producto'));
                 $this->_view->setCss(array('agregar'));
                 $this->_view->titulo = 'Gestionar Producto';
@@ -101,6 +143,14 @@ class administrarController extends Controller
         }
         public function ges_equipo()
         {
+             if (!$this->_pb->almacen_all()) {
+                     $this->_view->setJs(array('add_almacen',"validacion"));
+                     $this->_view->setCss(array('agregar'));
+                     $this->_view->titulo = 'Agregar Almacen';
+                     $this->_view->bn_almacen=1;
+                     $this->_view->renderizar('add_almacen');
+
+                }
                 $this->_view->setJs(array('ges_equipo'));
                 $this->_view->setCss(array('agregar'));
                 $this->_view->titulo = 'Gestionar Equipo';
@@ -112,6 +162,14 @@ class administrarController extends Controller
         }
         
         public function uptade_producto($id){
+             if (!$this->_pb->almacen_all()) {
+                     $this->_view->setJs(array('add_almacen',"validacion"));
+                     $this->_view->setCss(array('agregar'));
+                     $this->_view->titulo = 'Agregar Almacen';
+                     $this->_view->bn_almacen=1;
+                     $this->_view->renderizar('add_almacen');
+
+                }
                 $this->_view->setJs(array('update_producto'));
                 $this->_view->setCss(array('agregar'));
                 $this->_view->titulo = 'actualizar producto';
@@ -124,6 +182,14 @@ class administrarController extends Controller
                 $this->_view->renderizar('update_producto');
         }
          public function update_equipo($id){
+             if (!$this->_pb->almacen_all()) {
+                     $this->_view->setJs(array('add_almacen',"validacion"));
+                     $this->_view->setCss(array('agregar'));
+                     $this->_view->titulo = 'Agregar Almacen';
+                     $this->_view->bn_almacen=1;
+                     $this->_view->renderizar('add_almacen');
+
+                }
                 $this->_view->setJs(array('update_equipo'));
                 $this->_view->setCss(array('agregar'));
                 $this->_view->titulo = 'Actualizar Equipo';
@@ -136,6 +202,14 @@ class administrarController extends Controller
                 $this->_view->renderizar('update_equipo');
         }
         public function update_almacen($id){
+             if (!$this->_pb->almacen_all()) {
+                     $this->_view->setJs(array('add_almacen',"validacion"));
+                     $this->_view->setCss(array('agregar'));
+                     $this->_view->titulo = 'Agregar Almacen';
+                     $this->_view->bn_almacen=1;
+                     $this->_view->renderizar('add_almacen');
+
+                }
                 $this->_view->setJs(array('update_almacen'));
                 $this->_view->setCss(array('agregar'));
                 $this->_view->titulo = 'Actualizar almacen';
@@ -152,6 +226,7 @@ class administrarController extends Controller
                 echo json_encode($array);
         }
         public function add_mc(){
+
                 $this->_view->setJs(array('add_mc'));
                 $this->_view->setCss(array('agregar'));
                 $this->_view->titulo = 'Administrar';
@@ -199,6 +274,14 @@ class administrarController extends Controller
                 
         }
         public function ges_almacen(){
+             if (!$this->_pb->almacen_all()) {
+                     $this->_view->setJs(array('add_almacen',"validacion"));
+                     $this->_view->setCss(array('agregar'));
+                     $this->_view->titulo = 'Agregar Almacen';
+                     $this->_view->bn_almacen=1;
+                     $this->_view->renderizar('add_almacen');
+
+                }
                 $this->_view->setJs(array('ges_almacen'));
                 $this->_view->setCss(array('agregar'));
                 $this->_view->titulo = 'Gestionar Almacen';
