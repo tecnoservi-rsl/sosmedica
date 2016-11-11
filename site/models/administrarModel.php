@@ -100,6 +100,19 @@ class administrarModel extends Model
       }
       public function eliminar_producto($id)
       {
+
+
+             echo $sql="SELECT nombre FROM img_producto where id_publicacion=$id";
+
+            $rs=$this->_db->query($sql);
+
+            $RSR=$rs->fetchall();
+
+            for ($i=0; $i < count($RSR) ; $i++) { 
+                unlink('public'.DS.'img' . DS . 'publicaciones' . DS . $RSR[$i]['nombre']);
+            }
+
+
             $sql = "delete FROM producto where id_producto=$id";    
             $this->_db->query($sql);
       }
@@ -143,9 +156,21 @@ class administrarModel extends Model
       }
       public function eliminar_foto($id)
       {
-            $sql = "DELETE FROM `img_producto` WHERE `img_producto`.`id_img_producto` = $id";     
+
+            echo $sql="SELECT nombre FROM img_producto where id_img_producto=$id";
+
             $rs=$this->_db->query($sql);
-            return $rs->fetchall();
+
+            $RSR=$rs->fetch();
+
+           
+
+            unlink('public'.DS.'img' . DS . 'publicaciones' . DS . $RSR['nombre']);
+
+
+            $sql = "DELETE FROM `img_producto` WHERE `img_producto`.`id_img_producto` = $id";     
+           $this->_db->query($sql);
+        
       }
       public function editar_publicacion($datos,$fotos)
       {
