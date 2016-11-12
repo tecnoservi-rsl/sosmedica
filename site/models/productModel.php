@@ -50,7 +50,19 @@ public function buscar_img_por_id($id){
 
 }
 
-    
+public function buscar_almacenes_por_id($id){
+
+ $sql = "SELECT almacen.*, producto_almacen.estatus FROM producto_almacen,producto,almacen WHERE \n"
+    . "producto.id_producto=producto_almacen.id_producto AND\n"
+    . "producto_almacen.id_almacen=almacen.id_almacen AND\n"
+    . "producto.id_producto=$id";
+     
+     $rs=$this->_db->query($sql);
+
+     return $rs->fetchall();
+
+}  
+
 }
 
 ?>

@@ -40,6 +40,8 @@ class productController extends Controller
 public function view_product($valor)
 {
     $this->_view->titulo = 'SOS MEDICA';
+    $this->_view->setJs(array('index','rrssb.min'));
+    $this->_view->setCss(array('css','rrssb')); 
 
      $xx=array();
     $productos=$this->_principal->buscar_productos();
@@ -64,13 +66,11 @@ public function view_product($valor)
     $view = array 
         (
         "producto" => $mostrar,
-        "img"      => $this->_index->buscar_img_por_id($valor)
+        "img"      => $this->_index->buscar_img_por_id($valor),
+        "disponibilidad" => $this->_index->buscar_almacenes_por_id($valor)
         );
     
     $this->_view->mostrar= $view;
-
-    $this->_view->setJs(array('index','rrssb.min'));
-    $this->_view->setCss(array('css','rrssb'));        
     $this->_view->renderizar('index');
 }
 	
