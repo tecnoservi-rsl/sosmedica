@@ -1,11 +1,12 @@
 *** POR AHORA FALTA ***
 
-* PONER A MOSTRAR LAS DISPONIBILIDADES EN LOS PRODUCTOS
+*----------------------------------- PONER A MOSTRAR LAS DISPONIBILIDADES EN LOS PRODUCTOS (listo)
 
 ---------------------------------------------------------------------------* QUIENES SOMOS (listo)
 
 
-* CONTACTO
+*---------------------------------------------------------------------------------CONTACTO (Listo)
+
 
 ---------------------------------------------------------------------------* BOTONES ATRAS (listo)
 
@@ -17,11 +18,14 @@
 
 ----------------------------------------------------* PROTEGER LA ADMINISTRACION DE LA WEB.(listo)
 
+
 --------------------------* DISCRIMINAR POR ALMACEN EN LA VISTA INDEPENDIENTE DEL PRODUCTO (listo)
  
-* Discriminar si esta disponible o no en la vista de inicio
 
-* Discriminar si esta disponible o no en la vista de listar productos.
+*--------------------------------Discriminar si esta disponible o no en la vista de inicio (listo)
+
+
+*----------------------Discriminar si esta disponible o no en la vista de listar productos (listo)
 
 
 DEL RESTO MAS NADA HASTA QUE SE DEMUESTRE LO CONTRARIO.!
