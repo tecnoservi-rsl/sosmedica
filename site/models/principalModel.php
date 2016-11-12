@@ -53,6 +53,29 @@ public function buscar_img_por_id($id){
 
 }
 
+public function disponibilidad($id){
+
+     $sql = "SELECT * FROM producto_almacen WHERE producto_almacen.id_producto=$id";
+     
+     $rs=$this->_db->query($sql);
+
+     $rs=$rs->fetchall();
+
+     $bn=0;
+     for ($i=0; $i < count($rs); $i++) { 
+         
+        if ($rs[$i]['estatus']=="disponible") {
+            $bn=1;
+        }
+
+     }
+
+
+     return $bn;
+
+}
+
+
 
 }
 

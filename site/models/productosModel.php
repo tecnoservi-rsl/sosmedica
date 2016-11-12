@@ -23,14 +23,14 @@ class productosModel extends Model
 }
 
 
-public function buscar_product($id){
+public function buscar_producto_like($id){
 
   
 
-    $sql = "SELECT producto.*,marca.marca FROM producto,marca WHERE \n"
-    . "producto.id_marca=marca.id_marca AND\n"
-    . "marca.id_marca='$id'";
-     
+$sql = "SELECT producto.*,categoria.categoria,marca.marca FROM producto,marca,categoria WHERE \n"
+    . " producto.id_categoria=categoria.id_categoria AND\n"
+    . " producto.id_marca=marca.id_marca AND\n"
+    . " producto.nombre like '%$id%'";
      $rs=$this->_db->query($sql);
 
      return $rs->fetchall();
