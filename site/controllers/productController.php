@@ -42,7 +42,7 @@ public function view_product($valor)
     $this->_view->titulo = 'SOS MEDICA';
     $this->_view->setJs(array('index','rrssb.min'));
     $this->_view->setCss(array('css','rrssb')); 
-
+     $modelo=$this->loadModel('principal');
 
  $view=array();
     $mostrar=$this->_index->mostrar_producto($valor);
@@ -68,7 +68,8 @@ $productos=$this->_index->productos_similares($mostrar[0]['id_categoria']);
         $xx[$i] = array 
         (
         "producto" => $productos[$i],
-        "img"      => $this->_principal->buscar_img_por_id($productos[$i]["id_producto"])
+        "img"      => $this->_principal->buscar_img_por_id($productos[$i]["id_producto"]),
+        "disponibilidad" =>  $modelo->disponibilidad($productos[$i]["id_producto"])
         );
     }
 
@@ -83,7 +84,8 @@ $productos=$this->_index->productos_similares($mostrar[0]['id_categoria']);
 		        $xx[$i] = array 
 		        (
 		        "producto" => $productos[$i],
-		        "img"      => $this->_principal->buscar_img_por_id($productos[$i]["id_producto"])
+		        "img"      => $this->_principal->buscar_img_por_id($productos[$i]["id_producto"]),
+                "disponibilidad" =>  $modelo->disponibilidad($productos[$i]["id_producto"])
 		        );
 		    }
 		            $this->_view->productos= $xx; 

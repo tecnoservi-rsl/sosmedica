@@ -208,12 +208,19 @@ if(isset($this->productos)){
   </div>
     <a href="<?php  echo BASE_URL."product/view_product/".$this->productos[$i]['producto']['id_producto'];?>" class="thumbnail producto-img">
       <img title="<?php  echo $this->productos[$i]['producto']['nombre'] ;?>" src="<?php  echo BASE_URL."public/img/publicaciones/".$this->productos[$i]['img'][0]['nombre'] ;?>" alt="<?php  echo $this->productos[$i]['producto']['nombre'] ;?>">
-      <?php if($i%2==0) {?>
+
+
+
+    <?php if($this->productos[$i]['disponibilidad']==1) {?>
+
     <div><center> Disponible <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> </center></div>
 
-    <?php } else{?>
+    <?php }else{?>
 
-    <div class="nodisponible"><center> No disponible <span class="glyphicon glyphicon-remove"></span> </center></div> <?php } ?>
+    <div class="nodisponible"><center> No disponible <span class="glyphicon glyphicon-remove"></span> </center></div> 
+
+    <?php } ?>
+
     <center><div class="btn btn-default btn-xs detalles"> Detalles <span class="glyphicon glyphicon-list"></span> </div></center>
     </a>
     
