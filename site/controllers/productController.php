@@ -1,6 +1,6 @@
 <?php
 
-
+ 
 class productController extends Controller
 {
 	
@@ -43,24 +43,8 @@ public function view_product($valor)
     $this->_view->setJs(array('index','rrssb.min'));
     $this->_view->setCss(array('css','rrssb')); 
 
-     $xx=array();
-    $productos=$this->_principal->buscar_productos();
-    for ($i=0; $i < count($productos); $i++) 
-    { 
-        $xx[$i] = array 
-        (
-        "producto" => $productos[$i],
-        "img"      => $this->_principal->buscar_img_por_id($productos[$i]["id_producto"])
-        );
-    }
 
-         $array = array();
-       
-            $this->_view->productos= $xx; 
-
-
-
-    $view=array();
+ $view=array();
     $mostrar=$this->_index->mostrar_producto($valor);
      
     $view = array 
@@ -71,39 +55,49 @@ public function view_product($valor)
         );
     
     $this->_view->mostrar= $view;
+
+ $xx=array();
+$array = array();
+$tipo=$this->_index->buscar_tipo_producto($valor);
+
+if($tipo['tipo'] == 'PRODUCTO'){
+
+$productos=$this->_index->productos_similares($mostrar[0]['id_categoria']);
+    for ($i=0; $i < count($productos); $i++) 
+    {  
+        $xx[$i] = array 
+        (
+        "producto" => $productos[$i],
+        "img"      => $this->_principal->buscar_img_por_id($productos[$i]["id_producto"])
+        );
+    }
+
+            $this->_view->productos= $xx; 
+
+	 }else 
+	 {
+
+			 	$productos=$this->_index->equipos_similares($mostrar[0]['id_marca']);
+		    for ($i=0; $i < count($productos); $i++) 
+		    {  
+		        $xx[$i] = array 
+		        (
+		        "producto" => $productos[$i],
+		        "img"      => $this->_principal->buscar_img_por_id($productos[$i]["id_producto"])
+		        );
+		    }
+		            $this->_view->productos= $xx; 
+
+
+	 }
+
+    
+    
+
+/*     */
+
+   
     $this->_view->renderizar('index');
 }
 	
-public function searchproduct($valor)
-    {
-    	$this->_view->titulo = 'SOS MEDICA';
-            
-    	$xx=array();
-
-        $productos=$this->_index->buscar_product($valor);
-
-
-
-        for ($i=0; $i < count($productos); $i++) { 
-        
-        
-				$xx[$i] = array (
-
-				"producto" => $productos[$i],
-				"img"      => $this->_index->buscar_img_por_id($productos[$i]["id_producto"])
-
-				);
-
-
-        }
-        $this->_view->productos= $xx;
-        $this->_view->setJs(array('index'));
-		$this->_view->setCss(array('css'));
-		$this->_view->renderizar('index');
-    
-    }
-
-
-
-
 }?>

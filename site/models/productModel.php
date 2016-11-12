@@ -1,5 +1,5 @@
 <?php
-
+ 
 class productModel extends Model
 {
     public function __construct() {
@@ -62,6 +62,39 @@ public function buscar_almacenes_por_id($id){
      return $rs->fetchall();
 
 }  
+
+
+public function buscar_tipo_producto($valor){
+
+	$sql ="select tipo from producto where id_producto=$valor";
+
+
+	$rs=$this->_db->query($sql);
+
+     return $rs->fetch();
+}
+
+
+public function productos_similares($valor){
+
+	$sql = "SELECT distinct producto.* FROM producto where id_categoria=$valor";
+     
+     $rs=$this->_db->query($sql);
+
+     return $rs->fetchall();
+}
+
+
+public function equipos_similares($valor){
+
+	$sql = "SELECT distinct producto.* FROM producto where id_marca=$valor";
+     
+     $rs=$this->_db->query($sql);
+
+     return $rs->fetchall();
+}
+
+
 
 }
 
