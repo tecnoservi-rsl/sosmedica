@@ -66,7 +66,7 @@ class productosController extends Controller
         }
         else{
         $xx=array();
-        $productos=$this->_index->buscar_product($valor);
+        $productos=$this->_index->buscar_producto_2($valor);
         for ($i=0; $i < count($productos); $i++) 
         { 
             $xx[$i] = array 
