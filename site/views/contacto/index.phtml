@@ -2,14 +2,34 @@
 <div class="row">
  
 
+<center>
+<h3 class="title"> Como contactar con: </h3>
+<a id="header_logo" href="http://www.sosmedica.com/" title="SOSMEDICA.COM"> <img class="logo" alt="Responsive image" src="<?php echo BASE_URL; ?>public/img/logoweb.png" alt="SOSMEDICA.COM"> </a>
+</center>
 
-
-<div class="col-md-12">
+<div class="col-md-9">
 <div class="row">
 
-<h3> Contactenos </h3>
-  
-    
+<div class="sub-title"> <b> Comuniquese con nosotros: </b> </div>
+<div class="texto">
+<b> Sede Principal:</b> Av. Bolivar Norte C.C Torre Valencia Mezamine B Local N° 32 - Valencia - Edo Carabobo - Venezuela</br>
+<b> Email:</b> <?php echo APP_EMAIL; ?></br>
+<b>Telefono: </b> <?php echo APP_TLF; ?>
+</div>
+
+
+<div class="sub-title"> <b>Nuestros almacenes:</b> </div>
+
+<?php for ($i=0; $i < count($this->mostrar); $i++): ?>
+	<div class="texto-titulo"> <b> <?php echo $this->mostrar[$i]['nombre'] ?></b></div>
+<div class="well">
+<div class="texto"><b>Direccion:</b> <?php echo $this->mostrar[$i]['direccion'] ?> </div>
+<div class="texto"><b>Telefono:</b> <?php echo $this->mostrar[$i]['telefono'] ?></div>
+<div class="texto"><b>Horarios:</b> <?php echo $this->mostrar[$i]['horario'] ?></div>
+</div>
+	
+  <?php endfor; ?>
+
 </div>
 </div>
 

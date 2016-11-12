@@ -51,3 +51,50 @@
 	color: #FFF !important;
 	text-decoration: underline !important;
 }
+
+.img-rounded {
+	max-width: 300px !important;
+}
+
+.title {
+	color: #3a8eed;
+
+	text-decoration: underline;
+}
+
+.sub-title {
+	color: #3a8eed;
+	font-size: 18px;
+	text-decoration: underline;
+	padding-top: 15px;
+	padding-bottom: 10px;
+}
+
+
+
+.texto {
+	text-align: justify;
+	font-size: 16px;
+	color: black;
+	/* text-orientation: initial; */
+	padding-left: 25px;
+}
+
+.fin{
+padding-bottom: 25px;
+}
+
+.sosmedica{
+	color: #3a8eed;
+	/*text-decoration: underline;*/
+}
+
+.texto {
+	color: black;
+}
+
+.texto-titulo{
+	color: #3a8eed;
+	font-size: 18px;
+	text-decoration: underline;
+}

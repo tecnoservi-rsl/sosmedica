@@ -2,7 +2,10 @@
 
 * PONER A MOSTRAR LAS DISPONIBILIDADES EN LOS PRODUCTOS
 
-* QUIENES SOMOS Y CONTACTO
+---------------------------------------------------------------------------* QUIENES SOMOS (listo)
+
+
+* CONTACTO
 
 ---------------------------------------------------------------------------* BOTONES ATRAS (listo)
 
@@ -14,9 +17,11 @@
 
 ----------------------------------------------------* PROTEGER LA ADMINISTRACION DE LA WEB.(listo)
 
-* DISCRIMINAR POR ALMACEN EN LA VISTA INDEPENDIENTE DEL PRODUCTO
+--------------------------* DISCRIMINAR POR ALMACEN EN LA VISTA INDEPENDIENTE DEL PRODUCTO (listo)
+ 
+* Discriminar si esta disponible o no en la vista de inicio
 
-
+* Discriminar si esta disponible o no en la vista de listar productos.
 
 
 DEL RESTO MAS NADA HASTA QUE SE DEMUESTRE LO CONTRARIO.!

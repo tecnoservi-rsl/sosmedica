@@ -111,8 +111,27 @@ overflow:hidden;
 	text-decoration: underline !important;
 }
 
+.texto {
+	color: black;
+}
 
+.texto-nodisponible {
+	color: red;
+}
 
+.texto-disponible {
+	color: #066ac0;
+}
+
+.texto-titulo{
+
+	font-size: 18px;
+	text-decoration: underline;
+}
+
+.img-carrusel {
+	min-width: 350px;
+}
 
 
 
