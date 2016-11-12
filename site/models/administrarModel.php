@@ -86,6 +86,19 @@ class administrarModel extends Model
       {
             $sql="insert into almacen values ('','".$datos['nombre']."','".$datos['direccion']."','".$datos['telefono']."','".$datos['horario']."')";
             $this->_db->query($sql);
+            $id_almacen=$this->_db->lastInsertId();
+            $sql="SELECT * FROM producto";
+            $rsbd=$this->_db->query($sql);
+            $array=$rsbd->fetchall();
+
+            for ($i=0; $i < count($array); $i++) { 
+                  
+                  $sql="insert into producto_almacen values ('',".$array[$i]['id_producto'].",$id_almacen,'no disponible') ";
+                  $this->_db->query($sql);
+
+            }
+
+
       }
 
       public function buscar_producto($strin)

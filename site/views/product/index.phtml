@@ -34,7 +34,7 @@
 </div>
 </div>
 
-<div>
+
 	
 	<div class="col-xs-7 col-sm-8 col-md-8">
 <h3>
@@ -59,7 +59,25 @@
   
 <?php    } ?>
 
-<br> <div class="disponible"> <b> DISPONIBLE EN ALMACEN:</b> &nbsp;&nbsp; <br> <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Cumaná <br> <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Valencia</div>
+
+<br> 
+
+<div class="disponible"> 
+<b> DISPONIBLE EN ALMACEN:</b>
+<br> 
+
+<?php for ($i=0; $i < count($this->mostrar['disponibilidad']) ; $i++): ?>
+
+<div class="almacenn">
+<div><?php echo $this->mostrar['disponibilidad'][$i]['nombre'] ?></div>
+<div><?php echo $this->mostrar['disponibilidad'][$i]['direccion'] ?></div>
+<div><?php echo $this->mostrar['disponibilidad'][$i]['telefono'] ?></div>
+<div><?php echo $this->mostrar['disponibilidad'][$i]['horario'] ?></div>
+<div><?php echo $this->mostrar['disponibilidad'][$i]['estatus'] ?></div>
+</div>
+
+<?php endfor; ?>
+</div>
 
 </div>
 
