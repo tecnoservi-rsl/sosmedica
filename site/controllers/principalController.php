@@ -20,7 +20,8 @@ class principalController extends Controller
         $xx[$i] = array 
         (
         "producto" => $productos[$i],
-        "img"      => $this->_index->buscar_img_por_id($productos[$i]["id_producto"])
+        "img"      => $this->_index->buscar_img_por_id($productos[$i]["id_producto"]),
+        "disponibilidad" =>  $this->_index->disponibilidad($productos[$i]["id_producto"])
         );
     }
     	 $array = array();
