@@ -17,6 +17,9 @@
 .disponible {
 	color: #066ac0;
 }
+.nodisponible {
+	color: #f00;
+}
 
 .disponiblidad {
 	color: #FFF !important;

@@ -9,12 +9,7 @@ $(this).stop();
 $(this).animate({width:'43'}, 500, 'easeOutBounce',function(){});
 });
 
-$(document).on("click","#buscar_inicio",function(){
 
-
-			alertify.alert("Esta funcion aun se esta programando ^^");
-
-			});
 
 
 $(function() {
