@@ -84,7 +84,7 @@ class administrarController extends Controller
         public function guardar_equipo()
         {
                 $this->_pb->guardar_equipo($_POST,$_FILES);
-                $this->redireccionar('administrar/agregarmarca');
+                $this->redireccionar('administrar/agregarequipo');
         }
         public function guardar_categoria()
         {
@@ -145,8 +145,12 @@ class administrarController extends Controller
         public function eliminar_producto (){
                 $this->_pb->eliminar_producto($_POST['valor']);
         }
-        public function ges_equipo()
+        public function ges_equipo($valor=false)
         {
+
+            if ($valor!=false) {
+                $this->_view->valor_b = $valor;
+            }
              if (!$this->_pb->almacen_all()) {
                      $this->_view->setJs(array('add_almacen',"validacion"));
                      $this->_view->setCss(array('agregar'));

@@ -61,6 +61,7 @@ $(document).ready(function(){
 
 function buscar(valor){
 
+
 var html='<table class="table table-striped"><thead>.';
 		html+='<th>Nombre</th><th>Presentacion</th><th>Marca</th><th>Categoria</th><th>Acciones</th></thead><tbody>';
 		$.post(base_url+'/administrar/buscar_producto', {'valor': valor }, function(datos)
