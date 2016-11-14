@@ -101,12 +101,20 @@ class administrarModel extends Model
 
       }
 
-      public function buscar_producto($strin)
+      public function buscar_producto($id)
       {
-            $sql = "SELECT producto.*,categoria.categoria,marca.marca FROM producto,marca,categoria WHERE \n"
+           /* $sql = "SELECT producto.*,categoria.categoria,marca.marca FROM producto,marca,categoria WHERE \n"
             . "producto.id_categoria=categoria.id_categoria AND\n"
             . "producto.id_marca=marca.id_marca AND\n"
-            . "producto.nombre like '%".$strin."%' AND producto.tipo='PRODUCTO'";
+            . "producto.nombre like '%".$strin."%' AND producto.tipo='PRODUCTO'";*/
+
+            $sql = "SELECT producto.*,categoria.categoria,marca.marca FROM producto,marca,categoria WHERE\n"
+                . " producto.id_categoria=categoria.id_categoria AND\n"
+                . " producto.id_marca=marca.id_marca AND producto.tipo='PRODUCTO' AND \n"
+                . " (producto.nombre like '%$id%' OR \n"
+                . " categoria.categoria LIKE '%$id%' OR\n"
+                . " marca.marca LIKE '%$id%' \n"
+                . " )";
 
             $rs=$this->_db->query($sql);
             return $rs->fetchall();
@@ -129,11 +137,21 @@ class administrarModel extends Model
             $sql = "delete FROM producto where id_producto=$id";    
             $this->_db->query($sql);
       }
-      public function buscar_equipo($strin)
+      public function buscar_equipo($id)
       {
-            $sql = "SELECT producto.*,marca.marca FROM producto,marca WHERE \n"
+
+
+          /*  $sql = "SELECT producto.*,marca.marca FROM producto,marca WHERE \n"
             . "producto.id_marca=marca.id_marca AND\n"
-            . "producto.nombre like '%".$strin."%' AND producto.tipo='EQUIPO_MEDICO'  ";
+            . "producto.nombre like '%".$strin."%' AND producto.tipo='EQUIPO_MEDICO'  ";*/
+
+            $sql = "SELECT producto.*,marca.marca FROM producto,marca WHERE\n"
+            . " producto.id_marca=marca.id_marca AND producto.tipo='EQUIPO_MEDICO' AND \n"
+            . " (producto.nombre like '%$id%' OR \n"
+            . " producto.modelo LIKE '%$id%' OR\n"
+            . " marca.marca LIKE '%$id%' \n"
+            . " )";
+
             $rs=$this->_db->query($sql);
             return $rs->fetchall();
       }

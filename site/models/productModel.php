@@ -10,8 +10,8 @@ class productModel extends Model
 
 
 public function mostrar_producto($id){
-
-  $sql1="select tipo from producto where id_producto=$id";
+echo $id.'----';
+ $sql1="select tipo from producto where id_producto=$id";
 
 $xx=$this->_db->query($sql1);
 

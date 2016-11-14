@@ -15,30 +15,21 @@ class productController extends Controller
     public function index()
     {
 
-    $xx=array();
-    $productos=$this->_principal->buscar_productos();
-    for ($i=0; $i < count($productos); $i++) 
-    { 
-        $xx[$i] = array 
-        (
-        "producto" => $productos[$i],
-        "img"      => $this->_principal->buscar_img_por_id($productos[$i]["id_producto"])
-        );
-    }
 
-    	 $array = array();
-       
-		    $this->_view->productos= $xx; 
-			$this->_view->setJs(array('index','rrssb.min'));
-			$this->_view->setCss(array('css','rrssb'));
-        	$this->_view->titulo = 'SOS MEDICA';
-			$this->_view->renderizar('index');
+			$this->redireccionar('principal');
 							
 			
 	}
 
-public function view_product($valor)
+public function view_product($valor=false)
 {
+
+    if($valor==false){
+
+            $this->redireccionar('principal');
+
+        } 
+
     $this->_view->titulo = 'SOS MEDICA';
     $this->_view->setJs(array('index','rrssb.min'));
     $this->_view->setCss(array('css','rrssb')); 

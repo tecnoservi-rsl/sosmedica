@@ -51,9 +51,9 @@ var id=this.dataset.id;
 
                 });
 
-                  alertify.success("El registro ha sido eliminado correctamente");
+                  alertify.success("Almacen eliminado exitosamente.");
                } else {
-                  alertify.error("Ha cancelado la accion eliminar");
+                  alertify.error("Ha cancelado.");
                }
             });
 

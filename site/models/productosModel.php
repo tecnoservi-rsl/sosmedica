@@ -27,10 +27,14 @@ public function buscar_producto_like($id){
 
   
 
-$sql = "SELECT producto.*,categoria.categoria,marca.marca FROM producto,marca,categoria WHERE \n"
+$sql = "SELECT producto.*,categoria.categoria,marca.marca FROM producto,marca,categoria WHERE\n"
     . " producto.id_categoria=categoria.id_categoria AND\n"
     . " producto.id_marca=marca.id_marca AND\n"
-    . " producto.nombre like '%$id%'";
+    . " (producto.nombre like '%$id%' OR \n"
+    . " producto.modelo LIKE '%$id%' OR\n"
+    . " categoria.categoria LIKE '%$id%' OR\n"
+    . " marca.marca LIKE '%$id%' \n"
+    . " )";
      $rs=$this->_db->query($sql);
 
      return $rs->fetchall();

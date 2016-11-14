@@ -10,12 +10,12 @@ $(document).ready(function(){
 		{
 			if(datos=="")
 			{
-				$("#resultados").html("<div class='mensasaje'>no hay resultados para su busqueda</div>");
+				$("#resultados").html("<div class='mensasaje'>No hay resultados para su busqueda</div>");
 				return;
 			}
 			for (var i = 0; i < datos.length ; i++)
 			{
-				html+='<tr><td>'+datos[i].nombre+'</td><td>'+datos[i].presentacion+'</td>><td>'+datos[i].marca+'</td><td>'+datos[i].categoria+'</td><td>';
+				html+='<tr><td>'+datos[i].nombre+'</td><td>'+datos[i].presentacion+'</td><td>'+datos[i].marca+'</td><td>'+datos[i].categoria+'</td><td>';
 				html+='<span id="editar_producto" data-id="'+datos[i].id_producto+'" class="glyphicon glyphicon-pencil botonmm" aria-hidden="true"></span> <span id="eliminar_producto" data-id="'+datos[i].id_producto+'" class="glyphicon glyphicon-trash botonmm" aria-hidden="true"></span></td></tr>';
 			}
 			html+='</tbody></table>';
@@ -29,17 +29,17 @@ $(document).ready(function(){
 	$(document).on("click","#eliminar_producto",function()
 	{
 		var id=this.dataset.id;
-		alertify.confirm("This is a confirm dialog", function (e)
+		alertify.confirm("¿Desea realmente eliminar este producto?", function (e)
 		{
 			if (e)
 			{
 				$.post(base_url+"administrar/eliminar_producto",{"valor": id},function(){
 					location.reload();
 				});
-				alertify.success("OK");
+				alertify.success("Producto eliminado exitosamente.");
 			}else
 			{
-				alertify.error("Cancel");
+				alertify.error("Ha cancelado.");
 			}
 		});
 	});

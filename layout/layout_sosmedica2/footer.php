@@ -8,7 +8,7 @@
                     <h3>Nosotros</h3>
                     <ul>
                         <li> <a href="<?php echo BASE_URL?>empresa">Quienes somos</a></li>
-                        <li><a href="#">No se me ocurre otra cosa</a></li>
+                        
                     </ul>
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-4 pie2">

@@ -116,12 +116,10 @@
                     <ul  class="nav navbar-nav navbar-right">
         <form class="navbar-form navbar-left" role="search">
             <div class="form-group has-feedback">
-                <form action="<?php echo BASE_URL ?>/productos/search_product/like/" onsubmit="return false" >
                     <input id="buscar-like" type="text" class="form-control buscar-header" placeholder="Buscar">
                     <button class="btn btnbuscar buscarboton" id="buscar_inicio" type="button">
                         <span class="glyphicon glyphicon-search -feedback"></span>
                     </button>
-                </form>
             </div>
         </form>
                     <?php if (session::get('autenticado')): ?>

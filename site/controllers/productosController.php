@@ -13,19 +13,19 @@ class productosController extends Controller
     public function index()
     {
 
-    	 $array = array();
-       
-		
-			$this->_view->setJs(array('index'));
-			$this->_view->setCss(array('css'));
-        	$this->_view->titulo = 'SOS MEDICA';
-			$this->_view->renderizar('index');
+    	 $this->redireccionar('principal');
 							
 			
 	}
 
-    public function search_product($tipo,$valor)
+    public function search_product($tipo=false,$valor=false)
     {
+        if($tipo==false || $valor==false){
+
+            $this->redireccionar('principal');
+
+        } 
+        
         $this->_view->titulo = 'SOS MEDICA';
         $this->_view->setJs(array('index'));
         $this->_view->setCss(array('css'));
@@ -36,6 +36,15 @@ class productosController extends Controller
 
             $xx=array();
             $productos=$this->_index->buscar_producto_like($valor);
+
+           
+            $numero_de_paginas=$this->num_paginas($this->contar($productos),3);
+
+            
+
+            
+
+
             for ($i=0; $i < count($productos); $i++) 
             { 
                 $xx[$i] = array 

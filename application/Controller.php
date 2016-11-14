@@ -88,6 +88,25 @@ abstract class Controller
         }
     }
 
+        protected function contar($array)
+    {
+
+        
+        
+        return count($array);
+
+    }
+
+           protected function num_paginas($num_reg,$num_hasta)
+    {
+        
+        $num_pag=($num_reg/$num_hasta);
+       
+
+        return ceil($num_pag);
+
+    }
+
    
 	
 
