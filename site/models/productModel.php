@@ -10,7 +10,7 @@ class productModel extends Model
 
 
 public function mostrar_producto($id){
-echo $id.'----';
+
  $sql1="select tipo from producto where id_producto=$id";
 
 $xx=$this->_db->query($sql1);
@@ -77,7 +77,7 @@ public function buscar_tipo_producto($valor){
 
 public function productos_similares($valor){
 
-	$sql = "SELECT distinct producto.* FROM producto where id_categoria=$valor";
+	$sql = "SELECT distinct producto.* FROM producto where id_categoria='$valor' limit 0,6";
      
      $rs=$this->_db->query($sql);
 
@@ -87,7 +87,7 @@ public function productos_similares($valor){
 
 public function equipos_similares($valor){
 
-	$sql = "SELECT distinct producto.* FROM producto where id_marca=$valor";
+	$sql = "SELECT distinct producto.* FROM producto where id_marca='$valor' limit 0,6";
      
      $rs=$this->_db->query($sql);
 

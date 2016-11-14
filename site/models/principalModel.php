@@ -41,7 +41,7 @@ public function disponibilidad($id){
      $bn=0;
      for ($i=0; $i < count($rs); $i++) { 
          
-        if ($rs[$i]['estatus']=="disponible") {
+        if ($rs[$i]['estatus']=="DISPONIBLE") {
             $bn=1;
         }
 
