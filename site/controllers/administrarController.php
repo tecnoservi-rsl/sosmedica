@@ -118,7 +118,11 @@ class administrarController extends Controller
         }
 
 
-        public function ges_producto(){
+        public function ges_producto($valor=false){
+
+            if ($valor!=false) {
+                $this->_view->valor_b = $valor;
+            }
 
                  if (!$this->_pb->almacen_all()) {
                      $this->_view->setJs(array('add_almacen',"validacion"));

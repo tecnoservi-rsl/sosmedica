@@ -9,7 +9,7 @@
 
 <div class="row">
    <div class="input-group">
-      <input id="buscar_de_ges_produc" type="text" class="form-control" placeholder="Buscar...">
+      <input id="buscar_de_ges_produc" value=" <?php echo $retVal = (isset($this->valor_b)) ? $this->valor_b : "" ;?> " type="text" class="form-control" placeholder="Buscar...">
       <span class="input-group-btn">
         <button class="btn btn-default btnbuscar" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
       </span>
