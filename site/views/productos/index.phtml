@@ -22,6 +22,7 @@ for($i = 0; $i < count($this->productos); $i++): ?>
     
     <?php    } ?>
 
+
 <div class="separador" style="display: inline;"> <b>MARCA:</b> <?php  echo $this->productos[$i]['producto']['marca'] ;?></div><br> 
 
 <?php if(isset($this->productos[$i]['producto']['categoria'])){ ?>
@@ -33,7 +34,11 @@ for($i = 0; $i < count($this->productos); $i++): ?>
    	<div class="separador"><b>MODELO:</b> <?php  echo $this->productos[$i]['producto']['modelo'] ;?></div>
   <?php }   
       ?> 
-
+<?php if($this->productos[$i]['producto']['descripcion']!=''){ ?>
+      <div class="product_desc">
+<b>DESCRIPCION:</b> <?php  echo $this->productos[$i]['producto']['descripcion'] ;?></div>
+    
+    <?php    } ?>
 
 <br> 
 

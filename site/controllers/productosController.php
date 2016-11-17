@@ -32,7 +32,7 @@ class productosController extends Controller
         $modelo=$this->loadModel('principal');
         $num_resul=10;
         if ($tipo=="like") {
-
+            $this->_view->bus_like = $valor;
             $this->_view->bnn = $valor;
 
 
@@ -41,10 +41,10 @@ class productosController extends Controller
 
             
 
-            $this->_view->num_paginas=$numero_de_paginas=$this->num_paginas($this->contar($productos),$num_resul);
+            $this->_view->num_paginas=$this->num_paginas($this->contar($productos),$num_resul);
             $this->_view->tipo=$tipo;
             $this->_view->valor=$valor;
- $this->_view->pag_actual=$pag_act;
+            $this->_view->pag_actual=$pag_act;
             if($pag_act==1){
                 $productos=$this->_index->buscar_producto_like2(0,$num_resul,$valor);
             }
@@ -55,10 +55,6 @@ class productosController extends Controller
 
 
             
-
-            
-
-
             for ($i=0; $i < count($productos); $i++) 
             { 
                 $xx[$i] = array 
@@ -72,38 +68,39 @@ class productosController extends Controller
             $this->_view->renderizar('index');
 
         }
+
         else if ($tipo=="categoria") {
-        $xx=array();
-        $productos=$this->_index->buscar_producto($valor);
+            $xx=array();
+            $productos=$this->_index->buscar_producto($valor);
 
-         $this->_view->bnn = $productos[0]['categoria'];
-        
-         $this->_view->num_paginas=$numero_de_paginas=$this->num_paginas($this->contar($productos),$num_resul);
-            $this->_view->tipo=$tipo;
-            $this->_view->valor=$valor;
- $this->_view->pag_actual=$pag_act;
-            if($pag_act==1){
-                $productos=$this->_index->buscar_producto2(0,$num_resul,$valor);
+             $this->_view->bnn = $productos[0]['categoria'];
+            
+             $this->_view->num_paginas=$this->num_paginas($this->contar($productos),$num_resul);
+                $this->_view->tipo=$tipo;
+                $this->_view->valor=$valor;
+                $this->_view->pag_actual=$pag_act;
+                if($pag_act==1){
+                    $productos=$this->_index->buscar_producto2(0,$num_resul,$valor);
+                }
+                else{
+
+                     $productos=$this->_index->buscar_producto2(($pag_act*$num_resul)-$num_resul,$num_resul,$valor);
+                }
+
+            for ($i=0; $i < count($productos); $i++) 
+            { 
+                $xx[$i] = array 
+                (
+                "producto" => $productos[$i],
+                "img"      => $this->_index->buscar_img_por_id($productos[$i]["id_producto"]),
+                "disponibilidad" =>  $modelo->disponibilidad($productos[$i]["id_producto"])
+                );
             }
-            else{
 
-                 $productos=$this->_index->buscar_producto2(($pag_act*$num_resul)-$num_resul,$num_resul,$valor);
+
+            $this->_view->productos= $xx;
+            $this->_view->renderizar('index');  
             }
-
-        for ($i=0; $i < count($productos); $i++) 
-        { 
-            $xx[$i] = array 
-            (
-            "producto" => $productos[$i],
-            "img"      => $this->_index->buscar_img_por_id($productos[$i]["id_producto"]),
-            "disponibilidad" =>  $modelo->disponibilidad($productos[$i]["id_producto"])
-            );
-        }
-
-
-        $this->_view->productos= $xx;
-        $this->_view->renderizar('index');  
-        }
         else{
         $xx=array();
         $productos=$this->_index->buscar_producto_2($valor);

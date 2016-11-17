@@ -6,6 +6,7 @@ $(document).ready(function(){
         $('#marca').addClass('validate[required]');
         $('#modelo').addClass('validate[required]');
         $('#files').addClass('validate[required]');
+        $('#descripcion').addClass('validate[required]');
         $('#form_agregar_equipo').validationEngine();
 
 $('.disponibilidad').iphoneStyle({

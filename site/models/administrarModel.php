@@ -12,7 +12,7 @@ class administrarModel extends Model
 
 
 
-            $sql="insert into producto values ('','".strtoupper ($datos['nombre'] )."', '".strtoupper ($datos['presentacion'])."',NULL,'".$datos['marca']."','".$datos['categoria']."','PRODUCTO')";
+            echo $sql="insert into producto values ('','".strtoupper ($datos['nombre'] )."', '".strtoupper ($datos['presentacion'])."',NULL,'".$datos['marca']."','".$datos['categoria']."',NULL,'PRODUCTO')";
             $this->_db->query($sql);
             $id_publicacion=$this->_db->lastInsertId();
             $rs_almacen=$this->almacen_all();
@@ -41,7 +41,7 @@ class administrarModel extends Model
       }
       public function guardar_equipo($datos,$fotos)
       {
-              $sql="insert into producto values ('','".strtoupper ($datos['nombre'])."',NULL,'".strtoupper ($datos['modelo'])."','".$datos['marca']."',NULL,'EQUIPO_MEDICO')";
+             echo  $sql="insert into producto values ('','".strtoupper ($datos['nombre'])."',NULL,'".strtoupper ($datos['modelo'])."','".$datos['marca']."',NULL,'".$datos['descripcion']."','EQUIPO_MEDICO')";
             $this->_db->query($sql);
             $id_publicacion=$this->_db->lastInsertId();
             $rs_almacen=$this->almacen_all();
@@ -242,7 +242,7 @@ class administrarModel extends Model
       }
       public function editar_equipo($datos,$fotos)
       {
-            $sql="UPDATE `producto` SET `nombre` = '".strtoupper ($datos['nombre'])."', `id_marca` = '".$datos['marca']."', `modelo` = '".strtoupper ($datos['modelo'])."' WHERE `producto`.`id_producto` = ".$datos['id_producto']." ";
+            $sql="UPDATE `producto` SET `nombre` = '".strtoupper ($datos['nombre'])."', `id_marca` = '".$datos['marca']."', `modelo` = '".strtoupper ($datos['modelo'])."'  , `producto`.`descripcion` = '".$datos['descripcion']."' WHERE `producto`.`id_producto` = ".$datos['id_producto']." ";
             $this->_db->query($sql);
             $rs_almacen=$this->almacen_all();
             for ($j=0; $j < count($rs_almacen) ; $j++)

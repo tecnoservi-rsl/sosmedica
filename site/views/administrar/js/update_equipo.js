@@ -3,6 +3,7 @@ $(document).ready(function(){
 	$('#nombre').addClass('validate[required]');
 	$('#marca').addClass('validate[required]');
 	$('#modelo').addClass('validate[required]');
+	$('#descripcion').addClass('validate[required]');
 	$('#form_agregar_producto').validationEngine();
 
 	$('#slider1').tinycarousel();

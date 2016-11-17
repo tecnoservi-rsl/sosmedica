@@ -116,7 +116,7 @@
                     <ul  class="nav navbar-nav navbar-right">
         <form class="navbar-form navbar-left" role="search">
             <div class="form-group has-feedback">
-                    <input id="buscar-like" type="text" class="form-control buscar-header" placeholder="Buscar">
+                    <input id="buscar-like" type="text" value=" <?php echo $retVal = (isset($this->bus_like)) ? $this->bus_like : "" ; ?> " class="form-control buscar-header" placeholder="Buscar">
                     <button class="btn btnbuscar buscarboton" id="buscar_inicio" type="button">
                         <span class="glyphicon glyphicon-search -feedback"></span>
                     </button>

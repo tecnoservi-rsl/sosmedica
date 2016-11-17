@@ -80,9 +80,12 @@ class administrarController extends Controller
                 $this->_pb->guardar_publicacion($_POST,$_FILES);
                
                 $this->redireccionar('administrar/agregar');
+
         }
         public function guardar_equipo()
         {
+
+
                 $this->_pb->guardar_equipo($_POST,$_FILES);
                 $this->redireccionar('administrar/agregarequipo');
         }

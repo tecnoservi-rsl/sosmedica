@@ -9,7 +9,7 @@
 <form id="form_agregar_equipo" enctype="multipart/form-data" method="post" action=" <?php echo BASE_URL ?>administrar/guardar_equipo" >
   <div class="form-group">
     <label for="nombre">Nombre</label>
-    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre Producto">
+    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre Equipo">
   </div>
   
 <div class="form-group">
@@ -50,6 +50,13 @@
                       <input type="checkbox" class="disponibilidad" value="<?php echo $this->almacen[$i]['id_almacen'] ?>" id="disponibilidad" name="disponibilidad[]">
               </div>
         <?php endfor; ?>
+  
+
+  <div class="form-group">
+    <label for="nombre">Descripcion</label>
+    <textarea name="descripcion" class="form-control" id="descripcion" name="descripcion" rows="10"></textarea>
+  </div>
+
   <div class="form-group ">
     <label class=" control-label">Fotos</label>
     <input  type="file" class="form-control" multiple="multiple" id="files" name="foto[]">

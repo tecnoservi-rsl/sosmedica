@@ -50,14 +50,21 @@
 <div class="separador" style="display: inline;"> <b>MARCA:</b> <?php  echo $this->mostrar['producto'][0]['marca'] ;?></div><br> 
 
 
-<?php if(isset($this->mostrar['producto'][0]['categoria'])){ ?>
+  <?php if(isset($this->mostrar['producto'][0]['categoria'])){ ?>
       <div class="separador"><b>CATEGORIA:</b> <?php  echo $this->mostrar['producto'][0]['categoria'] ;?></div>
     <?php    } ?>
+
+
 
    <?php if($this->mostrar['producto'][0]['modelo']!=''){ ?>
    	<div class="separador"><b>MODELO:</b><?php  echo $this->mostrar['producto'][0]['modelo'] ;?></div>
   
 <?php    } ?>
+
+
+  <?php if($this->mostrar['producto'][0]['descripcion']!=''){ ?>
+      <div class="separador"><b>DESCRIPCION:</b> <?php  echo $this->mostrar['producto'][0]['descripcion'] ;?></div>
+    <?php    } ?>
 
 <br> 
 
