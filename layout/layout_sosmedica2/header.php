@@ -45,10 +45,12 @@
 
 <body id="page-top">
 <a href="#" class="scroll-top hidden-xs"></a>
-<div class="container-fluid"> <div class="col-md-12">&nbsp;</div><div class="col-md-12">&nbsp;</div><div class="col-md-12">&nbsp;</div> </div>
-<div class="container">
+  <div class="container-fluid navbar-fixed-top web"> 
+    
+     		<div> <a id="header_logo" href="http://www.sosmedica.com/" title="SOSMEDICA.COM"> <img class="img-responsive logo" alt="Responsive image" src="<?php echo BASE_URL; ?>layout/layout_sosmedica2/img/sosbanner2.jpg" alt="SOSMEDICA.COM"> </a> </div>
 <div class="row">
-     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top minav">
+   
+     <nav id="mainNav" class="navbar navbar-default minav">
         <div class="container-fluid">
                     <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -58,14 +60,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-              <a id="header_logo" href="http://www.sosmedica.com/" title="SOSMEDICA.COM"> <img class="logo" alt="Responsive image" src="<?php echo BASE_URL; ?>public/img/logoweb.png" alt="SOSMEDICA.COM"> </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul id="menu" class="nav navbar-nav">
 
-                <li data-submenu-id="submenu-patas" class="hidden-xs hidden-sm hidden-phone hidden-tablet"> <a href="<?php echo BASE_URL?>"> <b> Inicio </b></a></li>     
+                <li data-submenu-id="submenu-patas" class=""> <a href="<?php echo BASE_URL?>"> <b> Inicio </b></a></li>     
             <li>
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                     <b>Categorías</b>
