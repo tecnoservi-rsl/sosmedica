@@ -73,7 +73,7 @@ class pdfController extends Controller
 		$_pdf->Cell(($_pdf->w)-36,4,"IMAGENES",1,1,'C');
 		
 		for ($i=0; $i < count($datos["img"]); $i++) { 
-		$_pdf->Cell(100,4,"-->".$datos['img'][0]['nombre'],1,1,'L');
+		$_pdf->Cell(100,4,"-->".$datos['img'][$i]['nombre'],1,1,'L');
 		}
 
 		$_pdf->Cell(($_pdf->w)-36,4,"ALMACENES",1,1,'C');
