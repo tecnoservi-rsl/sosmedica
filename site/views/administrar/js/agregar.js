@@ -122,7 +122,7 @@ alertify.prompt("Inserte el nombre de la categoria", function (e, str) {
 
                   alertify.success("Has cargado la categoria: " + str);
                } else {
-                  alertify.error("Has cancelado :(");
+                  alertify.error("Has cancelado.");
                }
             }, " ");
 
@@ -138,7 +138,7 @@ alertify.prompt("Inserte el nombre de la marca", function (e, str) {
 
                   alertify.success("Has cargado la marca: " + str);
                } else {
-                  alertify.error("Has cancelado :(");
+                  alertify.error("Has cancelado.");
                }
             }, " ");
 

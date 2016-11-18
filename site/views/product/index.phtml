@@ -72,7 +72,7 @@
 <div class="texto"><b>Telefono:</b> <?php echo $this->mostrar['disponibilidad'][$i]['telefono'] ?></div>
 <div class="texto"><b>Horarios:</b> <?php echo $this->mostrar['disponibilidad'][$i]['horario'] ?></div>
 
-<?php if($this->mostrar['disponibilidad'][$i]['estatus']!='disponible'){ ?>
+<?php if($this->mostrar['disponibilidad'][$i]['estatus']!='DISPONIBLE'){ ?>
 <div class="texto"><b>Disponibilidad:
 	<dispo class="texto-nodisponible"> No disponible </dispo> <span class="glyphicon glyphicon-remove texto-nodisponible" aria-hidden="true"></span></b> 
 </div>
@@ -229,7 +229,7 @@ if(isset($this->productos)){
 
   <div class="col-md-12 busqueda"> No existen productos cargados en el sistema</div>
 
-                            <?php  } endfor; ?>
+<?php  } endfor; ?>
   
     
 </div>

@@ -76,7 +76,7 @@
                         <?php for($i = 0; $i < count($this->cama['categorias']); $i++): ?>
                            
 
-                            <li data-submenu-id="submenu-patas"> <a href="<?php echo BASE_URL?>productos/search_product/categoria/<?php  echo $this->cama['categorias'][$i]['id_categoria'];?>"><?php  echo $this->cama['categorias'][$i]['categoria'];?></a></li>
+                            <li data-submenu-id="submenu-patas"> <a href="<?php echo BASE_URL?>productos/search_product/1/categoria/<?php  echo $this->cama['categorias'][$i]['id_categoria'];?>"><?php  echo $this->cama['categorias'][$i]['categoria'];?></a></li>
 
                             <?php endfor; ?>
                     
@@ -92,7 +92,7 @@
                      <?php for($i = 0; $i < count($this->cama['marcas']); $i++): ?>
                            
 
-                            <li data-submenu-id="submenu-patas"> <a href="<?php echo BASE_URL?>productos/search_product/marca/<?php  echo $this->cama['marcas'][$i]['id_marca'];?>"><?php  echo $this->cama['marcas'][$i]['marca']; ?></a></li>
+                            <li data-submenu-id="submenu-patas"> <a href="<?php echo BASE_URL?>productos/search_product/1/marca/<?php  echo $this->cama['marcas'][$i]['id_marca'];?>"><?php  echo $this->cama['marcas'][$i]['marca']; ?></a></li>
 
                             <?php endfor; ?>
                 </ul>
@@ -116,12 +116,10 @@
                     <ul  class="nav navbar-nav navbar-right">
         <form class="navbar-form navbar-left" role="search">
             <div class="form-group has-feedback">
-                <form action="<?php echo BASE_URL ?>/productos/search_product/like/" onsubmit="return false" >
                     <input id="buscar-like" type="text" class="form-control buscar-header" placeholder="Buscar">
                     <button class="btn btnbuscar buscarboton" id="buscar_inicio" type="button">
                         <span class="glyphicon glyphicon-search -feedback"></span>
                     </button>
-                </form>
             </div>
         </form>
                     <?php if (session::get('autenticado')): ?>

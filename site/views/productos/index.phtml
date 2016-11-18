@@ -1,5 +1,5 @@
 <div scroll="auto" class="col-xs-12">
-<div class="col-md-12 busqueda"> Su busqueda ha arrojado <?php echo count($this->productos); ?> Resultados</div>
+<div class="col-md-12 busqueda"> Su busqueda por "<?php echo $this->bnn; ?>" ha arrojado <?php echo count($this->productos); ?> Resultados</div>
 
 <?php 
 
@@ -69,8 +69,24 @@ for($i = 0; $i < count($this->productos); $i++): ?>
 
                             <?php  endfor; ?>
 
+<?php if ($this->num_paginas!=1) { ?>
 
 
+
+
+
+<div col-md-12>
+  <center>
+  <nav aria-label="">
+  <ul class="pagination">
+    <?php for ($i=0; $i < $this->num_paginas ; $i++) { ?> 
+    <li <?php echo $retVal = ($this->pag_actual==$i+1) ? "class='active'" : "" ; ?> ><a  href="<?php echo BASE_URL?>productos/search_product/<?php echo $i+1;?>/<?php echo $this->tipo; ?>/<?php echo $this->valor; ?>"> <?php echo $i+1; ?> </a></li>
+   <?php } ?>
+  </ul>
+</nav>
+</center>
+</div>
+<?php } ?>
 
 
 

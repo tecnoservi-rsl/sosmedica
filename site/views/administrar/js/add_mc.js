@@ -98,7 +98,7 @@ alertify.prompt("Inserte el nombre de la categoria", function (e, str) {
 
                   alertify.success("Has cargado la categoria: " + str);
                } else {
-                  alertify.error("Has cancelado :(");
+                  alertify.error("Has cancelado.");
                }
             }, " ");
 
@@ -114,7 +114,7 @@ alertify.prompt("Inserte el nombre de la marca", function (e, str) {
 
                   alertify.success("Has cargado la marca: " + str);
                } else {
-                  alertify.error("Has cancelado :(");
+                  alertify.error("Has cancelado.");
                }
             }, " ");
 
@@ -131,7 +131,7 @@ alertify.prompt("Inserte el nombre de la marca", function (e, str) {
 
                   alertify.success("Has cargado la marca: " + str);
                } else {
-                  alertify.error("Has cancelado :(");
+                  alertify.error("Has cancelado.");
                }
             }, " ");
 
@@ -166,9 +166,9 @@ $("#categoria").html(html);
 
   },"json");
 
-                  alertify.success("El registro ha sido eliminado exitosamente");
+                  alertify.success("La categoria ha sido eliminado exitosamente");
                } else {
-                  alertify.error("Ha cancelado :(");
+                  alertify.error("Ha cancelado.");
                }
             });
 
@@ -205,9 +205,9 @@ $("#marca_producto").html(html);
   },"json");
 
 
-                  alertify.success("El registro ha sido eliminado exitosamente");
+                  alertify.success(" la marca ha sido eliminado exitosamente");
                } else {
-                  alertify.error("Ha cancelado :(");
+                  alertify.error("Ha cancelado.");
                }
             });
 });
@@ -242,9 +242,9 @@ $("#marca_equipo").html(html);
   },"json");
 
 
-                  alertify.success("El registro ha sido eliminado exitosamente");
+                  alertify.success("la marca ha sido eliminado exitosamente");
                } else {
-                  alertify.error("Ha cancelado :(");
+                  alertify.error("Ha cancelado.");
                }
             });
 });

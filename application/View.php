@@ -21,10 +21,7 @@ class View
     
     public function renderizar($vista)
     {
-
-        
-
-            
+          
         
         $js = array();
         

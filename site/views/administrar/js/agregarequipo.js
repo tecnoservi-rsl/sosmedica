@@ -75,7 +75,7 @@ $('.disponibilidad').iphoneStyle({
                 guardarmarca(str);
                 alertify.success("Has cargado la marca: " + str);
                 } else {
-                alertify.error("Has cancelado :(");
+                alertify.error("Has cancelado.");
                 }
                 }, " ");
         });

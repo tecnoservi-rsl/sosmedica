@@ -139,7 +139,7 @@
             <?php for ($i=0; $i <count($this->almacen) ; $i++):?>
              <div class="form-group">
                     <label for="presentacion">disponibilidad Almacen <?php echo $this->almacen[$i]['nombre'] ?></label>
-                    <input type="checkbox" <?php echo $retVal = ($this->almacen[$i]['estatus']=='disponible') ? 'checked' : "" ; ?> class="disponibilidad" value="<?php echo $this->almacen[$i]['id_almacen'] ?>" id="disponibilidad" name="disponibilidad[]">
+                    <input type="checkbox" <?php echo $retVal = ($this->almacen[$i]['estatus']=='DISPONIBLE') ? 'checked' : "" ; ?> class="disponibilidad" value="<?php echo $this->almacen[$i]['id_almacen'] ?>" id="disponibilidad" name="disponibilidad[]">
             </div>
             <?php endfor; ?>
           <div class="form-group ">
@@ -161,7 +161,7 @@
                                 </div>
                                  <div id="redireccion">  
                                         <center> 
-                                                <a href="<?php echo BASE_URL ?>administrar" >ir a administrar</a>
+                                                <a href="<?php echo BASE_URL ?>administrar" >Ir a administrar</a>
                                         </center>
                                 </div>
         </form>

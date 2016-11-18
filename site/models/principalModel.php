@@ -6,36 +6,13 @@ class principalModel extends Model
         parent::__construct();
     }
     
-public function traer_publicasion(){
 
-
-
-$sql="SELECT * FROM `propiedad` ORDER BY `id_propiedad` DESC limit 0,6 ";
-
-$datos = $this->_db->query($sql);
-        
-        return $datos->fetchall();
-
-
-
-}
-public function traer_img($id){
-
-
-$sql="select * from img where id_propiedad='$id'";
-
-$datos = $this->_db->query($sql);
-        
-        return $datos->fetchall();
-
-
-}
 
 public function buscar_productos(){
 
   
 
-   	$sql = "SELECT distinct producto.* FROM producto order by id_producto DESC";
+   	$sql = "SELECT distinct producto.* FROM producto order by id_producto DESC limit 0,12 ";
      
      $rs=$this->_db->query($sql);
 
@@ -64,13 +41,11 @@ public function disponibilidad($id){
      $bn=0;
      for ($i=0; $i < count($rs); $i++) { 
          
-        if ($rs[$i]['estatus']=="disponible") {
+        if ($rs[$i]['estatus']=="DISPONIBLE") {
             $bn=1;
         }
 
      }
-
-
      return $bn;
 
 }

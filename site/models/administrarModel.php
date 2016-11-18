@@ -8,8 +8,11 @@ class administrarModel extends Model
             parent::__construct();
       }
       public function guardar_publicacion($datos,$fotos)
-      {
-            $sql="insert into producto values ('','".$datos['nombre']."', '".$datos['presentacion']."',NULL,'".$datos['marca']."','".$datos['categoria']."','PRODUCTO')";
+      {    
+
+
+
+            $sql="insert into producto values ('','".strtoupper ($datos['nombre'] )."', '".strtoupper ($datos['presentacion'])."',NULL,'".$datos['marca']."','".$datos['categoria']."','PRODUCTO')";
             $this->_db->query($sql);
             $id_publicacion=$this->_db->lastInsertId();
             $rs_almacen=$this->almacen_all();
@@ -38,7 +41,7 @@ class administrarModel extends Model
       }
       public function guardar_equipo($datos,$fotos)
       {
-              $sql="insert into producto values ('','".$datos['nombre']."',NULL,'".$datos['modelo']."','".$datos['marca']."',NULL,'EQUIPO_MEDICO')";
+              $sql="insert into producto values ('','".strtoupper ($datos['nombre'])."',NULL,'".strtoupper ($datos['modelo'])."','".$datos['marca']."',NULL,'EQUIPO_MEDICO')";
             $this->_db->query($sql);
             $id_publicacion=$this->_db->lastInsertId();
             $rs_almacen=$this->almacen_all();
@@ -68,23 +71,23 @@ class administrarModel extends Model
 
       public function guardar_categoria($valor)
       {
-            $sql="insert into categoria values ('','".$valor."')";
+            $sql="insert into categoria values ('','".strtoupper ($valor)."')";
             $this->_db->query($sql);
       }
       public function guardar_marca($valor)
       {
-            $sql="insert into marca values ('','".$valor."','PRODUCTO')";
+            $sql="insert into marca values ('','".strtoupper ($valor)."','PRODUCTO')";
             $this->_db->query($sql);
       }
       public function guardar_marca_equipo($valor)
       {
-            $sql="insert into marca values ('','".$valor."','EQUIPO')";
+            $sql="insert into marca values ('','".strtoupper ($valor)."','EQUIPO')";
             $this->_db->query($sql);
       }
 
       public function guardar_almacen($datos)
       {
-            $sql="insert into almacen values ('','".$datos['nombre']."','".$datos['direccion']."','".$datos['telefono']."','".$datos['horario']."')";
+            $sql="insert into almacen values ('','".strtoupper ($datos['nombre'])."','".strtoupper ($datos['direccion'])."','".$datos['telefono']."','".strtoupper ($datos['horario'])."')";
             $this->_db->query($sql);
             $id_almacen=$this->_db->lastInsertId();
             $sql="SELECT * FROM producto";
@@ -93,7 +96,7 @@ class administrarModel extends Model
 
             for ($i=0; $i < count($array); $i++) { 
                   
-                  $sql="insert into producto_almacen values ('',".$array[$i]['id_producto'].",$id_almacen,'no disponible') ";
+                  $sql="insert into producto_almacen values ('',".$array[$i]['id_producto'].",$id_almacen,'NO DISPONIBLE') ";
                   $this->_db->query($sql);
 
             }
@@ -101,12 +104,21 @@ class administrarModel extends Model
 
       }
 
-      public function buscar_producto($strin)
+      public function buscar_producto($id)
       {
-            $sql = "SELECT producto.*,categoria.categoria,marca.marca FROM producto,marca,categoria WHERE \n"
+            $id = strtoupper ($id);
+           /* $sql = "SELECT producto.*,categoria.categoria,marca.marca FROM producto,marca,categoria WHERE \n"
             . "producto.id_categoria=categoria.id_categoria AND\n"
             . "producto.id_marca=marca.id_marca AND\n"
-            . "producto.nombre like '%".$strin."%' AND producto.tipo='PRODUCTO'";
+            . "producto.nombre like '%".$strin."%' AND producto.tipo='PRODUCTO'";*/
+
+            $sql = "SELECT producto.*,categoria.categoria,marca.marca FROM producto,marca,categoria WHERE\n"
+                . " producto.id_categoria=categoria.id_categoria AND\n"
+                . " producto.id_marca=marca.id_marca AND producto.tipo='PRODUCTO' AND \n"
+                . " (producto.nombre like '%$id%' OR \n"
+                . " categoria.categoria LIKE '%$id%' OR\n"
+                . " marca.marca LIKE '%$id%'  \n"
+                . " ) limit 0,15";
 
             $rs=$this->_db->query($sql);
             return $rs->fetchall();
@@ -129,11 +141,22 @@ class administrarModel extends Model
             $sql = "delete FROM producto where id_producto=$id";    
             $this->_db->query($sql);
       }
-      public function buscar_equipo($strin)
-      {
-            $sql = "SELECT producto.*,marca.marca FROM producto,marca WHERE \n"
+      public function buscar_equipo($id)
+      {    
+            $id = strtoupper ($id);
+
+
+          /*  $sql = "SELECT producto.*,marca.marca FROM producto,marca WHERE \n"
             . "producto.id_marca=marca.id_marca AND\n"
-            . "producto.nombre like '%".$strin."%' AND producto.tipo='EQUIPO_MEDICO'  ";
+            . "producto.nombre like '%".$strin."%' AND producto.tipo='EQUIPO_MEDICO'  ";*/
+
+            $sql = "SELECT producto.*,marca.marca FROM producto,marca WHERE\n"
+            . " producto.id_marca=marca.id_marca AND producto.tipo='EQUIPO_MEDICO' AND \n"
+            . " (producto.nombre like '%$id%' OR \n"
+            . " producto.modelo LIKE '%$id%' OR\n"
+            . " marca.marca LIKE '%$id%' \n"
+            . " ) limit 0,15";
+
             $rs=$this->_db->query($sql);
             return $rs->fetchall();
       }
@@ -151,6 +174,7 @@ class administrarModel extends Model
       }
       public function buscar_producto_id($id)
       {
+
             $sql = "SELECT * FROM producto WHERE id_producto = $id ";
             $rs=$this->_db->query($sql);
             return $rs->fetch();
@@ -187,7 +211,7 @@ class administrarModel extends Model
       }
       public function editar_publicacion($datos,$fotos)
       {
-            $sql="UPDATE `producto` SET `nombre` = '".$datos['nombre']."', `presentacion` = '".$datos['presentacion']."', `id_marca` = '".$datos['marca']."', `id_categoria` = '".$datos['categoria']."' WHERE `producto`.`id_producto` = ".$datos['id_producto']." ";
+            $sql="UPDATE `producto` SET `nombre` = '".strtoupper ($datos['nombre'])."', `presentacion` = '".strtoupper ($datos['presentacion'])."', `id_marca` = '".$datos['marca']."', `id_categoria` = '".$datos['categoria']."' WHERE `producto`.`id_producto` = ".$datos['id_producto']." ";
             $this->_db->query($sql);
             $rs_almacen=$this->almacen_all();
             for ($j=0; $j < count($rs_almacen) ; $j++)
@@ -218,7 +242,7 @@ class administrarModel extends Model
       }
       public function editar_equipo($datos,$fotos)
       {
-            $sql="UPDATE `producto` SET `nombre` = '".$datos['nombre']."', `id_marca` = '".$datos['marca']."', `modelo` = '".$datos['modelo']."' WHERE `producto`.`id_producto` = ".$datos['id_producto']." ";
+            $sql="UPDATE `producto` SET `nombre` = '".strtoupper ($datos['nombre'])."', `id_marca` = '".$datos['marca']."', `modelo` = '".strtoupper ($datos['modelo'])."' WHERE `producto`.`id_producto` = ".$datos['id_producto']." ";
             $this->_db->query($sql);
             $rs_almacen=$this->almacen_all();
             for ($j=0; $j < count($rs_almacen) ; $j++)
@@ -249,7 +273,7 @@ class administrarModel extends Model
       }
       public function editar_almacen($datos)
       {
-             $sql="UPDATE `almacen` SET `nombre` = '".$datos['nombre']."', `direccion` = '".$datos['direccion']."', `telefono` = '".$datos['telefono']."', `horario` = '".$datos['horario']."' WHERE `almacen`.`id_almacen` = ".$datos['id_almacen']." ";
+             $sql="UPDATE `almacen` SET `nombre` = '".strtoupper ($datos['nombre'])."', `direccion` = '".strtoupper ($datos['direccion'])."', `telefono` = '".$datos['telefono']."', `horario` = '".strtoupper ($datos['horario'])."' WHERE `almacen`.`id_almacen` = ".$datos['id_almacen']." ";
             $this->_db->query($sql);
       }
       public function buscar_almacenes()
@@ -279,13 +303,13 @@ class administrarModel extends Model
 
       public function update_disponibilidad($id_p,$id_al)
       {
-             $sql = "update producto_almacen set estatus='disponible' where id_producto=$id_p and id_almacen=$id_al";    
+             $sql = "update producto_almacen set estatus='DISPONIBLE' where id_producto=$id_p and id_almacen=$id_al";    
             $this->_db->query($sql);
 
       }
       public function update_disponibilidad2($id_p,$id_al)
       {
-        $sql = "update producto_almacen set estatus='no disponible' where id_producto=$id_p and id_almacen=$id_al";    
+        $sql = "update producto_almacen set estatus='NO DISPONIBLE' where id_producto=$id_p and id_almacen=$id_al";    
             $this->_db->query($sql);
       }
 

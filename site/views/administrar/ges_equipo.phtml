@@ -9,7 +9,7 @@
 
 <div class="row">
    <div class="input-group">
-      <input id="buscar_de_ges_equipo" type="text" class="form-control" placeholder="Buscar...">
+      <input id="buscar_de_ges_equipo" value="<?php echo $retVal = (isset($this->valor_b)) ? $this->valor_b : "";?>" type="text" class="form-control" placeholder="Buscar...">
       <span class="input-group-btn">
         <button class="btn btn-default btnbuscar" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
       </span>
@@ -17,8 +17,9 @@
 
 <div class="area_de_busqueda row"> 
 
-<div>
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur labore porro nulla maiores, adipisci qui explicabo iste esse at culpa nesciunt voluptatem repellat veniam dicta. Quis in eos itaque quisquam.
+<div class="disponible">
+  
+ <center> Para buscar un producto solo teclee su nombre, marca o modelo. </center>
 
 </div> 
 <div id="resultados">
@@ -36,12 +37,12 @@
 
  					  <div>  
                                         <center> 
-                                                <button type="button" onclick="javascript:history.back(1)" class="btn btn-default">Atrar</button>
+                                                <button type="button" onclick="javascript:history.back(1)" class="btn btn-default">Atras</button>
                                         </center>
                                 </div>
                                  <div id="redireccion">  
                                         <center> 
-                                                <a href="<?php echo BASE_URL ?>administrar/agregarequipo" >agregar un equipo</a>
+                                                <a href="<?php echo BASE_URL ?>administrar/agregarequipo" >Agregar un equipo</a>
                                         </center>
                                 </div>
 
