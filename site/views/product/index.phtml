@@ -1,6 +1,6 @@
 <div scroll="auto" class="col-xs-12">
 <div class="col-sm-6 col-md-4">
-	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+	<div id="carousel-sosmedica" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   
 
@@ -21,16 +21,18 @@
     </div>
      <?php  endfor; ?>
   </div>
-
+  	<?php if(count($this->mostrar['img']) > 1){ ?>
   <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+  <a class="left carousel-control" href="#carousel-sosmedica" role="button" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
+    <span class="sr-only">Anterior</span>
   </a>
-  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+  <a class="right carousel-control" href="#carousel-sosmedica" role="button" data-slide="next">
     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
+    <span class="sr-only">Siguiente</span>
   </a>
+
+  <?php } ?>
 </div>
 </div>
 
