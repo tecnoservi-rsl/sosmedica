@@ -26,7 +26,7 @@ class productosController extends Controller
 
         } 
         
-        $this->_view->titulo = 'SOS MEDICA';
+        $this->_view->titulo = 'SOS MEDICA - Tecnologia para la vida';
         $this->_view->setJs(array('index'));
         $this->_view->setCss(array('css'));
         $modelo=$this->loadModel('principal');

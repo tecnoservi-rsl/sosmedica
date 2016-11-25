@@ -34,7 +34,7 @@ public function view_product($valor=false)
 
         } 
 
-    $this->_view->titulo = 'SOS MEDICA';
+    
     $this->_view->setJs(array('index','rrssb.min'));
     $this->_view->setCss(array('css','rrssb')); 
      $modelo=$this->loadModel('principal');
@@ -83,12 +83,9 @@ public function view_product($valor=false)
 
 	 }
 
-    
-    
-
 /*     */
 
-   
+    $this->_view->titulo = $mostrar[0]['nombre'].' || SOS MEDICA - Tecnologia para la vida';
     $this->_view->renderizar('index');
 }
 	

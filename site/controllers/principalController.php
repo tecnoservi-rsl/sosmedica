@@ -29,7 +29,7 @@ class principalController extends Controller
 			$this->_view->productos= $xx;		
 			$this->_view->setJs(array('index'));
 			$this->_view->setCss(array('css'));
-        	$this->_view->titulo = 'SOS MEDICA || Tu tienda medica online';
+        	$this->_view->titulo = 'SOS MEDICA - Tecnologia para la vida';
 			$this->_view->renderizar('index');
 							
 			
