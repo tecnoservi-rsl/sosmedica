@@ -20,7 +20,7 @@ class pdfController extends Controller
 	function pdf_equipo($id=false){
 
 		$xx=63;
-		$yy=47;
+		$yy=67;
 
 		if($id==false){
 
@@ -68,14 +68,14 @@ class pdfController extends Controller
 		$_pdf->SetXY($xx, $yy+10);
 		$_pdf->Cell(($_pdf->w/6)-6,4,"MODELO: ".$datos["producto"][0]["modelo"],0,0,'L');
 		$_pdf->SetXY($xx, $yy+15);
-		$_pdf->MultiCell(150,4,"DESCRIPCION: ".$datos["producto"][0]["descripcion"],0,'L');
+		$_pdf->MultiCell(120,4,"DESCRIPCION: ".$datos["producto"][0]["descripcion"],0,'L');
 		
 		
 
 	
 		
 		
-		$_pdf->Image(BASE_URL.'public/img/publicaciones/'.$datos['img'][0]['nombre'],10,45,50,50,'');
+		$_pdf->Image(BASE_URL.'public/img/publicaciones/'.$datos['img'][0]['nombre'],10,67,50,50,'');
 
 		
 		
