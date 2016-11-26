@@ -20,7 +20,7 @@ class pdfController extends Controller
 	function pdf_equipo($id=false){
 
 		$xx=63;
-		$yy=47;
+		$yy=67;
 
 		if($id==false){
 
@@ -68,33 +68,15 @@ class pdfController extends Controller
 		$_pdf->SetXY($xx, $yy+10);
 		$_pdf->Cell(($_pdf->w/6)-6,4,"MODELO: ".$datos["producto"][0]["modelo"],0,0,'L');
 		$_pdf->SetXY($xx, $yy+15);
-		$_pdf->MultiCell(150,4,"DESCRIPCION: ".$datos["producto"][0]["descripcion"],0,'L');
+		$_pdf->MultiCell(120,4,"DESCRIPCION: ".$datos["producto"][0]["descripcion"],0,'L');
 		
 		
 
 	
 		
 		
-		$_pdf->Image(BASE_URL.'public/img/publicaciones/'.$datos['img'][0]['nombre'],10,45,50,50,'PNG');
-		/*
-$_pdf->ln(30);
-		$_pdf->Cell(($_pdf->w)-36,4,"ALMACENES",1,1,'C');
+		$_pdf->Image(BASE_URL.'public/img/publicaciones/'.$datos['img'][0]['nombre'],10,67,50,50,'');
 
-		for ($i=0; $i < count($datos["disponibilidad"]); $i++) { 
-		
-		$_pdf->Cell(($_pdf->w/6)-6,4,"NOMBRE: ",0,0,'L');
-		$_pdf->Cell(100,4,"-->".$datos["disponibilidad"][$i]["nombre"],1,1,'L');
-		$_pdf->Cell(($_pdf->w/6)-6,4,"DIRECCION: ",0,0,'L');
-		$_pdf->Cell(100,4,"-->".$datos["disponibilidad"][$i]["direccion"],1,1,'L');
-		$_pdf->Cell(($_pdf->w/6)-6,4,"TLF",1,0,'L');
-		$_pdf->Cell(100,4,"-->".$datos["disponibilidad"][$i]["telefono"],1,1,'L');
-		$_pdf->Cell(($_pdf->w/6)-6,4,"HORARIO",1,0,'L');
-		$_pdf->Cell(100,4,"-->".$datos["disponibilidad"][$i]["horario"],1,1,'L');
-		
-
-
-
-		}*/
 		
 		
 		$_pdf->Output();
