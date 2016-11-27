@@ -72,12 +72,12 @@
                     <b>Categorías</b>
                 </a>
                 
-                <ul class="dropdown-menu menu-header" role="menu">
+                <ul class="dropdown-menu menu-header ulcate doscolumnas" role="menu">
                     
                         <?php for($i = 0; $i < count($this->cama['categorias']); $i++): ?>
                            
 
-                            <li data-submenu-id="submenu-patas"> <a href="<?php echo BASE_URL?>productos/search_product/1/categoria/<?php  echo $this->cama['categorias'][$i]['id_categoria'];?>"><?php  echo $this->cama['categorias'][$i]['categoria'];?></a></li>
+                            <li data-submenu-id="submenu-patas" class="licate"> <a href="<?php echo BASE_URL?>productos/search_product/1/categoria/<?php  echo $this->cama['categorias'][$i]['id_categoria'];?>"><?php  echo $this->cama['categorias'][$i]['categoria'];?></a></li>
 
                             <?php endfor; ?>
                     
