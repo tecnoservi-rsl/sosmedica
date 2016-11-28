@@ -3,12 +3,12 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 11-11-2016 a las 13:00:13
+-- Tiempo de generación: 28-11-2016 a las 01:39:18
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.5.37
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "-04:00";
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -34,6 +34,14 @@ CREATE TABLE `almacen` (
   `horario` varchar(500) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+--
+-- Volcado de datos para la tabla `almacen`
+--
+
+INSERT INTO `almacen` (`id_almacen`, `nombre`, `direccion`, `telefono`, `horario`) VALUES
+(8, 'SOSMEDICA VALENCIA', 'VALENCIA     ', '02934516886', 'DE 7 AM A 0 AM Y DE 2 PM A 6 PM'),
+(10, 'SOSMEDICA CARACAS', 'CARACAS    ', '04261589658', 'DE 7 AM A 0 AM Y DE 2 PM A 6 PM');
+
 -- --------------------------------------------------------
 
 --
@@ -50,7 +58,7 @@ CREATE TABLE `categoria` (
 --
 
 INSERT INTO `categoria` (`id_categoria`, `categoria`) VALUES
-(18, 'Acceso Intravenoso'),
+(18, ' Acceso Intravenoso'),
 (19, 'Adhesivos'),
 (20, 'Agujas'),
 (21, 'Apositos'),
@@ -71,7 +79,9 @@ INSERT INTO `categoria` (`id_categoria`, `categoria`) VALUES
 (37, 'Set de Infusion'),
 (38, 'Sondas'),
 (39, 'Suturas'),
-(40, 'Varios Material Medico');
+(40, 'Varios Material Medico'),
+(41, 'ASDASDSAD'),
+(42, '2222');
 
 -- --------------------------------------------------------
 
@@ -115,12 +125,14 @@ INSERT INTO `marca` (`id_marca`, `marca`, `tipo`) VALUES
 (27, 'BNS MEDICAL', 'PRODUCTO'),
 (28, 'CARBOLYME', 'PRODUCTO'),
 (29, 'CARDINAL', 'PRODUCTO'),
-(30, 'CAVEX', 'PRODUCTO'),
 (31, 'COLIN', 'PRODUCTO'),
 (32, 'CAVEX', 'PRODUCTO'),
 (33, 'DEROYAL', 'PRODUCTO'),
 (34, 'DESCART', 'PRODUCTO'),
-(35, ' sdfsdf', 'EQUIPO');
+(38, ' XXX', 'EQUIPO'),
+(39, ' HHHHHH', 'PRODUCTO'),
+(40, 'KKKKKKK', 'PRODUCTO'),
+(41, 'DDDDDDD', 'EQUIPO');
 
 -- --------------------------------------------------------
 
@@ -178,6 +190,7 @@ CREATE TABLE `producto` (
   `modelo` varchar(300) COLLATE utf8_bin DEFAULT NULL,
   `id_marca` int(11) DEFAULT NULL,
   `id_categoria` int(11) DEFAULT NULL,
+  `descripcion` text COLLATE utf8_bin,
   `tipo` varchar(200) COLLATE utf8_bin DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -318,22 +331,22 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `almacen`
 --
 ALTER TABLE `almacen`
-  MODIFY `id_almacen` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_almacen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 --
 -- AUTO_INCREMENT de la tabla `img_producto`
 --
 ALTER TABLE `img_producto`
-  MODIFY `id_img_producto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_img_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `marca`
 --
 ALTER TABLE `marca`
-  MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 --
 -- AUTO_INCREMENT de la tabla `menu`
 --
@@ -348,12 +361,12 @@ ALTER TABLE `permisos`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `producto_almacen`
 --
 ALTER TABLE `producto_almacen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `role`
 --

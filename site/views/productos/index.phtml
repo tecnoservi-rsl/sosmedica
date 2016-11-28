@@ -1,103 +1,87 @@
 <div scroll="auto" class="col-xs-12">
-<div class="col-md-12 busqueda"> Su busqueda por "<?php echo $this->bnn; ?>" ha arrojado <?php echo count($this->productos); ?> Resultados</div>
+     <div class="col-md-12 busqueda"> Su busqueda por "<?php echo $this->bnn; ?>" ha arrojado <?php echo count($this->productos); ?> Resultados</div>
 
-<?php 
+     <?php for($i = 0; $i < count($this->productos); $i++): ?>
+                                
 
-for($i = 0; $i < count($this->productos); $i++): ?>
-                           
+          <div class="col-md-12 linea"> 
+               <div class="col-xs-5 col-sm-4 col-md-3"> 
+                         <a href="<?php  echo BASE_URL."product/view_product/".$this->productos[$i]['producto']['id_producto'];?>" class="image-producto" title="">
+                              <img src="<?php  echo BASE_URL."public/img/publicaciones/".$this->productos[$i]['img'][0]['nombre'] ;?>"  alt=""> 
+                         </a>
+               </div>
+               <div class="col-xs-7 col-sm-8 col-md-9">
+                    <h3>
+                    <a class="product-name" href="<?php  echo BASE_URL."product/view_product/".$this->productos[$i]['producto']['id_producto'];?>" title=""><?php  echo $this->productos[$i]['producto']['nombre'] ;?></a>
+                    </h3>
 
-
-<div class="col-md-12 linea"> 
-<div class="col-xs-5 col-sm-4 col-md-3"> 
-<a href="<?php  echo BASE_URL."product/view_product/".$this->productos[$i]['producto']['id_producto'];?>" class="image-producto" title=""> <img src="<?php  echo BASE_URL."public/img/publicaciones/".$this->productos[$i]['img'][0]['nombre'] ;?>"  alt=""> </a>
-</div>
-<div class="col-xs-7 col-sm-8 col-md-9">
-<h3>
-<a class="product-name" href="<?php  echo BASE_URL."product/view_product/".$this->productos[$i]['producto']['id_producto'];?>" title=""><?php  echo $this->productos[$i]['producto']['nombre'] ;?></a>
-</h3>
-
-<?php if($this->productos[$i]['producto']['presentacion']!=''){ ?>
-      <div class="product_desc">
-<b>PRESENTACION:</b> <?php  echo $this->productos[$i]['producto']['presentacion'] ;?></div>
-    
-    <?php    } ?>
-
-
-<div class="separador" style="display: inline;"> <b>MARCA:</b> <?php  echo $this->productos[$i]['producto']['marca'] ;?></div><br> 
-
-<?php if(isset($this->productos[$i]['producto']['categoria'])){ ?>
-
-      <div class="separador"><b>CATEGORIA:</b> <?php  echo $this->productos[$i]['producto']['categoria'] ;?></div>
-    
-    <?php    }
-   else{ ?>
-   	<div class="separador"><b>MODELO:</b> <?php  echo $this->productos[$i]['producto']['modelo'] ;?></div>
-  <?php }   
-      ?> 
-<?php if($this->productos[$i]['producto']['descripcion']!=''){ ?>
-      <div class="product_desc">
-<b>DESCRIPCION:</b> <?php  echo $this->productos[$i]['producto']['descripcion'] ;?></div>
-    
-    <?php    } ?>
-
-<br> 
+                    <?php if($this->productos[$i]['producto']['presentacion']!=''){ ?>
+                          <div class="product_desc">
+                    <b>PRESENTACION:</b> <?php  echo $this->productos[$i]['producto']['presentacion'] ;?></div>
+                        
+                        <?php  } ?>
 
 
+                    <div class="separador" style="display: inline;"> <b>MARCA:</b> <?php  echo $this->productos[$i]['producto']['marca'] ;?></div><br> 
 
-<?php if ($this->productos[$i]['disponibilidad']==1): ?>
-	
-<div class="disponible"> DISPONIBLE 
-<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> &nbsp;&nbsp;  
-<a href="<?php  echo BASE_URL."product/view_product/".$this->productos[$i]['producto']['id_producto'];?>" class="btn btn-primary btn-sm disponiblidad"> VER ALMACEN </a>
-</div>
+                    <?php if($this->productos[$i]['producto']['id_categoria']!=''){ ?>
 
-<?php else: ?>
+                          <div class="separador"><b>CATEGORIA:</b> <?php  echo $this->productos[$i]['producto']['categoria'] ;?></div>
+                        
+                        <?php    }
+                       else{ ?>
+                       	<div class="separador"><b>MODELO:</b> <?php  echo $this->productos[$i]['producto']['modelo'] ;?></div>
+                      <?php }   
+                          ?> 
+                    <?php if($this->productos[$i]['producto']['descripcion']!=''){ ?>
+                          <div class="product_desc">
+                    <b>DESCRIPCION:</b> <?php  echo $this->productos[$i]['producto']['descripcion'] ;?></div>
+                        
+                        <?php  } ?>
 
-<div class="nodisponible"> AGOTADO
-<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> &nbsp;&nbsp;  
-<a href="<?php  echo BASE_URL."product/view_product/".$this->productos[$i]['producto']['id_producto'];?>" class="btn btn-primary btn-sm disponiblidad"> VER ALMACEN </a>
-</div>
-
-<?php endif ?>
+                    <br> 
 
 
 
+                    <?php if ($this->productos[$i]['disponibilidad']==1): ?>
+                    	
+                    <div class="disponible"> DISPONIBLE 
+                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> &nbsp;&nbsp;  
+                    <a href="<?php  echo BASE_URL."product/view_product/".$this->productos[$i]['producto']['id_producto'];?>" class="btn btn-primary btn-sm disponiblidad"> VER ALMACEN </a>
+                    </div>
 
+                    <?php else: ?>
 
-</div>
-<div></div>
-</div>
+                    <div class="nodisponible"> AGOTADO
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> &nbsp;&nbsp;  
+                    <a href="<?php  echo BASE_URL."product/view_product/".$this->productos[$i]['producto']['id_producto'];?>" class="btn btn-primary btn-sm disponiblidad"> VER ALMACEN </a>
+                    </div>
 
+                    <?php endif ?>
 
-
-                  
-
-                            <?php  endfor; ?>
-
-<?php if ($this->num_paginas!=1) { ?>
-
-
-
-
-
-<div col-md-12>
-  <center>
-  <nav aria-label="">
-  <ul class="pagination">
-    <?php for ($i=0; $i < $this->num_paginas ; $i++) { ?> 
-    <li <?php echo $retVal = ($this->pag_actual==$i+1) ? "class='active'" : "" ; ?> ><a  href="<?php echo BASE_URL?>productos/search_product/<?php echo $i+1;?>/<?php echo $this->tipo; ?>/<?php echo $this->valor; ?>"> <?php echo $i+1; ?> </a></li>
-   <?php } ?>
-  </ul>
-</nav>
-</center>
-</div>
-<?php } ?>
+               </div>
+          </div>
 
 
 
+                            
 
+     <?php  endfor; ?>
 
+     <?php if($this->num_paginas!=1): ?>
 
+     <div col-md-12>
+          <center>
+               <nav aria-label="">
+                 <ul class="pagination">
+                   <?php for ($i=0; $i < $this->num_paginas ; $i++): ?> 
+                         <li <?php echo $retVal = ($this->pag_actual==$i+1) ? "class='active'" : "" ; ?> ><a  href="<?php echo BASE_URL?>productos/search_product/<?php echo $i+1;?>/<?php echo $this->tipo; ?>/<?php echo $this->valor; ?>"> <?php echo $i+1; ?> </a></li>
+                  <?php endfor; ?>
+                 </ul>
+               </nav>
+          </center>
+     </div>
 
+     <?php endif; ?>
 
 </div>
