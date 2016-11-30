@@ -45,6 +45,7 @@ class pdfController extends Controller
 		$_pdf->Image(BASE_URL.'public/img/banner_pdf.png',-10,5,220);
 		//$_pdf->Image('logo.png',30,10,160);	
 		$_pdf->SetFont('Times','B',15);
+		$_pdf->SetTitle($datos["producto"][0]["nombre"]);
 		$_pdf->ln(10);
 		
 		$_pdf->Cell(0,6,"WWW.SOSMEDICA.COM",0,1,'C');
@@ -85,14 +86,11 @@ class pdfController extends Controller
 		$_pdf->MultiCell(120,5,"DESCRIPCION: ",0,'L');
 		$_pdf->SetFont('Times','');
 		$_pdf->SetXY($xx, $yy+34);
-		$_pdf->MultiCell(120,5,"										".$datos["producto"][0]["descripcion"],0,'J');
-		
-		
 
-	
-		
-		
 		$_pdf->Image(BASE_URL.'public/img/publicaciones/'.$datos['img'][0]['nombre'],10,77,50,50,'');
+		$_pdf->MultiCell(120,5,utf8_decode($datos["producto"][0]["descripcion"]),0,'J');
+		
+	
 
 		
 		$_pdf->Image(BASE_URL.'public/img/pie_pdf.png',5,225,220);
