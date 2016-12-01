@@ -47,7 +47,11 @@
 <a href="#" class="scroll-top hidden-xs"></a>
   <div class="container-fluid navbar-fixed-top web"> 
     
-     		<div> <a id="header_logo" href="http://www.sosmedica.com/" title="SOSMEDICA.COM"> <img class="img-responsive logo" alt="Responsive image" src="<?php echo BASE_URL; ?>layout/layout_sosmedica2/img/sosbanner2.jpg" alt="SOSMEDICA.COM"> </a> </div>
+<div class="row">
+     		<div class="hidden-lg"> <a id="header_logo" href="http://www.sosmedica.com/" title="SOSMEDICA.COM"> <img class="img-responsive logo" alt="Responsive image" src="<?php echo BASE_URL; ?>layout/layout_sosmedica3/img/sosbanner2.jpg" alt="SOSMEDICA.COM"> </a> </div>
+            <div class="hidden-xs hidden-sm hidden-md "> <a id="header_logo" href="http://www.sosmedica.com/" title="SOSMEDICA.COM"> <img class="img-responsive logo" alt="Responsive image" src="<?php echo BASE_URL; ?>layout/layout_sosmedica3/img/sosbanner2grande.jpg" alt="SOSMEDICA.COM"> </a> </div>
+
+</div>
 <div class="row">
    
      <nav id="mainNav" class="navbar navbar-default minav">
