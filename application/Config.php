@@ -2,7 +2,6 @@
 
 
 define('BASE_URL', 'http://localhost/sosmedica/');
-//define('BASE_URL', 'http://gratisxd.esy.es/');
 define('DEFAULT_CONTROLLER', 'principal');
 define('DEFAULT_LAYOUT', 'layout_sosmedica3');
 define('APP_NAME', 'TECNOSERVI');
