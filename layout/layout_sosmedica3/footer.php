@@ -21,7 +21,11 @@
                     <h3>Contactenos</h3>
                     <ul>
                         <li> <a href="<?php echo BASE_URL?>contacto">Contactanos</a></li>
-                        <li><a href="#">sosmedica@sosmedica.com</a></li>
+                        <li>nuestros correos:</li>
+                        <li class="sub" >compras@sosmedica.com</li>
+                        <li class="sub" >ventas@sosmedica.com</li>
+                        <li class="sub" >info@sosmedica.com</li>
+                        <li>registrate</li>
                     </ul>
                 </div>
             </div>

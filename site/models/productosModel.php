@@ -27,7 +27,7 @@ public function buscar_producto2($l,$r,$id){
 
   
 
-    $sql = "SELECT producto.*,categoria.categoria,marca.marca FROM producto,marca,categoria WHERE \n"
+   echo $sql = "SELECT producto.*,categoria.categoria,marca.marca FROM producto,marca,categoria WHERE \n"
     . "producto.id_categoria=categoria.id_categoria AND\n"
     . "producto.id_marca=marca.id_marca AND\n"
     . "producto.id_categoria='$id' LIMIT $l,$r   ";

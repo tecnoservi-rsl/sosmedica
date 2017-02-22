@@ -26,3 +26,11 @@ form input[disabled="disabled"], form select[disabled="disabled"], form textarea
 	border: 1px solid rgba(76, 73, 132, 0.74);
 	background-color: rgba(244, 245, 249, 0.19);
 }
+div.col-xs-12:nth-child(3) > ul:nth-child(2) > li:nth-child(2) {
+	
+	list-style: none;
+}
+.sub {
+	
+	margin-left: 25px; 
+}

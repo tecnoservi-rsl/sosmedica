@@ -65,9 +65,7 @@ class productosController extends Controller
                 );
             }
             $this->_view->productos= $xx;
-            $this->_view->renderizar('index');
-
-        }
+            $this->_view->renderizar('index');}
 
         else if ($tipo=="categoria") {
             $xx=array();
