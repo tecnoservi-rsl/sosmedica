@@ -71,7 +71,7 @@ class productosController extends Controller
             $xx=array();
             $productos=$this->_index->buscar_producto($valor);
 
-             $this->_view->bnn = $productos[0]['categoria'];
+             $this->_view->bnn = $valor;
             
              $this->_view->num_paginas=$this->num_paginas($this->contar($productos),$num_resul);
                 $this->_view->tipo=$tipo;
@@ -84,7 +84,7 @@ class productosController extends Controller
 
                      $productos=$this->_index->buscar_producto2(($pag_act*$num_resul)-$num_resul,$num_resul,$valor);
                 }
-
+               // print_r($productos);
             for ($i=0; $i < count($productos); $i++) 
             { 
                 $xx[$i] = array 
@@ -100,9 +100,10 @@ class productosController extends Controller
             $this->_view->renderizar('index');  
             }
         else{
+            
         $xx=array();
         $productos=$this->_index->buscar_producto_2($valor);
-        $this->_view->bnn = $productos[0]['marca'];
+        $this->_view->bnn = $valor;
          $this->_view->num_paginas=$numero_de_paginas=$this->num_paginas($this->contar($productos),$num_resul);
             $this->_view->tipo=$tipo;
             $this->_view->valor=$valor;

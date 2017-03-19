@@ -304,5 +304,17 @@ class administrarController extends Controller
         public function eliminar_almacen(){
                 $this->_pb->eliminar_almacen($_POST['valor']);
         }
+        public function verificar_ag($tipo){
+
+            if ($tipo=="marca") {
+                
+
+                echo $this->_pb->verificar_ag_marca($_POST['marca']);
+
+
+            }
+
+
+        }
 }
 ?>

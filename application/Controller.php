@@ -1,14 +1,5 @@
 <?php
 
-/*
- * -------------------------------------
- * www.dlancedu.com | Jaisiel Delance
- * framework mvc basico
- * Controller.php
- * -------------------------------------
- */
-
-
 abstract class Controller
 {
     protected $_view;

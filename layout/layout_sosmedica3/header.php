@@ -81,7 +81,7 @@
                         <?php for($i = 0; $i < count($this->cama['categorias']); $i++): ?>
                            
 
-                            <li data-submenu-id="submenu-patas" class="licate"> <a href="<?php echo BASE_URL?>productos/search_product/1/categoria/<?php  echo $this->cama['categorias'][$i]['id_categoria'];?>"><?php  echo $this->cama['categorias'][$i]['categoria'];?></a></li>
+                            <li data-submenu-id="submenu-patas" class="licate"> <a href="<?php echo BASE_URL?>productos/search_product/1/categoria/<?php  echo $this->cama['categorias'][$i]['categoria'];?>"><?php  echo $this->cama['categorias'][$i]['categoria'];?></a></li>
 
                             <?php endfor; ?>
                     
@@ -97,7 +97,7 @@
                      <?php for($i = 0; $i < count($this->cama['marcas']); $i++): ?>
                            
 
-                            <li data-submenu-id="submenu-patas" class="limarca"> <a href="<?php echo BASE_URL?>productos/search_product/1/marca/<?php  echo $this->cama['marcas'][$i]['id_marca'];?>"><?php  echo $this->cama['marcas'][$i]['marca']; ?></a></li>
+                            <li data-submenu-id="submenu-patas" class="limarca"> <a href="<?php echo BASE_URL?>productos/search_product/1/marca/<?php  echo $this->cama['marcas'][$i]['marca'];?>"><?php  echo $this->cama['marcas'][$i]['marca']; ?></a></li>
 
                             <?php endfor; ?>
                 </ul>

@@ -40,11 +40,11 @@ public function menu($id = false){
 public function categorias_y_marcas(){
 
    
-    $sql = "SELECT DISTINCT * FROM categoria WHERE 1=1 ";
+    $sql = "SELECT DISTINCT * FROM categoria WHERE 1=1 GROUP BY categoria ORDER BY categoria ASC";
     $cat = $this->_db->query($sql);
      
 
- $sql = "SELECT DISTINCT * FROM marca WHERE 1=1 ";
+ $sql = "SELECT DISTINCT * FROM marca WHERE 1=1 GROUP BY marca ORDER BY marca ASC  ";
     $mar = $this->_db->query($sql);
 
 

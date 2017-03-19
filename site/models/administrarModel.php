@@ -12,7 +12,7 @@ class administrarModel extends Model
 
 
 
-            echo $sql="insert into producto values ('','".strtoupper ($datos['nombre'] )."', '".strtoupper ($datos['presentacion'])."',NULL,'".$datos['marca']."','".$datos['categoria']."',NULL,'PRODUCTO')";
+             $sql="insert into producto values ('','".strtoupper ($datos['nombre'] )."', '".strtoupper ($datos['presentacion'])."',NULL,'".$datos['marca']."','".$datos['categoria']."',NULL,'PRODUCTO')";
             $this->_db->query($sql);
             $id_publicacion=$this->_db->lastInsertId();
             $rs_almacen=$this->almacen_all();
@@ -41,7 +41,7 @@ class administrarModel extends Model
       }
       public function guardar_equipo($datos,$fotos)
       {
-             echo  $sql="insert into producto values ('','".strtoupper ($datos['nombre'])."',NULL,'".strtoupper ($datos['modelo'])."','".$datos['marca']."',NULL,'".$datos['descripcion']."','EQUIPO_MEDICO')";
+               $sql="insert into producto values ('','".strtoupper ($datos['nombre'])."',NULL,'".strtoupper ($datos['modelo'])."','".$datos['marca']."',NULL,'".$datos['descripcion']."','EQUIPO_MEDICO')";
             $this->_db->query($sql);
             $id_publicacion=$this->_db->lastInsertId();
             $rs_almacen=$this->almacen_all();
@@ -127,7 +127,7 @@ class administrarModel extends Model
       {
 
 
-             echo $sql="SELECT nombre FROM img_producto where id_publicacion=$id";
+              $sql="SELECT nombre FROM img_producto where id_publicacion=$id";
 
             $rs=$this->_db->query($sql);
 
@@ -194,7 +194,7 @@ class administrarModel extends Model
       public function eliminar_foto($id)
       {
 
-            echo $sql="SELECT nombre FROM img_producto where id_img_producto=$id";
+             $sql="SELECT nombre FROM img_producto where id_img_producto=$id";
 
             $rs=$this->_db->query($sql);
 
@@ -311,6 +311,15 @@ class administrarModel extends Model
       {
         $sql = "update producto_almacen set estatus='NO DISPONIBLE' where id_producto=$id_p and id_almacen=$id_al";    
             $this->_db->query($sql);
+      }
+
+       public function verificar_ag_marca($marca)
+      {
+        
+        echo $sql = "SELECT * FROM `marca` WHERE marca.marca='$marca'";   
+            $rs=$this->_db->query($sql);
+
+            return count($rs->fetchall());
       }
 
 

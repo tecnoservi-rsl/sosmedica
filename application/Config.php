@@ -8,7 +8,7 @@ define('APP_NAME', 'TECNOSERVI');
 define('APP_SLOGAN', 'Venta de equipos medicos');
 define('APP_COMPANY', 'SOS MEDICA');
 define('APP_TLF', '8587081');
-define('APP_EMAIL', 'Sosmedica@sosmedica.com');
+define('APP_EMAIL', 'sosmedica@sosmedica.com');
 define('SESSION_TIME', 1000000);
 define('HASH_KEY', '4f6a6d832be79');
 define('DB_HOST', 'localhost');

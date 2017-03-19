@@ -11,14 +11,16 @@ class productosModel extends Model
 
   
 
-   	$sql = "SELECT producto.*,categoria.categoria,marca.marca FROM producto,marca,categoria WHERE \n"
-    . "producto.id_categoria=categoria.id_categoria AND\n"
-    . "producto.id_marca=marca.id_marca AND\n"
-    . "producto.id_categoria='$id'";
-     
-     $rs=$this->_db->query($sql);
+                      $sql = "SELECT producto.*,categoria.categoria,marca.marca FROM producto,marca,categoria WHERE \n"
+                      . "producto.id_categoria=categoria.id_categoria AND\n"
+                      . "producto.id_marca=marca.id_marca AND\n"
+                      . "categoria.categoria like '%$id%'";
+                     
+                      $rs=$this->_db->query($sql);
 
-     return $rs->fetchall();
+                      //print_r($rs->fetchall());
+
+                      return $rs->fetchall();
 
 }
 
@@ -27,14 +29,13 @@ public function buscar_producto2($l,$r,$id){
 
   
 
-   echo $sql = "SELECT producto.*,categoria.categoria,marca.marca FROM producto,marca,categoria WHERE \n"
+    $sql = "SELECT producto.*,categoria.categoria,marca.marca FROM producto,marca,categoria WHERE \n"
     . "producto.id_categoria=categoria.id_categoria AND\n"
     . "producto.id_marca=marca.id_marca AND\n"
-    . "producto.id_categoria='$id' LIMIT $l,$r   ";
-     
-     $rs=$this->_db->query($sql);
+    . "categoria.categoria like '%$id%'   LIMIT $l,$r  ";
+    $rs=$this->_db->query($sql);
 
-     return $rs->fetchall();
+    return $rs->fetchall();
 
 }
 
@@ -82,27 +83,23 @@ public function buscar_producto_like2($l,$r,$id){
 
 public function buscar_producto_2($id){
 
-        $sql = "SELECT producto.*,marca.marca FROM producto,marca WHERE "
-    . "producto.id_marca=marca.id_marca AND "
-    . "producto.id_marca ='$id'";
+    
+ $sql = "SELECT producto.*,marca.marca, categoria.categoria FROM producto,marca,categoria WHERE producto.id_marca=marca.id_marca AND producto.id_categoria=categoria.id_categoria AND marca.marca like '%$id%'";
 
+        $rs=$this->_db->query($sql);
 
-     $rs=$this->_db->query($sql);
-
-     return $rs->fetchall();
+        return $rs->fetchall();
 
 }
 
 public function buscar_producto_22($l,$r,$id){
 
-        $sql = "SELECT producto.*,marca.marca FROM producto,marca WHERE "
-    . "producto.id_marca=marca.id_marca AND "
-    . "producto.id_marca ='$id' LIMIT $l,$r   ";
 
+ $sql = "SELECT producto.*,marca.marca, categoria.categoria FROM producto,marca,categoria WHERE producto.id_marca=marca.id_marca AND producto.id_categoria=categoria.id_categoria AND marca.marca like '%$id%'  LIMIT $l,$r   ";
 
-     $rs=$this->_db->query($sql);
+         $rs=$this->_db->query($sql);
 
-     return $rs->fetchall();
+         return $rs->fetchall();
 
 }
 
