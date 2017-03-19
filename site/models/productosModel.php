@@ -44,14 +44,10 @@ public function buscar_producto_like($id){
     $id = strtoupper ($id);
 
 
- $sql = "SELECT DISTINCT(producto.id_producto),producto.*,categoria.categoria,marca.marca FROM producto,marca,categoria WHERE"
-    . "(producto.id_categoria=categoria.id_categoria OR "
-    . "producto.id_marca=marca.id_marca) AND"
-    . "(producto.nombre like '%$id%' OR"
-    . " producto.modelo LIKE '%$id%' OR"
-    . " categoria.categoria LIKE '%$id%' OR"
-    . " marca.marca LIKE '%$id%'"
-    . ") GROUP BY producto.id_producto";
+     echo $sql = "SELECT producto.nombre, producto.presentacion, producto.modelo,producto.id_producto, categoria.id_categoria, producto.descripcion, producto.tipo, marca.marca,categoria.categoria FROM `producto` LEFT JOIN marca on marca.id_marca= producto.id_marca LEFT JOIN categoria on categoria.id_categoria= producto.id_categoria WHERE (marca.marca like '%$id%') or (categoria.categoria like '%$id%') or (producto.nombre like '%$id%')";
+
+     
+
 
 
      $rs=$this->_db->query($sql);
@@ -61,22 +57,14 @@ public function buscar_producto_like($id){
 }
 public function buscar_producto_like2($l,$r,$id){
 
-    $id = strtoupper ($id);
+        $id = strtoupper ($id);
+$sql = "SELECT producto.nombre, producto.presentacion, producto.modelo,producto.id_producto, categoria.id_categoria, producto.descripcion, producto.tipo, marca.marca,categoria.categoria FROM `producto` LEFT JOIN marca on marca.id_marca= producto.id_marca LEFT JOIN categoria on categoria.id_categoria= producto.id_categoria WHERE (marca.marca like '%$id%') or (categoria.categoria like '%$id%') or (producto.nombre like '%$id%' )LIMIT $l,$r";
+       
+        $rs=$this->_db->query($sql);
 
- 
+         
 
-
- $sql = "SELECT DISTINCT(producto.id_producto),producto.*,categoria.categoria,marca.marca FROM producto,marca,categoria WHERE"
-    . "(producto.id_categoria=categoria.id_categoria OR "
-    . "producto.id_marca=marca.id_marca) AND "
-    . "(producto.nombre like '%$id%' OR"
-    . " producto.modelo LIKE '%$id%' OR"
-    . " categoria.categoria LIKE '%$id%' OR"
-    . " marca.marca LIKE '%$id%' "
-    . ") GROUP BY producto.id_producto LIMIT $l,$r";
-     $rs=$this->_db->query($sql);
-
-     return $rs->fetchall();
+        return $rs->fetchall();
 
 }
 
@@ -84,7 +72,10 @@ public function buscar_producto_like2($l,$r,$id){
 public function buscar_producto_2($id){
 
     
- $sql = "SELECT producto.*,marca.marca, categoria.categoria FROM producto,marca,categoria WHERE producto.id_marca=marca.id_marca AND producto.id_categoria=categoria.id_categoria AND marca.marca like '%$id%'";
+      $sql = "SELECT producto.nombre, producto.presentacion, producto.modelo,producto.id_producto, categoria.id_categoria, producto.descripcion, producto.tipo, marca.marca,categoria.categoria FROM `producto` LEFT JOIN marca on marca.id_marca= producto.id_marca LEFT JOIN categoria on categoria.id_categoria= producto.id_categoria WHERE marca.marca like '%$id%'";
+
+
+
 
         $rs=$this->_db->query($sql);
 
@@ -95,7 +86,7 @@ public function buscar_producto_2($id){
 public function buscar_producto_22($l,$r,$id){
 
 
- $sql = "SELECT producto.*,marca.marca, categoria.categoria FROM producto,marca,categoria WHERE producto.id_marca=marca.id_marca AND producto.id_categoria=categoria.id_categoria AND marca.marca like '%$id%'  LIMIT $l,$r   ";
+         $sql = "SELECT producto.nombre, producto.presentacion, producto.modelo, categoria.id_categoria, producto.id_producto, producto.descripcion, producto.tipo, marca.marca,categoria.categoria FROM `producto` LEFT JOIN marca on marca.id_marca= producto.id_marca LEFT JOIN categoria on categoria.id_categoria= producto.id_categoria WHERE marca.marca like '%$id%' LIMIT $l,$r   ";
 
          $rs=$this->_db->query($sql);
 
